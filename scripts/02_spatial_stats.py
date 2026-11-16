@@ -135,6 +135,8 @@ def analyse(name: str, df: pd.DataFrame) -> dict:
     web = {
         "summary": summary,
         "variograms": [v_raw, v_ct, v_cv],
+        "ph_hist": np.histogram(z, bins=np.arange(3.0, 8.51, 0.1))[0].tolist(),
+        "ph_bin_edges": np.round(np.arange(3.0, 8.51, 0.1), 2).tolist(),
         "nn_hist": np.histogram(nn, bins=np.arange(0, 205, 5))[0].tolist(),
         "nn_bin_edges": np.arange(0, 205, 5).tolist(),
     }

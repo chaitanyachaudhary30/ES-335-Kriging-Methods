@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Predicting soil pH in unseen regions: when does kriging help?</title>
+  <meta name="description" content="ES 335 project: can a dataset's statistics predict which kriging method works best for soil pH in held-out European regions?">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">ES 335 · Machine Learning project · Chaitanya &amp; Saksham</p>
+    <h1>Predicting soil pH where nobody has sampled</h1>
+    <p class="lede">Kriging and Gaussian processes are built on one idea: places close together have similar soil. We ask whether simple statistics of the data can tell us, <em>before testing</em>, which of these methods will work best in regions the model has never seen, and when none of them will beat a plain average.</p>
+    <div class="dataset-switch" role="group" aria-label="Dataset">
+      <span>Dataset:</span>
+      <button class="ds-btn active" data-ds="gemas">GEMAS (sparse, n≈1,700)</button>
+      <button class="ds-btn" data-ds="lucas" disabled title="LUCAS 2018 data pending registration">LUCAS 2018 (dense) · pending</button>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="wrap">
+    <a href="#question">1 Question</a>
+    <a href="#data">2 Data</a>
+    <a href="#prep">3 Preprocessing</a>
+    <a href="#nearby">4 Nearby soils</a>
+    <a href="#split">5 Fair testing</a>
+    <a href="#hypotheses">6 Predictions</a>
+    <a href="#methods">7 Methods</a>
+    <a href="#results">8 Results</a>
+    <a href="#limits">9 Limitations</a>
+    <a href="#repro">10 Reproduce</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- 1. QUESTION -->
+<section id="question">
+  <h2><span class="num">1</span> The question</h2>
+  <p>Soil pH controls which crops grow well, how much lime farmers need, and how mobile metals are in the soil. It is measured in a lab, one soil sample at a time, so maps of pH are built by <strong>predicting between and beyond sampled points</strong>.</p>
+  <p>The usual tools for this are <em>geostatistical</em>: Ordinary Kriging, Universal Kriging, Regression Kriging, and Gaussian Process Regression. They all use the fact that nearby samples tend to have similar values. The open question is how far that fact carries when we predict into a <strong>whole region with no samples</strong>.</p>
+  <div class="callout question">
+    <p class="label">Research question</p>
+    <p>Can statistics of the training data, such as sample spacing, nugget ratio, correlation range and trend strength, predict which kriging-based method will have the lowest error when predicting topsoil pH in geographically held-out regions of Europe?</p>
+  </div>
+  <div class="grid3">
+    <div class="card"><p class="label">Target</p><p>Topsoil pH measured in 0.01 M CaCl<sub>2</sub> (unitless, about 3.3–8 here).</p></div>
+    <div class="card"><p class="label">One row</p><p>One georeferenced agricultural topsoil sample (0–20 cm) with its measured pH.</p></div>
+    <div class="card"><p class="label">Inputs at prediction time</p><p>Only things known at an unsampled place: its coordinates, and gridded climate and elevation. No lab measurements.</p></div>
+  </div>
+  <h3>Three results that go against intuition</h3>
+  <ol class="surprises">
+    <li><strong>"Nearby soils are similar" stops helping at a certain distance.</strong> Beyond the correlation range, kriging gives back the average and nothing more (Section 4).</li>
+    <li><strong>The usual random train/test split flatters every spatial method.</strong> It tests at distances where neighbours are informative, unlike real gaps on a map (Section 5).</li>
+    <li><strong>A more flexible model is not automatically better.</strong> When much of the variation is pure noise at the sampling scale (a high <em>nugget</em>), no method can recover it (Sections 4 and 6).</li>
+  </ol>
+  <p class="claim-limit"><strong>Scope of the claim.</strong> Two European surveys of agricultural soil, 26 countries. We do not claim the findings transfer to other regions, soil properties or sampling designs.</p>
+</section>
+
+<!-- 2. DATA -->
+<section id="data">
+  <h2><span class="num">2</span> The data</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3>GEMAS (2008)</h3>
+      <p>Geochemical Mapping of Agricultural and grazing land Soil, by EuroGeoSurveys and Eurometaux. Agricultural (Ap, ploughed 0–20 cm) samples on a regular design of about <strong>one site per 2,500 km²</strong>. Distributed by BGR as the GEMAS Extended Dataset (free download).</p>
+      <p class="stat-line"><span id="g-n">–</span> samples after cleaning · median spacing <span id="g-nn">–</span> km · density <span id="g-dens">–</span> per 1,000 km²</p>
+    </div>
+    <div class="card muted">
+      <h3>LUCAS 2018 Topsoil</h3>
+      <p>EU Land Use/Cover Area frame Survey soil module (JRC/ESDAC). 18,984 samples in total; we keep <strong>cropland, 0–20 cm</strong>, in the same countries as GEMAS. Free after registration.</p>
+      <p class="stat-line">Pending: access requires a registration request to ESDAC. The pipeline runs unchanged once the file arrives.</p>
+    </div>
+  </div>
+
+  <h3>Cleaning steps and rows kept</h3>
+  <div class="table-wrap"><table id="row-table" class="data"><thead><tr><th>Dataset</th><th>Step</th><th>Rows</th><th>Removed</th><th>Note</th></tr></thead><tbody></tbody></table></div>
+
+  <div class="grid2">
+    <div><div id="ph-hist" class="plot"></div><p class="caption">Distribution of pH (GEMAS, cleaned). Its skewness is about 0, so we keep pH untransformed. The two humps are acidic soils (north, Atlantic) and calcareous soils (south).</p></div>
+    <div>
+      <h3>Variables</h3>
+      <table class="data compact">
+        <tr><th>Variable</th><th>Role</th><th>Source</th></tr>
+        <tr><td>pH (CaCl<sub>2</sub>)</td><td>target</td><td>survey lab</td></tr>
+        <tr><td>x, y (km, EPSG:3035)</td><td>input</td><td>survey coordinates, reprojected</td></tr>
+        <tr><td>elevation</td><td>input</td><td>WorldClim 2.1 (5′)</td></tr>
+        <tr><td>BIO1 annual mean temperature</td><td>input</td><td>WorldClim 2.1</td></tr>
+        <tr><td>BIO4 temperature seasonality</td><td>input</td><td>WorldClim 2.1</td></tr>
+        <tr><td>BIO12 annual precipitation (log)</td><td>input</td><td>WorldClim 2.1</td></tr>
+        <tr><td>BIO15 precipitation seasonality</td><td>input</td><td>WorldClim 2.1</td></tr>
+      </table>
+      <h3>Quality issues found</h3>
+      <ul>
+        <li>105 GEMAS samples from the eastern-Ukraine extension have no pH.</li>
+        <li>GEMAS covers Norway, Switzerland, Ukraine and Balkan states that LUCAS does not; these 372 samples are dropped so both surveys describe the same area.</li>
+        <li>One coastal site falls in a "sea" cell of the climate grid and has no covariates.</li>
+        <li>No duplicate locations; no implausible pH values. Our reprojection matches BGR's own LAEA coordinates to within 0.01 km.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="caption"><strong>Access limits.</strong> Neither licence allows us to republish the raw samples. This site therefore shows only summaries, model outputs, and sample locations rounded to 0.1° (about 10 km).</p>
+</section>
+
+<!-- 3. PREPROCESSING -->
+<section id="prep">
+  <h2><span class="num">3</span> Preprocessing choices, and why</h2>
+  <table class="data">
+    <tr><th>Choice</th><th>Why</th></tr>
+    <tr><td>Agricultural topsoil only (GEMAS Ap, LUCAS cropland, 0–20 cm)</td><td>Same land use and depth in both surveys, so differences are not due to grassland vs ploughed soil.</td></tr>
+    <tr><td>Same 26 countries in both surveys</td><td>Both datasets cover the same area and can be tested on the same held-out regions.</td></tr>
+    <tr><td>Equal-area projection ETRS89-LAEA, distances in km</td><td>Variograms and "distance to the nearest sample" need true distances; degrees of longitude shrink towards the north.</td></tr>
+    <tr><td>Only coordinates + climate/elevation grids as inputs</td><td>These exist everywhere. Lab measurements like organic carbon would not be known where we predict, so using them would be leakage.</td></tr>
+    <tr><td>log of annual precipitation</td><td>Right-skewed; leaching by rain acts roughly multiplicatively on soil acidity.</td></tr>
+    <tr><td>pH not transformed</td><td>Skewness ≈ 0; pH is already a log scale.</td></tr>
+    <tr><td>Scaling, trends, variograms and kernels fitted on training folds only</td><td>Nothing learned from test regions can leak into the model.</td></tr>
+  </table>
+</section>
+
+<!-- 4. NEARBY -->
+<section id="nearby">
+  <h2><span class="num">4</span> Nearby soils are similar, up to a point</h2>
+  <p>A <strong>variogram</strong> measures how different two samples are, on average, as a function of the distance between them. Close pairs are similar (low values); far-apart pairs are as different as two random samples (the curve flattens at the <em>sill</em>). Two features of this curve decide how useful kriging can be:</p>
+  <ul>
+    <li>the <strong>nugget</strong>: the jump at distance zero. It is variation no neighbour can explain (lab error, field-scale patchiness). We report it as a share of the sill, the <em>nugget ratio</em> η.</li>
+    <li>the <strong>range</strong>: the distance at which the curve flattens. Beyond it, neighbours carry no information.</li>
+  </ul>
+  <div class="interactive">
+    <p class="label">Try it</p>
+    <p>Move the sliders. The left chart is the variogram. The right chart shows the <strong>smallest error kriging can reach</strong>, relative to just predicting the average, when the nearest sample is a given distance away. Grey lines mark the distances our two test designs actually create for GEMAS.</p>
+    <div class="controls">
+      <label>Nugget ratio η <input type="range" id="sl-eta" min="0" max="0.95" step="0.01" value="0.36"> <output id="o-eta">0.36</output></label>
+      <label>Range a (km) <input type="range" id="sl-range" min="50" max="1200" step="10" value="520"> <output id="o-range">520</output></label>
+      <label>Nearest sample at d (km) <input type="range" id="sl-d" min="0" max="800" step="5" value="100"> <output id="o-d">100</output></label>
+      <button id="btn-fit" class="small">Reset to GEMAS fit</button>
+      <label class="check"><input type="checkbox" id="cb-emp" checked> show GEMAS data</label>
+    </div>
+    <div class="grid2">
+      <div id="vario-plot" class="plot"></div>
+      <div id="gain-plot" class="plot"></div>
+    </div>
+    <p class="readout" id="gain-readout"></p>
+  </div>
+  <details class="maths">
+    <summary>The maths</summary>
+    <p>Model: $Z(s)=m(s)+S(s)+\varepsilon(s)$, with structured variance $C_1$, correlation $r(h)$ and nugget $C_0$. The semivariogram is $\gamma(h)=C_0+C_1(1-r(h))$ and $\eta=C_0/(C_0+C_1)$. The slider uses an exponential model, $r(h)=e^{-3h/a}$, so that $r(a)\approx0.05$.</p>
+    <p>With one neighbour at distance $d$ and a known mean, the best linear predictor has error</p>
+    $$\frac{\text{MSE}_{\text{kriging}}}{\text{MSE}_{\text{mean}}}=1-(1-\eta)^2\,r(d)^2 .$$
+    <p>Because the nugget $\varepsilon(s_0)$ is independent of every other sample, <em>any</em> predictor built from other locations has $\text{MSE}\ge C_0$, so $\text{RMSE}/\text{RMSE}_{\text{mean}}\gtrsim\sqrt\eta$. If all samples lie beyond the range, $c_0=0$ and the Ordinary Kriging system returns the generalised-least-squares mean: $\hat Z(s_0)=\hat\mu$.</p>
+    <p>GEMAS fit (all cleaned samples): exponential, $C_0=0.39$, $C_0+C_1=1.10$, $\eta=0.36$, practical range ≈ 517 km. Derivations: <a href="https://github.com/chaitanyachaudhary30/ES-335-Kriging-Methods/blob/main/docs/theory.md">docs/theory.md</a> (Matheron, 1963; Cressie, 1993).</p>
+  </details>
+</section>
+
+<!-- 5. SPLIT -->
+<section id="split">
+  <h2><span class="num">5</span> A random test split flatters every method</h2>
+  <p>To test a model we hide some samples and predict them. If we hide <strong>random</strong> samples, every hidden sample still has training neighbours about 43 km away. If we hide <strong>whole regions</strong> (500 km × 500 km blocks), hidden samples are typically 100 km and often over 200 km from the nearest training sample. That is the real situation when mapping an unsampled region.</p>
+  <div class="interactive">
+    <p class="label">Try it</p>
+    <div class="controls">
+      <span>Split:</span>
+      <label class="radio"><input type="radio" name="split" value="random"> random</label>
+      <label class="radio"><input type="radio" name="split" value="spatial" checked> spatial blocks</label>
+      <label>Test fold <select id="sel-fold"><option value="0">1</option><option value="1">2</option><option value="2">3</option><option value="3">4</option><option value="4">5</option></select></label>
+    </div>
+    <div class="grid2 map-row">
+      <div id="split-map" class="map"></div>
+      <div id="dist-plot" class="plot"></div>
+    </div>
+    <p class="readout" id="split-readout"></p>
+  </div>
+  <details class="maths">
+    <summary>The maths</summary>
+    <p>Plugging the median test distances into $1-(1-\eta)^2r(d)^2$ with the GEMAS fit gives an RMSE ratio of 0.87 at 43 km (random split) and 0.93 at 100 km (spatial split), and 0.99 at 250 km. The random split therefore measures <em>interpolation</em>, the spatial split <em>prediction into unseen regions</em> (Roberts et al., 2017; Ploton et al., 2020). Wadoux et al. (2021) point out that spatial cross-validation can be pessimistic for whole-map accuracy; our target is held-out regions, so we use it as the main test and report the random split as a reference.</p>
+    <p>Block size: the GEMAS variograms reach 95% of the sill at 380–520 km, so we use 500 km blocks on a grid anchored at the LAEA origin, assigned to 5 folds with balanced sample counts (seed 42). The same block-to-fold mapping will be used for LUCAS, so both surveys are tested on the same regions.</p>
+  </details>
+</section>
+
+<!-- 6. HYPOTHESES -->
+<section id="hypotheses">
+  <h2><span class="num">6</span> What the statistics predict, before testing</h2>
+  <p>For each test fold we computed, from the <strong>training data and the test locations only</strong>, how much each method should improve on the average. For kriging this uses the kriging variance, which depends on where the samples are, not on their values. For trend models it uses cross-validation inside the training data. These predictions were <a href="https://github.com/chaitanyachaudhary30/ES-335-Kriging-Methods/blob/main/results/hypotheses.md">committed to the repository</a> before any model was tested.</p>
+  <div class="interactive">
+    <p class="label">Predicted skill (1 − RMSE / RMSE of the mean)</p>
+    <div id="pred-plot" class="plot tall"></div>
+    <p class="caption">Bars: mean over 5 folds; whiskers: ±1 SD across folds. GPR equals OK by theory (Section 7). Dashed line: the nugget cap 1 − √η for coordinate-only kriging.</p>
+  </div>
+  <h3>Hypotheses</h3>
+  <div class="table-wrap"><table class="data">
+    <tr><th>ID</th><th>Hypothesis</th><th>Predicted for GEMAS</th><th>Verdict</th></tr>
+    <tr><td>H1</td><td>A coordinate trend that extrapolates well lets Universal Kriging beat Ordinary Kriging in held-out regions.</td><td>UK 0.18 vs OK 0.10</td><td class="pending">Phase 2</td></tr>
+    <tr><td>H2</td><td>The nugget caps coordinate-only kriging: RMSE ratio ≥ √η.</td><td>OK skill ≤ 0.27–0.38 per fold</td><td class="pending">Phase 2</td></tr>
+    <tr><td>H3</td><td>When covariates help and residuals stay correlated, Regression Kriging is best.</td><td>RK has the highest skill</td><td class="pending">Phase 2</td></tr>
+    <tr><td>H4</td><td>Kriging's gain over its own trend vanishes far from the data.</td><td>≤ 0.02 for points &gt; 250 km away</td><td class="pending">Phase 2</td></tr>
+    <tr><td>H5</td><td>Denser data gives a larger kriging gain on the same regions.</td><td>LUCAS OK skill &gt; GEMAS OK skill</td><td class="pending">Phase 2</td></tr>
+    <tr><td>H6</td><td>A random split overstates spatial generalisation.</td><td>OK: 0.21 (random) vs 0.10 (spatial)</td><td class="pending">Phase 2</td></tr>
+    <tr><td>H7</td><td>The predictions rank the methods correctly (the main question).</td><td>Spearman ρ ≥ 0.7</td><td class="pending">Phase 2</td></tr>
+    <tr><td>H8</td><td>GPR and OK give similar accuracy.</td><td>|difference| ≤ 0.03</td><td class="pending">Phase 2</td></tr>
+  </table></div>
+  <p class="caption">Decision rule: "supported" if the mean per-fold difference has the predicted sign and at least 4 of 5 folds agree; "not supported" if the opposite holds; otherwise "inconclusive".</p>
+
+  <h3>First check: do the predictions work for the baselines?</h3>
+  <p>The three non-spatial baselines have already been tested. Their predicted skill (from cross-validation inside the training data) can be compared with their actual test skill:</p>
+  <div id="check-plot" class="plot"></div>
+  <p class="readout" id="check-readout"></p>
+</section>
+
+<!-- PHASE 2 SECTIONS -->
+<section id="methods">
+  <h2><span class="num">7</span> Methods compared</h2>
+  <div class="table-wrap"><table class="data">
+    <tr><th>Method</th><th>Idea in one line</th><th>Key assumption</th></tr>
+    <tr><td>Mean</td><td>Predict the training average everywhere.</td><td>None; the reference point.</td></tr>
+    <tr><td>Linear Regression</td><td>pH as a straight-line function of coordinates and climate.</td><td>Global linear trend, independent errors.</td></tr>
+    <tr><td>Random Forest</td><td>Flexible non-spatial ML on the same inputs.</td><td>Patterns in the inputs transfer to new regions.</td></tr>
+    <tr><td>Ordinary Kriging (OK)</td><td>Weighted average of nearby samples, weights from the variogram.</td><td>Constant mean, one variogram for all of Europe.</td></tr>
+    <tr><td>Universal Kriging (UK)</td><td>OK around a trend in the coordinates.</td><td>The coordinate trend holds in unseen regions.</td></tr>
+    <tr><td>Regression Kriging (RK)</td><td>Regression on climate/elevation, then OK on the residuals.</td><td>Covariate effects transfer; residuals are stationary.</td></tr>
+    <tr><td>Gaussian Process Regression (GPR)</td><td>Bayesian version of kriging with a Matérn kernel.</td><td>Same as OK; kernel fitted by marginal likelihood.</td></tr>
+  </table></div>
+  <details class="maths">
+    <summary>Why GPR equals kriging</summary>
+    <p>With constant mean $m$, kernel $k$ and noise $\sigma_n^2$, the GP posterior mean is $\bar f(s_0)=m+k_0^\top(K+\sigma_n^2I)^{-1}(y-m\mathbf 1)$. Setting $k(h)=C_1r(h)$ and $\sigma_n^2=C_0$ gives simple kriging; estimating $m$ by GLS gives Ordinary Kriging (Rasmussen &amp; Williams, 2006, §2.7). The two differ only in how the covariance is fitted.</p>
+  </details>
+  <p class="phase-note">Model results, tuning details and the sparsity experiment are added in Phase 2.</p>
+</section>
+
+<section id="results">
+  <h2><span class="num">8</span> Results and error analysis</h2>
+  <p class="phase-note">Phase 2: test RMSE, MAE and skill for every method on both splits; whether each hypothesis held; error against distance to the nearest training sample; and the LUCAS training-density slider.</p>
+</section>
+
+<section id="limits">
+  <h2><span class="num">9</span> Limitations</h2>
+  <ul>
+    <li>Two surveys, one continent, agricultural soil only.</li>
+    <li>The surveys differ in more than density (year, lab, sampling design). The LUCAS sparsity experiment separates density from these differences.</li>
+    <li>One variogram for all of Europe assumes stationarity; soils in Scandinavia and the Mediterranean may vary differently.</li>
+    <li>Covariates are coarse (5′ ≈ 9 km grid) and limited to climate and elevation.</li>
+    <li>The 500 km block size fixes how hard the test is; results at other block sizes may differ.</li>
+  </ul>
+  <p class="phase-note">Extended in Phase 2 with what the results show.</p>
+</section>
+
+<section id="repro">
+  <h2><span class="num">10</span> Reproduce and check</h2>
+  <p>Code, exact splits, all results and the run order are in the repository: <a href="https://github.com/chaitanyachaudhary30/ES-335-Kriging-Methods">github.com/chaitanyachaudhary30/ES-335-Kriging-Methods</a>. Derivations: <a href="https://github.com/chaitanyachaudhary30/ES-335-Kriging-Methods/blob/main/docs/theory.md">docs/theory.md</a>. Pre-registered hypotheses: <a href="https://github.com/chaitanyachaudhary30/ES-335-Kriging-Methods/blob/main/results/hypotheses.md">results/hypotheses.md</a>.</p>
+  <h3>References</h3>
+  <ul class="refs">
+    <li>Cressie, N. (1985). Fitting variogram models by weighted least squares. <em>Mathematical Geology</em>, 17, 563–586. doi:10.1007/BF01032109</li>
+    <li>Cressie, N. (1993). <em>Statistics for Spatial Data</em>. Wiley. doi:10.1002/9781119115151</li>
+    <li>Fernández-Ugalde, O., et al. (2022). <em>LUCAS 2018 Soil Module</em>. Publications Office of the EU. doi:10.2760/215013</li>
+    <li>Fick, S. E., &amp; Hijmans, R. J. (2017). WorldClim 2. <em>International Journal of Climatology</em>, 37, 4302–4315. doi:10.1002/joc.5086</li>
+    <li>Hengl, T., Heuvelink, G. B. M., &amp; Rossiter, D. G. (2007). About regression-kriging. <em>Computers &amp; Geosciences</em>, 33, 1301–1315. doi:10.1016/j.cageo.2007.05.001</li>
+    <li>Matheron, G. (1963). Principles of geostatistics. <em>Economic Geology</em>, 58, 1246–1266. doi:10.2113/gsecongeo.58.8.1246</li>
+    <li>Meyer, H., &amp; Pebesma, E. (2021). Predicting into unknown space? <em>Methods in Ecology and Evolution</em>, 12, 1620–1633. doi:10.1111/2041-210X.13650</li>
+    <li>Orgiazzi, A., et al. (2018). LUCAS Soil, the largest expandable soil dataset for Europe. <em>European Journal of Soil Science</em>, 69, 140–153. doi:10.1111/ejss.12499</li>
+    <li>Ploton, P., et al. (2020). Spatial validation reveals poor predictive performance of large-scale ecological mapping models. <em>Nature Communications</em>, 11, 4540. doi:10.1038/s41467-020-18321-y</li>
+    <li>Rasmussen, C. E., &amp; Williams, C. K. I. (2006). <em>Gaussian Processes for Machine Learning</em>. MIT Press.</li>
+    <li>Reimann, C., et al. (Eds.) (2014). <em>Chemistry of Europe's Agricultural Soils, Part A</em>. Schweizerbart. Data: GEMAS Extended Dataset © BGR, Hannover.</li>
+    <li>Roberts, D. R., et al. (2017). Cross-validation strategies for data with temporal, spatial, hierarchical, or phylogenetic structure. <em>Ecography</em>, 40, 913–929. doi:10.1111/ecog.02881</li>
+    <li>Stein, M. L. (1999). <em>Interpolation of Spatial Data</em>. Springer. doi:10.1007/978-1-4612-1494-6</li>
+    <li>Tobler, W. R. (1970). A computer movie simulating urban growth in the Detroit region. <em>Economic Geography</em>, 46, 234–240. doi:10.2307/143141</li>
+    <li>Valavi, R., et al. (2019). blockCV. <em>Methods in Ecology and Evolution</em>, 10, 225–232. doi:10.1111/2041-210X.13107</li>
+    <li>Wadoux, A. M. J.-C., et al. (2021). Spatial cross-validation is not the right way to evaluate map accuracy. <em>Ecological Modelling</em>, 457, 109692. doi:10.1016/j.ecolmodel.2021.109692</li>
+    <li>Webster, R., &amp; Oliver, M. A. (2007). <em>Geostatistics for Environmental Scientists</em>. Wiley. doi:10.1002/9780470517277</li>
+  </ul>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">ES 335 project by Chaitanya and Saksham · Map tiles © OpenStreetMap contributors · Built with Plotly.js, Leaflet and KaTeX</div>
+</footer>
+
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
