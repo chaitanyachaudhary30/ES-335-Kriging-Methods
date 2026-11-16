@@ -9,7 +9,6 @@ data/raw/
 data/processed/
 
 # Local planning notes and editor settings
-.kiro/
 .vscode/
 PROPOSAL_AND_REQUIREMENTS.md
 WORKFLOW.md
