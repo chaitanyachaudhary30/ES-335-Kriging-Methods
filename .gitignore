@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.ipynb_checkpoints/
+
+# Survey data: licences do not allow redistribution (see README, "Data access")
+data/raw/
+data/processed/
+
+# Local planning notes and editor settings
+.kiro/
+.vscode/
+PROPOSAL_AND_REQUIREMENTS.md
+WORKFLOW.md
+
+# OS
+Thumbs.db
+.DS_Store
