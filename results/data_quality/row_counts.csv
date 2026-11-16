@@ -1,0 +1,7 @@
+dataset,step,rows,note,removed
+GEMAS,"Extended dataset, Ap samples",2213,includes the eastern-Ukraine extension,0
+GEMAS,pH_CaCl2 present,2108,eastern-Ukraine samples have no pH,105
+GEMAS,pH in plausible range,2108,2.5 <= pH <= 10.5,0
+GEMAS,Countries also covered by LUCAS 2018,1736,"drops NOR, SIL, UKR, SRB, BOS, FOM, MON",372
+GEMAS,Unique locations,1736,no exact duplicate coordinates; max reprojection difference vs supplied LAEA = 0.00 km,0
+GEMAS,Covariates available,1735,WorldClim cell has data (drops coastal points that fall in sea cells),1
