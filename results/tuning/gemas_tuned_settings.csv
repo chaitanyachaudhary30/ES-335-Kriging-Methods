@@ -1,0 +1,51 @@
+dataset,split,fold,method,settings,inner_cv_rmse
+GEMAS,random,0,GPR,"{""nu"": 0.5}",0.833590381940555
+GEMAS,random,0,OK,"{""k"": 16, ""variogram"": ""Spherical""}",0.8322775179055214
+GEMAS,random,0,RK (RF),"{""k"": 64, ""variogram"": ""Spherical""}",0.8296817999202029
+GEMAS,random,0,RK (linear),"{""k"": 16, ""variogram"": ""Spherical""}",0.8192964177976684
+GEMAS,random,0,UK,"{""degree"": 1, ""k"": 16, ""variogram"": ""Spherical""}",0.8316090282050218
+GEMAS,random,1,GPR,"{""nu"": 0.5}",0.8574790557100888
+GEMAS,random,1,OK,"{""k"": 64, ""variogram"": ""Spherical""}",0.8577874559514317
+GEMAS,random,1,RK (RF),"{""k"": 64, ""variogram"": ""Exponential""}",0.8618604380657521
+GEMAS,random,1,RK (linear),"{""k"": 64, ""variogram"": ""Spherical""}",0.8455903926612443
+GEMAS,random,1,UK,"{""degree"": 1, ""k"": 64, ""variogram"": ""Spherical""}",0.8574944479612868
+GEMAS,random,2,GPR,"{""nu"": 0.5}",0.8628439353845356
+GEMAS,random,2,OK,"{""k"": 32, ""variogram"": ""Matern""}",0.8633845682272937
+GEMAS,random,2,RK (RF),"{""k"": 64, ""variogram"": ""Exponential""}",0.8608569661809063
+GEMAS,random,2,RK (linear),"{""k"": 64, ""variogram"": ""Matern""}",0.8510014411808269
+GEMAS,random,2,UK,"{""degree"": 2, ""k"": 32, ""variogram"": ""Matern""}",0.862422708689365
+GEMAS,random,3,GPR,"{""nu"": 0.5}",0.8458437747143053
+GEMAS,random,3,OK,"{""k"": 32, ""variogram"": ""Spherical""}",0.8455580013029196
+GEMAS,random,3,RK (RF),"{""k"": 64, ""variogram"": ""Spherical""}",0.8620359535840462
+GEMAS,random,3,RK (linear),"{""k"": 64, ""variogram"": ""Exponential""}",0.8350339647731799
+GEMAS,random,3,UK,"{""degree"": 2, ""k"": 32, ""variogram"": ""Spherical""}",0.845693020564795
+GEMAS,random,4,GPR,"{""nu"": 0.5}",0.8458481414355301
+GEMAS,random,4,OK,"{""k"": 32, ""variogram"": ""Spherical""}",0.844443909210453
+GEMAS,random,4,RK (RF),"{""k"": 32, ""variogram"": ""Matern""}",0.8471056136953984
+GEMAS,random,4,RK (linear),"{""k"": 32, ""variogram"": ""Spherical""}",0.8345701260282568
+GEMAS,random,4,UK,"{""degree"": 2, ""k"": 16, ""variogram"": ""Spherical""}",0.8446654855813568
+GEMAS,spatial,0,GPR,"{""nu"": 0.5}",0.9196249272357236
+GEMAS,spatial,0,OK,"{""k"": 32, ""variogram"": ""Exponential""}",0.9178376404729685
+GEMAS,spatial,0,RK (RF),"{""k"": 64, ""variogram"": ""Exponential""}",0.9686859364001835
+GEMAS,spatial,0,RK (linear),"{""k"": 64, ""variogram"": ""Exponential""}",0.9136451888120939
+GEMAS,spatial,0,UK,"{""degree"": 1, ""k"": 64, ""variogram"": ""Exponential""}",0.9194828781281765
+GEMAS,spatial,1,GPR,"{""nu"": 0.5}",0.9038534478335355
+GEMAS,spatial,1,OK,"{""k"": 64, ""variogram"": ""Matern""}",0.9099847200218146
+GEMAS,spatial,1,RK (RF),"{""k"": 64, ""variogram"": ""Exponential""}",0.9261106948280621
+GEMAS,spatial,1,RK (linear),"{""k"": 64, ""variogram"": ""Matern""}",0.8997550389601696
+GEMAS,spatial,1,UK,"{""degree"": 1, ""k"": 64, ""variogram"": ""Matern""}",0.9124052152773848
+GEMAS,spatial,2,GPR,"{""nu"": 0.5}",0.8987599519731405
+GEMAS,spatial,2,OK,"{""k"": 32, ""variogram"": ""Exponential""}",0.9168588980911253
+GEMAS,spatial,2,RK (RF),"{""k"": 64, ""variogram"": ""Exponential""}",0.9611410800266238
+GEMAS,spatial,2,RK (linear),"{""k"": 64, ""variogram"": ""Spherical""}",0.9132835416334419
+GEMAS,spatial,2,UK,"{""degree"": 1, ""k"": 32, ""variogram"": ""Spherical""}",0.9237650338831929
+GEMAS,spatial,3,GPR,"{""nu"": 0.5}",0.9413964097752374
+GEMAS,spatial,3,OK,"{""k"": 16, ""variogram"": ""Exponential""}",0.9449871295462848
+GEMAS,spatial,3,RK (RF),"{""k"": 64, ""variogram"": ""Exponential""}",0.980145057116438
+GEMAS,spatial,3,RK (linear),"{""k"": 64, ""variogram"": ""Exponential""}",0.9335609238440301
+GEMAS,spatial,3,UK,"{""degree"": 1, ""k"": 64, ""variogram"": ""Exponential""}",0.9342810878627764
+GEMAS,spatial,4,GPR,"{""nu"": 2.5}",0.9634175044945262
+GEMAS,spatial,4,OK,"{""k"": 64, ""variogram"": ""Exponential""}",0.9606594671475843
+GEMAS,spatial,4,RK (RF),"{""k"": 64, ""variogram"": ""Exponential""}",1.0291559418360245
+GEMAS,spatial,4,RK (linear),"{""k"": 64, ""variogram"": ""Exponential""}",0.9731150153240297
+GEMAS,spatial,4,UK,"{""degree"": 1, ""k"": 64, ""variogram"": ""Exponential""}",0.9738221808270876
