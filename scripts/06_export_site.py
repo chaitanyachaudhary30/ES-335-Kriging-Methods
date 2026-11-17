@@ -67,7 +67,9 @@ def export_results() -> None:
             "error_by_fold": records(R / "errors" / f"{name}_error_by_fold.csv"),
             "error_by_ph_range": records(R / "errors" / f"{name}_error_by_ph_range.csv"),
             "density": records(R / "density" / f"{name}_density_summary.csv"),
-            "verdicts": records(R / "verdicts.csv"),
+            # H5 needed a second survey that could not be obtained (README, deviation D1);
+            # it stays in results/verdicts.* but is not shown on the website.
+            "verdicts": [r for r in records(R / "verdicts.csv") if r["hypothesis"] != "H5"],
         }
         (C.DOCS_DATA / f"{name}_results.json").write_text(json.dumps(out, allow_nan=False, default=float))
         print("wrote", C.DOCS_DATA / f"{name}_results.json")

@@ -69,7 +69,7 @@ def load_gemas() -> tuple[pd.DataFrame, pd.DataFrame]:
         f"{PH_MIN} <= pH <= {PH_MAX}",
     )
     df = log.add(
-        "Countries also covered by LUCAS 2018",
+        "Study area: 26 EU and UK countries",
         df[df["Country"].isin(C.GEMAS_COMMON_COUNTRIES)],
         "drops NOR, SIL, UKR, SRB, BOS, FOM, MON",
     )

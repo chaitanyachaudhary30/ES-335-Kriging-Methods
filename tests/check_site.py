@@ -56,7 +56,8 @@ def main(url: str | None) -> int:
             text = page.inner_text("body")
             check("Phase 2" not in text and "phase-note" not in page.content(), "no 'Phase 2' placeholder text")
             check(page.locator("td[data-verdict]").evaluate_all("els => els.every(e => e.textContent !== 'loading')"), "section 6 verdict cells filled")
-            check(page.locator("#verdict-table tbody tr").count() == 8, "8 hypothesis verdicts in section 8")
+            check(page.locator("#verdict-table tbody tr").count() == 7, "7 hypothesis verdicts in section 8 (H5 not shown)")
+            check("lucas" not in page.content().lower(), "no mention of the unused second survey")
             check(page.locator("#res-table tbody tr").count() == 9, "results table has 9 methods")
             check(page.locator("#tune-table tbody tr").count() == 5, "tuning table has 5 rows")
 

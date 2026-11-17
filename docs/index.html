@@ -16,11 +16,6 @@
     <p class="eyebrow">ES 335 · Machine Learning project · Chaitanya &amp; Saksham</p>
     <h1>Predicting soil pH where nobody has sampled</h1>
     <p class="lede">Kriging and Gaussian processes are built on one idea: places close together have similar soil. We ask whether simple statistics of the data can tell us, <em>before testing</em>, which of these methods will work best in regions the model has never seen, and when none of them will beat a plain average.</p>
-    <div class="dataset-switch" role="group" aria-label="Dataset">
-      <span>Dataset:</span>
-      <button class="ds-btn active" data-ds="gemas">GEMAS (sparse, n≈1,700)</button>
-      <button class="ds-btn" data-ds="lucas" disabled title="We requested LUCAS 2018 but did not receive access">LUCAS 2018 · access not granted</button>
-    </div>
   </div>
 </header>
 
@@ -61,22 +56,17 @@
     <li><strong>The usual random train/test split can flatter spatial methods.</strong> It tests at distances where neighbours are informative, unlike real gaps on a map (Sections 5 and 8).</li>
     <li><strong>A more flexible model is not automatically better.</strong> When much of the variation is pure noise at the sampling scale (a high <em>nugget</em>), no method can recover it (Sections 4 and 6).</li>
   </ol>
-  <p class="claim-limit"><strong>Scope of the claim.</strong> One European survey of agricultural soil (GEMAS), 26 countries. A second survey (LUCAS 2018) was planned but access was not granted. We do not claim the findings transfer to other regions, soil properties or sampling designs.</p>
+  <p class="claim-limit"><strong>Scope of the claim.</strong> One European survey of agricultural soil (GEMAS), 26 countries. We do not claim the findings transfer to other regions, soil properties or sampling designs.</p>
 </section>
 
 <!-- 2. DATA -->
 <section id="data">
   <h2><span class="num">2</span> The data</h2>
-  <div class="grid2">
+  <div>
     <div class="card">
       <h3>GEMAS (2008)</h3>
       <p>Geochemical Mapping of Agricultural and grazing land Soil, by EuroGeoSurveys and Eurometaux. Agricultural (Ap, ploughed 0–20 cm) samples on a regular design of about <strong>one site per 2,500 km²</strong>. Distributed by BGR as the GEMAS Extended Dataset (free download).</p>
       <p class="stat-line"><span id="g-n">–</span> samples after cleaning · median spacing <span id="g-nn">–</span> km · density <span id="g-dens">–</span> per 1,000 km²</p>
-    </div>
-    <div class="card muted">
-      <h3>LUCAS 2018 Topsoil</h3>
-      <p>EU Land Use/Cover Area frame Survey soil module (JRC/ESDAC). 18,984 samples in total; we planned to keep <strong>cropland, 0–20 cm</strong>, in the same countries as GEMAS. Free after registration.</p>
-      <p class="stat-line"><strong>Not used.</strong> We submitted the ESDAC registration form but did not receive access to the data before the deadline. All results on this site use GEMAS only; the effect of sampling density is studied by thinning GEMAS instead (see <a href="https://github.com/chaitanyachaudhary30/ES-335-Kriging-Methods/blob/main/results/deviations.md">deviations</a>).</p>
     </div>
   </div>
 
@@ -100,7 +90,7 @@
       <h3>Quality issues found</h3>
       <ul>
         <li>105 GEMAS samples from the eastern-Ukraine extension have no pH.</li>
-        <li>GEMAS covers Norway, Switzerland, Ukraine and Balkan states that LUCAS does not; these 372 samples are dropped so both surveys describe the same area.</li>
+        <li>372 samples from Norway, Switzerland, Ukraine and the Western Balkans lie outside our study area (the 26 EU and UK countries GEMAS sampled) and are dropped.</li>
         <li>One coastal site falls in a "sea" cell of the climate grid and has no covariates.</li>
         <li>No duplicate locations; no implausible pH values. Our reprojection matches BGR's own LAEA coordinates to within 0.01 km.</li>
       </ul>
@@ -114,8 +104,8 @@
   <h2><span class="num">3</span> Preprocessing choices, and why</h2>
   <table class="data">
     <tr><th>Choice</th><th>Why</th></tr>
-    <tr><td>Agricultural topsoil only (GEMAS Ap, LUCAS cropland, 0–20 cm)</td><td>Same land use and depth in both surveys, so differences are not due to grassland vs ploughed soil.</td></tr>
-    <tr><td>Same 26 countries in both surveys</td><td>Both datasets cover the same area and can be tested on the same held-out regions.</td></tr>
+    <tr><td>Agricultural topsoil only (GEMAS Ap, ploughed 0–20 cm)</td><td>One land use and one depth, so pH differences are not due to grassland vs ploughed soil.</td></tr>
+    <tr><td>Study area: 26 EU and UK countries</td><td>A fixed study area chosen before any modelling; the held-out regions all lie inside it.</td></tr>
     <tr><td>Equal-area projection ETRS89-LAEA, distances in km</td><td>Variograms and "distance to the nearest sample" need true distances; degrees of longitude shrink towards the north.</td></tr>
     <tr><td>Only coordinates + climate/elevation grids as inputs</td><td>These exist everywhere. Lab measurements like organic carbon would not be known where we predict, so using them would be leakage.</td></tr>
     <tr><td>log of annual precipitation</td><td>Right-skewed; leaching by rain acts roughly multiplicatively on soil acidity.</td></tr>
@@ -179,7 +169,7 @@
   <details class="maths">
     <summary>The maths</summary>
     <p>Plugging the median test distances into $1-(1-\eta)^2r(d)^2$ with the GEMAS fit gives an RMSE ratio of 0.87 at 43 km (random split) and 0.93 at 100 km (spatial split), and 0.99 at 250 km. The random split therefore measures <em>interpolation</em>, the spatial split <em>prediction into unseen regions</em> (Roberts et al., 2017; Ploton et al., 2020). Wadoux et al. (2021) point out that spatial cross-validation can be pessimistic for whole-map accuracy; our target is held-out regions, so we use it as the main test and report the random split as a reference.</p>
-    <p>Block size: the GEMAS variograms reach 95% of the sill at 380–520 km, so we use 500 km blocks on a grid anchored at the LAEA origin, assigned to 5 folds with balanced sample counts (seed 42). The same block-to-fold mapping will be used for LUCAS, so both surveys are tested on the same regions.</p>
+    <p>Block size: the GEMAS variograms reach 95% of the sill at 380–520 km, so we use 500 km blocks on a grid anchored at the LAEA origin, assigned to 5 folds with balanced sample counts (seed 42).</p>
   </details>
 </section>
 
@@ -199,12 +189,11 @@
     <tr><td>H2</td><td>The nugget caps coordinate-only kriging: RMSE ratio ≥ √η.</td><td>OK skill ≤ 0.27–0.38 per fold</td><td class="pending" data-verdict="H2">loading</td></tr>
     <tr><td>H3</td><td>When covariates help and residuals stay correlated, Regression Kriging is best.</td><td>RK has the highest skill</td><td class="pending" data-verdict="H3">loading</td></tr>
     <tr><td>H4</td><td>Kriging's gain over its own trend vanishes far from the data.</td><td>≤ 0.02 for points &gt; 250 km away</td><td class="pending" data-verdict="H4">loading</td></tr>
-    <tr><td>H5</td><td>Denser data gives a larger kriging gain on the same regions.</td><td>LUCAS OK skill &gt; GEMAS OK skill</td><td class="pending" data-verdict="H5">loading</td></tr>
     <tr><td>H6</td><td>A random split overstates spatial generalisation.</td><td>OK: 0.21 (random) vs 0.10 (spatial)</td><td class="pending" data-verdict="H6">loading</td></tr>
     <tr><td>H7</td><td>The predictions rank the methods correctly (the main question).</td><td>Spearman ρ ≥ 0.7</td><td class="pending" data-verdict="H7">loading</td></tr>
     <tr><td>H8</td><td>GPR and OK give similar accuracy.</td><td>|difference| ≤ 0.03</td><td class="pending" data-verdict="H8">loading</td></tr>
   </table></div>
-  <p class="caption">Decision rule: "supported" if the mean per-fold difference has the predicted sign and at least 4 of 5 folds agree; "not supported" if the opposite holds; otherwise "inconclusive".</p>
+  <p class="caption">H5 is not listed: it needed a second dataset that we could not obtain (see the README). Decision rule: "supported" if the mean per-fold difference has the predicted sign and at least 4 of 5 folds agree; "not supported" if the opposite holds; otherwise "inconclusive".</p>
 
   <h3>First check: do the predictions work for the baselines?</h3>
   <p>The three non-spatial baselines have already been tested. Their predicted skill (from cross-validation inside the training data) can be compared with their actual test skill:</p>
@@ -317,7 +306,7 @@
   <h3>Does thinning the data change the ranking?</h3>
   <div class="interactive">
     <p class="label">Try it: density slider</p>
-    <p>LUCAS 2018 was not available, so density is varied by <strong>removing training samples from GEMAS</strong> (the test regions stay the same, five random thinnings each). Move the slider to keep 100%, 50%, 25% or 10% of the training samples. The chart shows observed skill (orange) and the skill predicted from the thinned training data (blue). This can only make the data sparser than they are.</p>
+    <p>To see how sampling density matters, we <strong>remove training samples from GEMAS</strong> (the test regions stay the same, five random thinnings each). Move the slider to keep 100%, 50%, 25% or 10% of the training samples. The chart shows observed skill (orange) and the skill predicted from the thinned training data (blue). This can only make the data sparser than they are.</p>
     <div class="controls">
       <label>Training samples kept <input type="range" id="sl-frac" min="0" max="3" step="1" value="0"> <output id="o-frac">100%</output></label>
     </div>
@@ -365,7 +354,7 @@
   <h3>What the design limits</h3>
   <ul>
     <li>One survey, one continent, agricultural topsoil only (GEMAS, 26 countries).</li>
-    <li>LUCAS 2018 was requested but access was not granted. H5 is therefore not testable, and density is studied by thinning GEMAS, which can only make the data sparser than its 42 km spacing.</li>
+    <li>Density is studied by thinning GEMAS, which can only make the data sparser than its 42 km spacing. We cannot say how the methods compare with denser sampling.</li>
     <li>One variogram for all of Europe assumes stationarity; soils in Scandinavia and the Mediterranean may vary differently.</li>
     <li>Covariates are coarse (5′ ≈ 9 km grid) and limited to climate and elevation.</li>
     <li>The 500 km block size fixes how hard the test is; results at other block sizes may differ. We did not test other sizes.</li>
@@ -398,13 +387,11 @@
     <li>Breiman, L. (2001). Random forests. <em>Machine Learning</em>, 45, 5–32. doi:10.1023/A:1010933404324</li>
     <li>Cressie, N. (1985). Fitting variogram models by weighted least squares. <em>Mathematical Geology</em>, 17, 563–586. doi:10.1007/BF01032109</li>
     <li>Cressie, N. (1993). <em>Statistics for Spatial Data</em>. Wiley. doi:10.1002/9781119115151</li>
-    <li>Fernández-Ugalde, O., et al. (2022). <em>LUCAS 2018 Soil Module</em>. Publications Office of the EU. doi:10.2760/215013</li>
     <li>Fick, S. E., &amp; Hijmans, R. J. (2017). WorldClim 2. <em>International Journal of Climatology</em>, 37, 4302–4315. doi:10.1002/joc.5086</li>
     <li>Hengl, T., Heuvelink, G. B. M., &amp; Rossiter, D. G. (2007). About regression-kriging. <em>Computers &amp; Geosciences</em>, 33, 1301–1315. doi:10.1016/j.cageo.2007.05.001</li>
     <li>Matheron, G. (1963). Principles of geostatistics. <em>Economic Geology</em>, 58, 1246–1266. doi:10.2113/gsecongeo.58.8.1246</li>
     <li>Meyer, H., &amp; Pebesma, E. (2021). Predicting into unknown space? <em>Methods in Ecology and Evolution</em>, 12, 1620–1633. doi:10.1111/2041-210X.13650</li>
     <li>Müller, S., Schüler, L., Zech, A., &amp; Heße, F. (2022). GSTools v1.3: a toolbox for geostatistical modelling in Python. <em>Geoscientific Model Development</em>, 15, 3161–3182. doi:10.5194/gmd-15-3161-2022</li>
-    <li>Orgiazzi, A., et al. (2018). LUCAS Soil, the largest expandable soil dataset for Europe. <em>European Journal of Soil Science</em>, 69, 140–153. doi:10.1111/ejss.12499</li>
     <li>Ploton, P., et al. (2020). Spatial validation reveals poor predictive performance of large-scale ecological mapping models. <em>Nature Communications</em>, 11, 4540. doi:10.1038/s41467-020-18321-y</li>
     <li>Rasmussen, C. E., &amp; Williams, C. K. I. (2006). <em>Gaussian Processes for Machine Learning</em>. MIT Press.</li>
     <li>Reimann, C., et al. (Eds.) (2014). <em>Chemistry of Europe's Agricultural Soils, Part A</em>. Schweizerbart. Data: GEMAS Extended Dataset © BGR, Hannover.</li>
