@@ -1,0 +1,1801 @@
+split,method,cx,cy,n,mean_residual,lat,lon
+random,GPR,27,19,6,0.124,38.9,-8.2
+random,GPR,28,18,5,-0.109,38.3,-6.8
+random,GPR,28,20,5,0.006,40.0,-7.3
+random,GPR,28,22,5,-0.165,41.8,-7.8
+random,GPR,29,20,8,-0.152,40.2,-6.2
+random,GPR,29,22,5,-0.311,42.0,-6.6
+random,GPR,30,18,7,-0.164,38.6,-4.6
+random,GPR,30,19,5,0.446,39.5,-4.8
+random,GPR,30,21,5,0.047,41.3,-5.2
+random,GPR,30,23,5,0.101,43.1,-5.7
+random,GPR,32,17,5,0.082,38.1,-2.2
+random,GPR,32,19,7,0.194,39.8,-2.5
+random,GPR,32,22,5,0.339,42.5,-3.1
+random,GPR,32,36,6,0.403,54.8,-6.8
+random,GPR,33,17,5,0.035,38.2,-1.1
+random,GPR,33,20,6,0.115,40.9,-1.5
+random,GPR,33,31,5,-0.228,50.6,-3.8
+random,GPR,34,31,5,-0.109,50.8,-2.4
+random,GPR,34,34,5,-0.157,53.4,-3.2
+random,GPR,35,21,5,-0.13,42.0,0.7
+random,GPR,35,23,7,-0.315,43.8,0.4
+random,GPR,35,25,5,0.482,45.6,0.1
+random,GPR,35,32,5,0.111,51.8,-1.2
+random,GPR,35,36,5,0.072,55.4,-2.2
+random,GPR,36,24,5,0.257,44.8,1.5
+random,GPR,36,25,7,-0.246,45.7,1.4
+random,GPR,36,26,5,0.068,46.6,1.2
+random,GPR,36,33,5,0.182,52.8,0.0
+random,GPR,37,26,5,0.18,46.7,2.5
+random,GPR,37,27,7,0.231,47.6,2.4
+random,GPR,37,29,6,0.349,49.4,2.1
+random,GPR,38,24,6,-0.467,45.0,4.0
+random,GPR,38,29,6,-0.138,49.5,3.5
+random,GPR,38,30,6,0.123,50.4,3.4
+random,GPR,39,27,6,0.176,47.8,5.1
+random,GPR,40,23,5,0.216,44.2,6.6
+random,GPR,40,29,7,-0.166,49.6,6.2
+random,GPR,40,30,5,-0.041,50.5,6.2
+random,GPR,41,24,5,-0.714,45.1,7.8
+random,GPR,42,18,6,0.057,39.7,9.2
+random,GPR,42,28,5,-0.134,48.8,9.0
+random,GPR,42,32,5,-0.079,52.4,9.0
+random,GPR,43,24,5,0.42,45.2,10.4
+random,GPR,43,32,5,0.149,52.4,10.4
+random,GPR,44,22,5,0.027,43.3,11.6
+random,GPR,44,24,5,0.085,45.1,11.6
+random,GPR,44,26,5,-0.346,47.0,11.7
+random,GPR,44,31,5,0.479,51.4,11.9
+random,GPR,45,28,7,0.067,48.7,13.1
+random,GPR,45,33,5,-0.193,53.2,13.4
+random,GPR,45,36,6,-0.156,55.9,13.7
+random,GPR,45,37,5,-0.02,56.8,13.7
+random,GPR,45,43,6,-0.068,62.2,14.4
+random,GPR,45,44,5,0.13,63.1,14.5
+random,GPR,45,45,6,-0.031,64.0,14.7
+random,GPR,46,26,5,0.069,46.9,14.3
+random,GPR,46,29,6,-0.016,49.6,14.6
+random,GPR,46,30,5,-0.147,50.5,14.6
+random,GPR,46,31,5,0.325,51.4,14.7
+random,GPR,46,32,6,0.018,52.3,14.8
+random,GPR,46,37,6,0.075,56.7,15.4
+random,GPR,46,41,5,-0.055,60.3,15.9
+random,GPR,46,42,5,-0.063,61.2,16.1
+random,GPR,46,43,5,0.14,62.1,16.3
+random,GPR,46,47,5,-0.151,65.7,17.1
+random,GPR,47,20,5,0.029,41.4,15.1
+random,GPR,47,25,5,0.432,45.9,15.5
+random,GPR,47,26,5,-0.556,46.8,15.6
+random,GPR,47,28,7,0.373,48.6,15.8
+random,GPR,47,31,5,-0.504,51.3,16.2
+random,GPR,47,40,7,-0.046,59.3,17.5
+random,GPR,47,46,6,0.008,64.7,19.0
+random,GPR,48,29,5,-0.404,49.4,17.3
+random,GPR,48,30,8,0.14,50.3,17.4
+random,GPR,48,34,7,-0.294,53.9,18.1
+random,GPR,48,50,6,0.052,68.1,22.7
+random,GPR,49,27,5,0.554,47.5,18.4
+random,GPR,49,32,6,-0.268,52.0,19.2
+random,GPR,49,34,5,-0.262,53.8,19.6
+random,GPR,50,29,5,0.132,49.2,20.0
+random,GPR,50,31,6,0.248,51.0,20.4
+random,GPR,50,33,5,-0.447,52.8,20.8
+random,GPR,50,37,6,-0.014,56.3,21.8
+random,GPR,50,43,5,-0.181,61.6,23.8
+random,GPR,50,44,6,-0.098,62.5,24.2
+random,GPR,50,46,5,0.097,64.2,25.1
+random,GPR,50,48,5,0.084,66.0,26.1
+random,GPR,51,29,6,-0.351,49.1,21.4
+random,GPR,51,34,5,-0.54,53.5,22.6
+random,GPR,51,35,5,0.329,54.4,22.8
+random,GPR,51,43,5,0.017,61.4,25.6
+random,GPR,51,45,6,-0.035,63.2,26.6
+random,GPR,52,19,5,0.119,40.0,20.9
+random,GPR,52,36,5,0.344,55.1,24.7
+random,GPR,52,39,6,-0.632,57.7,25.7
+random,GPR,52,43,5,-0.26,61.2,27.4
+random,GPR,52,45,6,0.335,62.9,28.5
+random,GPR,53,37,5,0.072,55.8,26.6
+random,GPR,54,17,6,0.338,38.0,22.8
+random,GPR,64,16,5,0.103,35.0,33.5
+random,LinReg (coords + covariates),27,19,6,-0.215,38.9,-8.2
+random,LinReg (coords + covariates),28,18,5,-0.409,38.3,-6.8
+random,LinReg (coords + covariates),28,20,5,-0.9,40.0,-7.3
+random,LinReg (coords + covariates),28,22,5,-0.966,41.8,-7.8
+random,LinReg (coords + covariates),29,20,8,-1.431,40.2,-6.2
+random,LinReg (coords + covariates),29,22,5,-1.252,42.0,-6.6
+random,LinReg (coords + covariates),30,18,7,-0.854,38.6,-4.6
+random,LinReg (coords + covariates),30,19,5,-1.022,39.5,-4.8
+random,LinReg (coords + covariates),30,21,5,-0.582,41.3,-5.2
+random,LinReg (coords + covariates),30,23,5,-0.711,43.1,-5.7
+random,LinReg (coords + covariates),32,17,5,0.857,38.1,-2.2
+random,LinReg (coords + covariates),32,19,7,0.689,39.8,-2.5
+random,LinReg (coords + covariates),32,22,5,0.683,42.5,-3.1
+random,LinReg (coords + covariates),32,36,6,0.625,54.8,-6.8
+random,LinReg (coords + covariates),33,17,5,0.507,38.2,-1.1
+random,LinReg (coords + covariates),33,20,6,0.816,40.9,-1.5
+random,LinReg (coords + covariates),33,31,5,-0.159,50.6,-3.8
+random,LinReg (coords + covariates),34,31,5,0.211,50.8,-2.4
+random,LinReg (coords + covariates),34,34,5,0.101,53.4,-3.2
+random,LinReg (coords + covariates),35,21,5,0.416,42.0,0.7
+random,LinReg (coords + covariates),35,23,7,-0.672,43.8,0.4
+random,LinReg (coords + covariates),35,25,5,0.28,45.6,0.1
+random,LinReg (coords + covariates),35,32,5,0.546,51.8,-1.2
+random,LinReg (coords + covariates),35,36,5,0.122,55.4,-2.2
+random,LinReg (coords + covariates),36,24,5,-0.183,44.8,1.5
+random,LinReg (coords + covariates),36,25,7,-0.827,45.7,1.4
+random,LinReg (coords + covariates),36,26,5,-0.497,46.6,1.2
+random,LinReg (coords + covariates),36,33,5,0.653,52.8,0.0
+random,LinReg (coords + covariates),37,26,5,-0.372,46.7,2.5
+random,LinReg (coords + covariates),37,27,7,0.004,47.6,2.4
+random,LinReg (coords + covariates),37,29,6,0.826,49.4,2.1
+random,LinReg (coords + covariates),38,24,6,-0.534,45.0,4.0
+random,LinReg (coords + covariates),38,29,6,0.486,49.5,3.5
+random,LinReg (coords + covariates),38,30,6,0.757,50.4,3.4
+random,LinReg (coords + covariates),39,27,6,0.404,47.8,5.1
+random,LinReg (coords + covariates),40,23,5,0.863,44.2,6.6
+random,LinReg (coords + covariates),40,29,7,0.078,49.6,6.2
+random,LinReg (coords + covariates),40,30,5,0.011,50.5,6.2
+random,LinReg (coords + covariates),41,24,5,-0.776,45.1,7.8
+random,LinReg (coords + covariates),42,18,6,-0.654,39.7,9.2
+random,LinReg (coords + covariates),42,28,5,0.323,48.8,9.0
+random,LinReg (coords + covariates),42,32,5,-0.248,52.4,9.0
+random,LinReg (coords + covariates),43,24,5,0.911,45.2,10.4
+random,LinReg (coords + covariates),43,32,5,-0.257,52.4,10.4
+random,LinReg (coords + covariates),44,22,5,0.525,43.3,11.6
+random,LinReg (coords + covariates),44,24,5,0.591,45.1,11.6
+random,LinReg (coords + covariates),44,26,5,0.418,47.0,11.7
+random,LinReg (coords + covariates),44,31,5,0.676,51.4,11.9
+random,LinReg (coords + covariates),45,28,7,0.539,48.7,13.1
+random,LinReg (coords + covariates),45,33,5,-0.489,53.2,13.4
+random,LinReg (coords + covariates),45,36,6,-0.403,55.9,13.7
+random,LinReg (coords + covariates),45,37,5,-0.391,56.8,13.7
+random,LinReg (coords + covariates),45,43,6,-0.118,62.2,14.4
+random,LinReg (coords + covariates),45,44,5,-0.029,63.1,14.5
+random,LinReg (coords + covariates),45,45,6,-0.119,64.0,14.7
+random,LinReg (coords + covariates),46,26,5,0.92,46.9,14.3
+random,LinReg (coords + covariates),46,29,6,0.151,49.6,14.6
+random,LinReg (coords + covariates),46,30,5,-0.107,50.5,14.6
+random,LinReg (coords + covariates),46,31,5,0.024,51.4,14.7
+random,LinReg (coords + covariates),46,32,6,-0.524,52.3,14.8
+random,LinReg (coords + covariates),46,37,6,-0.158,56.7,15.4
+random,LinReg (coords + covariates),46,41,5,-0.34,60.3,15.9
+random,LinReg (coords + covariates),46,42,5,-0.318,61.2,16.1
+random,LinReg (coords + covariates),46,43,5,0.018,62.1,16.3
+random,LinReg (coords + covariates),46,47,5,-0.091,65.7,17.1
+random,LinReg (coords + covariates),47,20,5,-0.183,41.4,15.1
+random,LinReg (coords + covariates),47,25,5,0.27,45.9,15.5
+random,LinReg (coords + covariates),47,26,5,-0.186,46.8,15.6
+random,LinReg (coords + covariates),47,28,7,0.999,48.6,15.8
+random,LinReg (coords + covariates),47,31,5,-0.924,51.3,16.2
+random,LinReg (coords + covariates),47,40,7,-0.282,59.3,17.5
+random,LinReg (coords + covariates),47,46,6,-0.002,64.7,19.0
+random,LinReg (coords + covariates),48,29,5,0.154,49.4,17.3
+random,LinReg (coords + covariates),48,30,8,0.4,50.3,17.4
+random,LinReg (coords + covariates),48,34,7,-0.832,53.9,18.1
+random,LinReg (coords + covariates),48,50,6,0.205,68.1,22.7
+random,LinReg (coords + covariates),49,27,5,0.985,47.5,18.4
+random,LinReg (coords + covariates),49,32,6,-1.211,52.0,19.2
+random,LinReg (coords + covariates),49,34,5,-0.92,53.8,19.6
+random,LinReg (coords + covariates),50,29,5,0.341,49.2,20.0
+random,LinReg (coords + covariates),50,31,6,-0.412,51.0,20.4
+random,LinReg (coords + covariates),50,33,5,-1.735,52.8,20.8
+random,LinReg (coords + covariates),50,37,6,0.615,56.3,21.8
+random,LinReg (coords + covariates),50,43,5,-0.519,61.6,23.8
+random,LinReg (coords + covariates),50,44,6,-0.277,62.5,24.2
+random,LinReg (coords + covariates),50,46,5,0.377,64.2,25.1
+random,LinReg (coords + covariates),50,48,5,0.276,66.0,26.1
+random,LinReg (coords + covariates),51,29,6,-0.253,49.1,21.4
+random,LinReg (coords + covariates),51,34,5,-1.211,53.5,22.6
+random,LinReg (coords + covariates),51,35,5,0.152,54.4,22.8
+random,LinReg (coords + covariates),51,43,5,-0.278,61.4,25.6
+random,LinReg (coords + covariates),51,45,6,0.102,63.2,26.6
+random,LinReg (coords + covariates),52,19,5,0.318,40.0,20.9
+random,LinReg (coords + covariates),52,36,5,1.145,55.1,24.7
+random,LinReg (coords + covariates),52,39,6,-0.019,57.7,25.7
+random,LinReg (coords + covariates),52,43,5,-0.461,61.2,27.4
+random,LinReg (coords + covariates),52,45,6,0.367,62.9,28.5
+random,LinReg (coords + covariates),53,37,5,0.821,55.8,26.6
+random,LinReg (coords + covariates),54,17,6,0.769,38.0,22.8
+random,LinReg (coords + covariates),64,16,5,-0.214,35.0,33.5
+random,LinReg (coords),27,19,6,-0.632,38.9,-8.2
+random,LinReg (coords),28,18,5,-0.675,38.3,-6.8
+random,LinReg (coords),28,20,5,-1.476,40.0,-7.3
+random,LinReg (coords),28,22,5,-1.849,41.8,-7.8
+random,LinReg (coords),29,20,8,-1.769,40.2,-6.2
+random,LinReg (coords),29,22,5,-1.706,42.0,-6.6
+random,LinReg (coords),30,18,7,-0.82,38.6,-4.6
+random,LinReg (coords),30,19,5,-0.702,39.5,-4.8
+random,LinReg (coords),30,21,5,-0.376,41.3,-5.2
+random,LinReg (coords),30,23,5,-0.824,43.1,-5.7
+random,LinReg (coords),32,17,5,1.004,38.1,-2.2
+random,LinReg (coords),32,19,7,1.068,39.8,-2.5
+random,LinReg (coords),32,22,5,0.806,42.5,-3.1
+random,LinReg (coords),32,36,6,0.713,54.8,-6.8
+random,LinReg (coords),33,17,5,1.048,38.2,-1.1
+random,LinReg (coords),33,20,6,1.107,40.9,-1.5
+random,LinReg (coords),33,31,5,-0.332,50.6,-3.8
+random,LinReg (coords),34,31,5,0.293,50.8,-2.4
+random,LinReg (coords),34,34,5,0.265,53.4,-3.2
+random,LinReg (coords),35,21,5,0.467,42.0,0.7
+random,LinReg (coords),35,23,7,-0.732,43.8,0.4
+random,LinReg (coords),35,25,5,0.211,45.6,0.1
+random,LinReg (coords),35,32,5,0.938,51.8,-1.2
+random,LinReg (coords),35,36,5,0.45,55.4,-2.2
+random,LinReg (coords),36,24,5,-0.09,44.8,1.5
+random,LinReg (coords),36,25,7,-0.713,45.7,1.4
+random,LinReg (coords),36,26,5,-0.289,46.6,1.2
+random,LinReg (coords),36,33,5,1.231,52.8,0.0
+random,LinReg (coords),37,26,5,-0.2,46.7,2.5
+random,LinReg (coords),37,27,7,0.319,47.6,2.4
+random,LinReg (coords),37,29,6,1.203,49.4,2.1
+random,LinReg (coords),38,24,6,-0.738,45.0,4.0
+random,LinReg (coords),38,29,6,0.791,49.5,3.5
+random,LinReg (coords),38,30,6,1.03,50.4,3.4
+random,LinReg (coords),39,27,6,0.447,47.8,5.1
+random,LinReg (coords),40,23,5,0.774,44.2,6.6
+random,LinReg (coords),40,29,7,0.129,49.6,6.2
+random,LinReg (coords),40,30,5,0.191,50.5,6.2
+random,LinReg (coords),41,24,5,-0.79,45.1,7.8
+random,LinReg (coords),42,18,6,-0.618,39.7,9.2
+random,LinReg (coords),42,28,5,0.163,48.8,9.0
+random,LinReg (coords),42,32,5,0.034,52.4,9.0
+random,LinReg (coords),43,24,5,1.021,45.2,10.4
+random,LinReg (coords),43,32,5,0.078,52.4,10.4
+random,LinReg (coords),44,22,5,0.721,43.3,11.6
+random,LinReg (coords),44,24,5,0.986,45.1,11.6
+random,LinReg (coords),44,26,5,-0.14,47.0,11.7
+random,LinReg (coords),44,31,5,0.864,51.4,11.9
+random,LinReg (coords),45,28,7,0.198,48.7,13.1
+random,LinReg (coords),45,33,5,-0.229,53.2,13.4
+random,LinReg (coords),45,36,6,-0.145,55.9,13.7
+random,LinReg (coords),45,37,5,-0.29,56.8,13.7
+random,LinReg (coords),45,43,6,-0.469,62.2,14.4
+random,LinReg (coords),45,44,5,-0.106,63.1,14.5
+random,LinReg (coords),45,45,6,-0.233,64.0,14.7
+random,LinReg (coords),46,26,5,0.036,46.9,14.3
+random,LinReg (coords),46,29,6,-0.055,49.6,14.6
+random,LinReg (coords),46,30,5,-0.295,50.5,14.6
+random,LinReg (coords),46,31,5,0.083,51.4,14.7
+random,LinReg (coords),46,32,6,-0.327,52.3,14.8
+random,LinReg (coords),46,37,6,0.185,56.7,15.4
+random,LinReg (coords),46,41,5,-0.254,60.3,15.9
+random,LinReg (coords),46,42,5,-0.289,61.2,16.1
+random,LinReg (coords),46,43,5,-0.084,62.1,16.3
+random,LinReg (coords),46,47,5,-0.495,65.7,17.1
+random,LinReg (coords),47,20,5,0.542,41.4,15.1
+random,LinReg (coords),47,25,5,-0.211,45.9,15.5
+random,LinReg (coords),47,26,5,-0.739,46.8,15.6
+random,LinReg (coords),47,28,7,0.77,48.6,15.8
+random,LinReg (coords),47,31,5,-1.066,51.3,16.2
+random,LinReg (coords),47,40,7,0.069,59.3,17.5
+random,LinReg (coords),47,46,6,-0.136,64.7,19.0
+random,LinReg (coords),48,29,5,-0.295,49.4,17.3
+random,LinReg (coords),48,30,8,-0.04,50.3,17.4
+random,LinReg (coords),48,34,7,-0.774,53.9,18.1
+random,LinReg (coords),48,50,6,-0.232,68.1,22.7
+random,LinReg (coords),49,27,5,1.246,47.5,18.4
+random,LinReg (coords),49,32,6,-1.245,52.0,19.2
+random,LinReg (coords),49,34,5,-0.958,53.8,19.6
+random,LinReg (coords),50,29,5,-0.355,49.2,20.0
+random,LinReg (coords),50,31,6,-0.569,51.0,20.4
+random,LinReg (coords),50,33,5,-1.769,52.8,20.8
+random,LinReg (coords),50,37,6,0.517,56.3,21.8
+random,LinReg (coords),50,43,5,-0.48,61.6,23.8
+random,LinReg (coords),50,44,6,-0.313,62.5,24.2
+random,LinReg (coords),50,46,5,0.347,64.2,25.1
+random,LinReg (coords),50,48,5,0.18,66.0,26.1
+random,LinReg (coords),51,29,6,-0.748,49.1,21.4
+random,LinReg (coords),51,34,5,-1.29,53.5,22.6
+random,LinReg (coords),51,35,5,0.095,54.4,22.8
+random,LinReg (coords),51,43,5,-0.248,61.4,25.6
+random,LinReg (coords),51,45,6,0.096,63.2,26.6
+random,LinReg (coords),52,19,5,0.054,40.0,20.9
+random,LinReg (coords),52,36,5,1.176,55.1,24.7
+random,LinReg (coords),52,39,6,-0.028,57.7,25.7
+random,LinReg (coords),52,43,5,-0.368,61.2,27.4
+random,LinReg (coords),52,45,6,0.394,62.9,28.5
+random,LinReg (coords),53,37,5,0.875,55.8,26.6
+random,LinReg (coords),54,17,6,0.589,38.0,22.8
+random,LinReg (coords),64,16,5,-0.044,35.0,33.5
+random,Mean,27,19,6,-0.263,38.9,-8.2
+random,Mean,28,18,5,-0.243,38.3,-6.8
+random,Mean,28,20,5,-1.134,40.0,-7.3
+random,Mean,28,22,5,-1.617,41.8,-7.8
+random,Mean,29,20,8,-1.437,40.2,-6.2
+random,Mean,29,22,5,-1.503,42.0,-6.6
+random,Mean,30,18,7,-0.366,38.6,-4.6
+random,Mean,30,19,5,-0.307,39.5,-4.8
+random,Mean,30,21,5,-0.057,41.3,-5.2
+random,Mean,30,23,5,-0.625,43.1,-5.7
+random,Mean,32,17,5,1.567,38.1,-2.2
+random,Mean,32,19,7,1.513,39.8,-2.5
+random,Mean,32,22,5,1.075,42.5,-3.1
+random,Mean,32,36,6,0.173,54.8,-6.8
+random,Mean,33,17,5,1.596,38.2,-1.1
+random,Mean,33,20,6,1.52,40.9,-1.5
+random,Mean,33,31,5,-0.556,50.6,-3.8
+random,Mean,34,31,5,0.077,50.8,-2.4
+random,Mean,34,34,5,-0.105,53.4,-3.2
+random,Mean,35,21,5,0.856,42.0,0.7
+random,Mean,35,23,7,-0.46,43.8,0.4
+random,Mean,35,25,5,0.366,45.6,0.1
+random,Mean,35,32,5,0.714,51.8,-1.2
+random,Mean,35,36,5,-0.027,55.4,-2.2
+random,Mean,36,24,5,0.143,44.8,1.5
+random,Mean,36,25,7,-0.547,45.7,1.4
+random,Mean,36,26,5,-0.182,46.6,1.2
+random,Mean,36,33,5,0.936,52.8,0.0
+random,Mean,37,26,5,-0.081,46.7,2.5
+random,Mean,37,27,7,0.386,47.6,2.4
+random,Mean,37,29,6,1.158,49.4,2.1
+random,Mean,38,24,6,-0.483,45.0,4.0
+random,Mean,38,29,6,0.78,49.5,3.5
+random,Mean,38,30,6,0.946,50.4,3.4
+random,Mean,39,27,6,0.56,47.8,5.1
+random,Mean,40,23,5,1.138,44.2,6.6
+random,Mean,40,29,7,0.141,49.6,6.2
+random,Mean,40,30,5,0.137,50.5,6.2
+random,Mean,41,24,5,-0.48,45.1,7.8
+random,Mean,42,18,6,0.067,39.7,9.2
+random,Mean,42,28,5,0.264,48.8,9.0
+random,Mean,42,32,5,-0.091,52.4,9.0
+random,Mean,43,24,5,1.376,45.2,10.4
+random,Mean,43,32,5,-0.037,52.4,10.4
+random,Mean,44,22,5,1.207,43.3,11.6
+random,Mean,44,24,5,1.343,45.1,11.6
+random,Mean,44,26,5,0.1,47.0,11.7
+random,Mean,44,31,5,0.838,51.4,11.9
+random,Mean,45,28,7,0.35,48.7,13.1
+random,Mean,45,33,5,-0.363,53.2,13.4
+random,Mean,45,36,6,-0.454,55.9,13.7
+random,Mean,45,37,5,-0.656,56.8,13.7
+random,Mean,45,43,6,-1.153,62.2,14.4
+random,Mean,45,44,5,-0.872,63.1,14.5
+random,Mean,45,45,6,-1.071,64.0,14.7
+random,Mean,46,26,5,0.322,46.9,14.3
+random,Mean,46,29,6,0.056,49.6,14.6
+random,Mean,46,30,5,-0.243,50.5,14.6
+random,Mean,46,31,5,0.076,51.4,14.7
+random,Mean,46,32,6,-0.395,52.3,14.8
+random,Mean,46,37,6,-0.155,56.7,15.4
+random,Mean,46,41,5,-0.852,60.3,15.9
+random,Mean,46,42,5,-0.924,61.2,16.1
+random,Mean,46,43,5,-0.781,62.1,16.3
+random,Mean,46,47,5,-1.413,65.7,17.1
+random,Mean,47,20,5,1.194,41.4,15.1
+random,Mean,47,25,5,0.14,45.9,15.5
+random,Mean,47,26,5,-0.434,46.8,15.6
+random,Mean,47,28,7,0.951,48.6,15.8
+random,Mean,47,31,5,-1.058,51.3,16.2
+random,Mean,47,40,7,-0.449,59.3,17.5
+random,Mean,47,46,6,-0.991,64.7,19.0
+random,Mean,48,29,5,-0.154,49.4,17.3
+random,Mean,48,30,8,0.051,50.3,17.4
+random,Mean,48,34,7,-0.911,53.9,18.1
+random,Mean,48,50,6,-1.298,68.1,22.7
+random,Mean,49,27,5,1.524,47.5,18.4
+random,Mean,49,32,6,-1.247,52.0,19.2
+random,Mean,49,34,5,-1.084,53.8,19.6
+random,Mean,50,29,5,-0.191,49.2,20.0
+random,Mean,50,31,6,-0.499,51.0,20.4
+random,Mean,50,33,5,-1.828,52.8,20.8
+random,Mean,50,37,6,0.252,56.3,21.8
+random,Mean,50,43,5,-1.105,61.6,23.8
+random,Mean,50,44,6,-1.006,62.5,24.2
+random,Mean,50,46,5,-0.459,64.2,25.1
+random,Mean,50,48,5,-0.76,66.0,26.1
+random,Mean,51,29,6,-0.561,49.1,21.4
+random,Mean,51,34,5,-1.383,53.5,22.6
+random,Mean,51,35,5,-0.039,54.4,22.8
+random,Mean,51,43,5,-0.853,61.4,25.6
+random,Mean,51,45,6,-0.641,63.2,26.6
+random,Mean,52,19,5,0.859,40.0,20.9
+random,Mean,52,36,5,0.981,55.1,24.7
+random,Mean,52,39,6,-0.383,57.7,25.7
+random,Mean,52,43,5,-0.966,61.2,27.4
+random,Mean,52,45,6,-0.305,62.9,28.5
+random,Mean,53,37,5,0.636,55.8,26.6
+random,Mean,54,17,6,1.524,38.0,22.8
+random,Mean,64,16,5,1.142,35.0,33.5
+random,OK,27,19,6,0.116,38.9,-8.2
+random,OK,28,18,5,-0.115,38.3,-6.8
+random,OK,28,20,5,-0.034,40.0,-7.3
+random,OK,28,22,5,-0.179,41.8,-7.8
+random,OK,29,20,8,-0.172,40.2,-6.2
+random,OK,29,22,5,-0.323,42.0,-6.6
+random,OK,30,18,7,-0.183,38.6,-4.6
+random,OK,30,19,5,0.407,39.5,-4.8
+random,OK,30,21,5,0.075,41.3,-5.2
+random,OK,30,23,5,0.13,43.1,-5.7
+random,OK,32,17,5,0.088,38.1,-2.2
+random,OK,32,19,7,0.213,39.8,-2.5
+random,OK,32,22,5,0.354,42.5,-3.1
+random,OK,32,36,6,0.396,54.8,-6.8
+random,OK,33,17,5,0.03,38.2,-1.1
+random,OK,33,20,6,0.167,40.9,-1.5
+random,OK,33,31,5,-0.233,50.6,-3.8
+random,OK,34,31,5,-0.108,50.8,-2.4
+random,OK,34,34,5,-0.189,53.4,-3.2
+random,OK,35,21,5,-0.117,42.0,0.7
+random,OK,35,23,7,-0.314,43.8,0.4
+random,OK,35,25,5,0.449,45.6,0.1
+random,OK,35,32,5,0.111,51.8,-1.2
+random,OK,35,36,5,0.072,55.4,-2.2
+random,OK,36,24,5,0.233,44.8,1.5
+random,OK,36,25,7,-0.258,45.7,1.4
+random,OK,36,26,5,0.067,46.6,1.2
+random,OK,36,33,5,0.175,52.8,0.0
+random,OK,37,26,5,0.151,46.7,2.5
+random,OK,37,27,7,0.225,47.6,2.4
+random,OK,37,29,6,0.39,49.4,2.1
+random,OK,38,24,6,-0.463,45.0,4.0
+random,OK,38,29,6,-0.13,49.5,3.5
+random,OK,38,30,6,0.127,50.4,3.4
+random,OK,39,27,6,0.183,47.8,5.1
+random,OK,40,23,5,0.159,44.2,6.6
+random,OK,40,29,7,-0.176,49.6,6.2
+random,OK,40,30,5,-0.033,50.5,6.2
+random,OK,41,24,5,-0.728,45.1,7.8
+random,OK,42,18,6,0.031,39.7,9.2
+random,OK,42,28,5,-0.155,48.8,9.0
+random,OK,42,32,5,-0.086,52.4,9.0
+random,OK,43,24,5,0.429,45.2,10.4
+random,OK,43,32,5,0.144,52.4,10.4
+random,OK,44,22,5,0.024,43.3,11.6
+random,OK,44,24,5,0.081,45.1,11.6
+random,OK,44,26,5,-0.365,47.0,11.7
+random,OK,44,31,5,0.506,51.4,11.9
+random,OK,45,28,7,0.087,48.7,13.1
+random,OK,45,33,5,-0.203,53.2,13.4
+random,OK,45,36,6,-0.156,55.9,13.7
+random,OK,45,37,5,-0.006,56.8,13.7
+random,OK,45,43,6,-0.074,62.2,14.4
+random,OK,45,44,5,0.137,63.1,14.5
+random,OK,45,45,6,-0.028,64.0,14.7
+random,OK,46,26,5,0.061,46.9,14.3
+random,OK,46,29,6,0.004,49.6,14.6
+random,OK,46,30,5,-0.164,50.5,14.6
+random,OK,46,31,5,0.326,51.4,14.7
+random,OK,46,32,6,0.023,52.3,14.8
+random,OK,46,37,6,0.052,56.7,15.4
+random,OK,46,41,5,-0.048,60.3,15.9
+random,OK,46,42,5,-0.069,61.2,16.1
+random,OK,46,43,5,0.154,62.1,16.3
+random,OK,46,47,5,-0.147,65.7,17.1
+random,OK,47,20,5,-0.032,41.4,15.1
+random,OK,47,25,5,0.466,45.9,15.5
+random,OK,47,26,5,-0.565,46.8,15.6
+random,OK,47,28,7,0.394,48.6,15.8
+random,OK,47,31,5,-0.499,51.3,16.2
+random,OK,47,40,7,-0.011,59.3,17.5
+random,OK,47,46,6,0.007,64.7,19.0
+random,OK,48,29,5,-0.368,49.4,17.3
+random,OK,48,30,8,0.126,50.3,17.4
+random,OK,48,34,7,-0.277,53.9,18.1
+random,OK,48,50,6,0.08,68.1,22.7
+random,OK,49,27,5,0.587,47.5,18.4
+random,OK,49,32,6,-0.304,52.0,19.2
+random,OK,49,34,5,-0.276,53.8,19.6
+random,OK,50,29,5,0.123,49.2,20.0
+random,OK,50,31,6,0.21,51.0,20.4
+random,OK,50,33,5,-0.462,52.8,20.8
+random,OK,50,37,6,0.005,56.3,21.8
+random,OK,50,43,5,-0.19,61.6,23.8
+random,OK,50,44,6,-0.103,62.5,24.2
+random,OK,50,46,5,0.094,64.2,25.1
+random,OK,50,48,5,0.081,66.0,26.1
+random,OK,51,29,6,-0.363,49.1,21.4
+random,OK,51,34,5,-0.532,53.5,22.6
+random,OK,51,35,5,0.334,54.4,22.8
+random,OK,51,43,5,0.019,61.4,25.6
+random,OK,51,45,6,-0.038,63.2,26.6
+random,OK,52,19,5,0.134,40.0,20.9
+random,OK,52,36,5,0.359,55.1,24.7
+random,OK,52,39,6,-0.627,57.7,25.7
+random,OK,52,43,5,-0.23,61.2,27.4
+random,OK,52,45,6,0.329,62.9,28.5
+random,OK,53,37,5,0.05,55.8,26.6
+random,OK,54,17,6,0.343,38.0,22.8
+random,OK,64,16,5,0.028,35.0,33.5
+random,RK (RF),27,19,6,0.273,38.9,-8.2
+random,RK (RF),28,18,5,0.276,38.3,-6.8
+random,RK (RF),28,20,5,0.221,40.0,-7.3
+random,RK (RF),28,22,5,0.008,41.8,-7.8
+random,RK (RF),29,20,8,-0.157,40.2,-6.2
+random,RK (RF),29,22,5,-0.157,42.0,-6.6
+random,RK (RF),30,18,7,-0.169,38.6,-4.6
+random,RK (RF),30,19,5,0.136,39.5,-4.8
+random,RK (RF),30,21,5,0.054,41.3,-5.2
+random,RK (RF),30,23,5,-0.093,43.1,-5.7
+random,RK (RF),32,17,5,0.208,38.1,-2.2
+random,RK (RF),32,19,7,0.283,39.8,-2.5
+random,RK (RF),32,22,5,0.431,42.5,-3.1
+random,RK (RF),32,36,6,0.402,54.8,-6.8
+random,RK (RF),33,17,5,-0.053,38.2,-1.1
+random,RK (RF),33,20,6,0.126,40.9,-1.5
+random,RK (RF),33,31,5,-0.295,50.6,-3.8
+random,RK (RF),34,31,5,-0.161,50.8,-2.4
+random,RK (RF),34,34,5,-0.254,53.4,-3.2
+random,RK (RF),35,21,5,0.114,42.0,0.7
+random,RK (RF),35,23,7,-0.393,43.8,0.4
+random,RK (RF),35,25,5,0.535,45.6,0.1
+random,RK (RF),35,32,5,0.251,51.8,-1.2
+random,RK (RF),35,36,5,0.125,55.4,-2.2
+random,RK (RF),36,24,5,0.369,44.8,1.5
+random,RK (RF),36,25,7,-0.075,45.7,1.4
+random,RK (RF),36,26,5,0.201,46.6,1.2
+random,RK (RF),36,33,5,0.02,52.8,0.0
+random,RK (RF),37,26,5,0.048,46.7,2.5
+random,RK (RF),37,27,7,-0.017,47.6,2.4
+random,RK (RF),37,29,6,0.353,49.4,2.1
+random,RK (RF),38,24,6,-0.568,45.0,4.0
+random,RK (RF),38,29,6,-0.072,49.5,3.5
+random,RK (RF),38,30,6,0.147,50.4,3.4
+random,RK (RF),39,27,6,0.355,47.8,5.1
+random,RK (RF),40,23,5,0.683,44.2,6.6
+random,RK (RF),40,29,7,-0.091,49.6,6.2
+random,RK (RF),40,30,5,0.026,50.5,6.2
+random,RK (RF),41,24,5,-1.167,45.1,7.8
+random,RK (RF),42,18,6,-0.637,39.7,9.2
+random,RK (RF),42,28,5,-0.013,48.8,9.0
+random,RK (RF),42,32,5,-0.054,52.4,9.0
+random,RK (RF),43,24,5,0.387,45.2,10.4
+random,RK (RF),43,32,5,-0.005,52.4,10.4
+random,RK (RF),44,22,5,0.236,43.3,11.6
+random,RK (RF),44,24,5,-0.043,45.1,11.6
+random,RK (RF),44,26,5,-0.305,47.0,11.7
+random,RK (RF),44,31,5,0.312,51.4,11.9
+random,RK (RF),45,28,7,-0.071,48.7,13.1
+random,RK (RF),45,33,5,-0.074,53.2,13.4
+random,RK (RF),45,36,6,-0.117,55.9,13.7
+random,RK (RF),45,37,5,-0.006,56.8,13.7
+random,RK (RF),45,43,6,-0.038,62.2,14.4
+random,RK (RF),45,44,5,0.183,63.1,14.5
+random,RK (RF),45,45,6,-0.062,64.0,14.7
+random,RK (RF),46,26,5,0.198,46.9,14.3
+random,RK (RF),46,29,6,-0.226,49.6,14.6
+random,RK (RF),46,30,5,-0.19,50.5,14.6
+random,RK (RF),46,31,5,0.066,51.4,14.7
+random,RK (RF),46,32,6,-0.051,52.3,14.8
+random,RK (RF),46,37,6,0.132,56.7,15.4
+random,RK (RF),46,41,5,-0.11,60.3,15.9
+random,RK (RF),46,42,5,-0.039,61.2,16.1
+random,RK (RF),46,43,5,0.242,62.1,16.3
+random,RK (RF),46,47,5,-0.135,65.7,17.1
+random,RK (RF),47,20,5,0.134,41.4,15.1
+random,RK (RF),47,25,5,0.289,45.9,15.5
+random,RK (RF),47,26,5,-0.665,46.8,15.6
+random,RK (RF),47,28,7,0.449,48.6,15.8
+random,RK (RF),47,31,5,-0.588,51.3,16.2
+random,RK (RF),47,40,7,-0.16,59.3,17.5
+random,RK (RF),47,46,6,-0.121,64.7,19.0
+random,RK (RF),48,29,5,-0.126,49.4,17.3
+random,RK (RF),48,30,8,0.225,50.3,17.4
+random,RK (RF),48,34,7,-0.037,53.9,18.1
+random,RK (RF),48,50,6,0.135,68.1,22.7
+random,RK (RF),49,27,5,0.556,47.5,18.4
+random,RK (RF),49,32,6,-0.147,52.0,19.2
+random,RK (RF),49,34,5,-0.331,53.8,19.6
+random,RK (RF),50,29,5,0.172,49.2,20.0
+random,RK (RF),50,31,6,0.332,51.0,20.4
+random,RK (RF),50,33,5,-0.595,52.8,20.8
+random,RK (RF),50,37,6,0.343,56.3,21.8
+random,RK (RF),50,43,5,-0.251,61.6,23.8
+random,RK (RF),50,44,6,-0.071,62.5,24.2
+random,RK (RF),50,46,5,0.105,64.2,25.1
+random,RK (RF),50,48,5,0.128,66.0,26.1
+random,RK (RF),51,29,6,-0.193,49.1,21.4
+random,RK (RF),51,34,5,-0.512,53.5,22.6
+random,RK (RF),51,35,5,0.407,54.4,22.8
+random,RK (RF),51,43,5,-0.06,61.4,25.6
+random,RK (RF),51,45,6,0.037,63.2,26.6
+random,RK (RF),52,19,5,0.387,40.0,20.9
+random,RK (RF),52,36,5,0.295,55.1,24.7
+random,RK (RF),52,39,6,-0.754,57.7,25.7
+random,RK (RF),52,43,5,-0.292,61.2,27.4
+random,RK (RF),52,45,6,0.443,62.9,28.5
+random,RK (RF),53,37,5,0.219,55.8,26.6
+random,RK (RF),54,17,6,0.569,38.0,22.8
+random,RK (RF),64,16,5,0.016,35.0,33.5
+random,RK (linear),27,19,6,0.154,38.9,-8.2
+random,RK (linear),28,18,5,-0.114,38.3,-6.8
+random,RK (linear),28,20,5,0.112,40.0,-7.3
+random,RK (linear),28,22,5,-0.103,41.8,-7.8
+random,RK (linear),29,20,8,-0.092,40.2,-6.2
+random,RK (linear),29,22,5,-0.29,42.0,-6.6
+random,RK (linear),30,18,7,-0.197,38.6,-4.6
+random,RK (linear),30,19,5,0.263,39.5,-4.8
+random,RK (linear),30,21,5,-0.11,41.3,-5.2
+random,RK (linear),30,23,5,0.042,43.1,-5.7
+random,RK (linear),32,17,5,0.227,38.1,-2.2
+random,RK (linear),32,19,7,0.156,39.8,-2.5
+random,RK (linear),32,22,5,0.346,42.5,-3.1
+random,RK (linear),32,36,6,0.344,54.8,-6.8
+random,RK (linear),33,17,5,-0.177,38.2,-1.1
+random,RK (linear),33,20,6,0.229,40.9,-1.5
+random,RK (linear),33,31,5,-0.145,50.6,-3.8
+random,RK (linear),34,31,5,-0.193,50.8,-2.4
+random,RK (linear),34,34,5,-0.215,53.4,-3.2
+random,RK (linear),35,21,5,-0.01,42.0,0.7
+random,RK (linear),35,23,7,-0.319,43.8,0.4
+random,RK (linear),35,25,5,0.469,45.6,0.1
+random,RK (linear),35,32,5,-0.02,51.8,-1.2
+random,RK (linear),35,36,5,-0.016,55.4,-2.2
+random,RK (linear),36,24,5,0.209,44.8,1.5
+random,RK (linear),36,25,7,-0.3,45.7,1.4
+random,RK (linear),36,26,5,0.008,46.6,1.2
+random,RK (linear),36,33,5,0.143,52.8,0.0
+random,RK (linear),37,26,5,0.132,46.7,2.5
+random,RK (linear),37,27,7,0.201,47.6,2.4
+random,RK (linear),37,29,6,0.354,49.4,2.1
+random,RK (linear),38,24,6,-0.357,45.0,4.0
+random,RK (linear),38,29,6,-0.151,49.5,3.5
+random,RK (linear),38,30,6,0.115,50.4,3.4
+random,RK (linear),39,27,6,0.224,47.8,5.1
+random,RK (linear),40,23,5,0.201,44.2,6.6
+random,RK (linear),40,29,7,-0.153,49.6,6.2
+random,RK (linear),40,30,5,-0.014,50.5,6.2
+random,RK (linear),41,24,5,-0.788,45.1,7.8
+random,RK (linear),42,18,6,-0.02,39.7,9.2
+random,RK (linear),42,28,5,-0.152,48.8,9.0
+random,RK (linear),42,32,5,-0.115,52.4,9.0
+random,RK (linear),43,24,5,0.35,45.2,10.4
+random,RK (linear),43,32,5,0.17,52.4,10.4
+random,RK (linear),44,22,5,0.072,43.3,11.6
+random,RK (linear),44,24,5,-0.127,45.1,11.6
+random,RK (linear),44,26,5,-0.297,47.0,11.7
+random,RK (linear),44,31,5,0.441,51.4,11.9
+random,RK (linear),45,28,7,0.087,48.7,13.1
+random,RK (linear),45,33,5,-0.155,53.2,13.4
+random,RK (linear),45,36,6,-0.128,55.9,13.7
+random,RK (linear),45,37,5,0.083,56.8,13.7
+random,RK (linear),45,43,6,0.011,62.2,14.4
+random,RK (linear),45,44,5,0.069,63.1,14.5
+random,RK (linear),45,45,6,-0.036,64.0,14.7
+random,RK (linear),46,26,5,0.22,46.9,14.3
+random,RK (linear),46,29,6,-0.062,49.6,14.6
+random,RK (linear),46,30,5,-0.14,50.5,14.6
+random,RK (linear),46,31,5,0.302,51.4,14.7
+random,RK (linear),46,32,6,0.009,52.3,14.8
+random,RK (linear),46,37,6,0.073,56.7,15.4
+random,RK (linear),46,41,5,-0.066,60.3,15.9
+random,RK (linear),46,42,5,-0.1,61.2,16.1
+random,RK (linear),46,43,5,0.154,62.1,16.3
+random,RK (linear),46,47,5,-0.04,65.7,17.1
+random,RK (linear),47,20,5,-0.342,41.4,15.1
+random,RK (linear),47,25,5,0.504,45.9,15.5
+random,RK (linear),47,26,5,-0.476,46.8,15.6
+random,RK (linear),47,28,7,0.32,48.6,15.8
+random,RK (linear),47,31,5,-0.506,51.3,16.2
+random,RK (linear),47,40,7,-0.068,59.3,17.5
+random,RK (linear),47,46,6,-0.002,64.7,19.0
+random,RK (linear),48,29,5,-0.293,49.4,17.3
+random,RK (linear),48,30,8,0.212,50.3,17.4
+random,RK (linear),48,34,7,-0.257,53.9,18.1
+random,RK (linear),48,50,6,0.057,68.1,22.7
+random,RK (linear),49,27,5,0.463,47.5,18.4
+random,RK (linear),49,32,6,-0.327,52.0,19.2
+random,RK (linear),49,34,5,-0.239,53.8,19.6
+random,RK (linear),50,29,5,0.351,49.2,20.0
+random,RK (linear),50,31,6,0.194,51.0,20.4
+random,RK (linear),50,33,5,-0.473,52.8,20.8
+random,RK (linear),50,37,6,0.113,56.3,21.8
+random,RK (linear),50,43,5,-0.177,61.6,23.8
+random,RK (linear),50,44,6,-0.06,62.5,24.2
+random,RK (linear),50,46,5,0.114,64.2,25.1
+random,RK (linear),50,48,5,0.077,66.0,26.1
+random,RK (linear),51,29,6,-0.276,49.1,21.4
+random,RK (linear),51,34,5,-0.542,53.5,22.6
+random,RK (linear),51,35,5,0.346,54.4,22.8
+random,RK (linear),51,43,5,0.04,61.4,25.6
+random,RK (linear),51,45,6,-0.018,63.2,26.6
+random,RK (linear),52,19,5,0.328,40.0,20.9
+random,RK (linear),52,36,5,0.305,55.1,24.7
+random,RK (linear),52,39,6,-0.578,57.7,25.7
+random,RK (linear),52,43,5,-0.264,61.2,27.4
+random,RK (linear),52,45,6,0.277,62.9,28.5
+random,RK (linear),53,37,5,0.036,55.8,26.6
+random,RK (linear),54,17,6,0.354,38.0,22.8
+random,RK (linear),64,16,5,-0.025,35.0,33.5
+random,Random Forest,27,19,6,0.086,38.9,-8.2
+random,Random Forest,28,18,5,0.187,38.3,-6.8
+random,Random Forest,28,20,5,-0.002,40.0,-7.3
+random,Random Forest,28,22,5,-0.168,41.8,-7.8
+random,Random Forest,29,20,8,-0.369,40.2,-6.2
+random,Random Forest,29,22,5,-0.287,42.0,-6.6
+random,Random Forest,30,18,7,-0.25,38.6,-4.6
+random,Random Forest,30,19,5,-0.095,39.5,-4.8
+random,Random Forest,30,21,5,-0.127,41.3,-5.2
+random,Random Forest,30,23,5,-0.186,43.1,-5.7
+random,Random Forest,32,17,5,0.349,38.1,-2.2
+random,Random Forest,32,19,7,0.285,39.8,-2.5
+random,Random Forest,32,22,5,0.481,42.5,-3.1
+random,Random Forest,32,36,6,0.382,54.8,-6.8
+random,Random Forest,33,17,5,0.193,38.2,-1.1
+random,Random Forest,33,20,6,0.289,40.9,-1.5
+random,Random Forest,33,31,5,-0.249,50.6,-3.8
+random,Random Forest,34,31,5,-0.079,50.8,-2.4
+random,Random Forest,34,34,5,-0.179,53.4,-3.2
+random,Random Forest,35,21,5,0.205,42.0,0.7
+random,Random Forest,35,23,7,-0.387,43.8,0.4
+random,Random Forest,35,25,5,0.351,45.6,0.1
+random,Random Forest,35,32,5,0.369,51.8,-1.2
+random,Random Forest,35,36,5,0.193,55.4,-2.2
+random,Random Forest,36,24,5,0.231,44.8,1.5
+random,Random Forest,36,25,7,-0.266,45.7,1.4
+random,Random Forest,36,26,5,-0.007,46.6,1.2
+random,Random Forest,36,33,5,0.192,52.8,0.0
+random,Random Forest,37,26,5,-0.202,46.7,2.5
+random,Random Forest,37,27,7,-0.045,47.6,2.4
+random,Random Forest,37,29,6,0.431,49.4,2.1
+random,Random Forest,38,24,6,-0.544,45.0,4.0
+random,Random Forest,38,29,6,0.012,49.5,3.5
+random,Random Forest,38,30,6,0.222,50.4,3.4
+random,Random Forest,39,27,6,0.331,47.8,5.1
+random,Random Forest,40,23,5,0.653,44.2,6.6
+random,Random Forest,40,29,7,-0.105,49.6,6.2
+random,Random Forest,40,30,5,0.02,50.5,6.2
+random,Random Forest,41,24,5,-0.974,45.1,7.8
+random,Random Forest,42,18,6,-0.62,39.7,9.2
+random,Random Forest,42,28,5,0.035,48.8,9.0
+random,Random Forest,42,32,5,-0.106,52.4,9.0
+random,Random Forest,43,24,5,0.511,45.2,10.4
+random,Random Forest,43,32,5,-0.007,52.4,10.4
+random,Random Forest,44,22,5,0.287,43.3,11.6
+random,Random Forest,44,24,5,0.182,45.1,11.6
+random,Random Forest,44,26,5,-0.111,47.0,11.7
+random,Random Forest,44,31,5,0.282,51.4,11.9
+random,Random Forest,45,28,7,0.031,48.7,13.1
+random,Random Forest,45,33,5,-0.18,53.2,13.4
+random,Random Forest,45,36,6,-0.117,55.9,13.7
+random,Random Forest,45,37,5,-0.059,56.8,13.7
+random,Random Forest,45,43,6,-0.069,62.2,14.4
+random,Random Forest,45,44,5,0.155,63.1,14.5
+random,Random Forest,45,45,6,-0.045,64.0,14.7
+random,Random Forest,46,26,5,0.219,46.9,14.3
+random,Random Forest,46,29,6,-0.121,49.6,14.6
+random,Random Forest,46,30,5,-0.181,50.5,14.6
+random,Random Forest,46,31,5,-0.016,51.4,14.7
+random,Random Forest,46,32,6,-0.158,52.3,14.8
+random,Random Forest,46,37,6,0.089,56.7,15.4
+random,Random Forest,46,41,5,-0.158,60.3,15.9
+random,Random Forest,46,42,5,-0.061,61.2,16.1
+random,Random Forest,46,43,5,0.219,62.1,16.3
+random,Random Forest,46,47,5,-0.116,65.7,17.1
+random,Random Forest,47,20,5,0.156,41.4,15.1
+random,Random Forest,47,25,5,0.183,45.9,15.5
+random,Random Forest,47,26,5,-0.63,46.8,15.6
+random,Random Forest,47,28,7,0.584,48.6,15.8
+random,Random Forest,47,31,5,-0.668,51.3,16.2
+random,Random Forest,47,40,7,-0.143,59.3,17.5
+random,Random Forest,47,46,6,-0.094,64.7,19.0
+random,Random Forest,48,29,5,-0.039,49.4,17.3
+random,Random Forest,48,30,8,0.225,50.3,17.4
+random,Random Forest,48,34,7,-0.23,53.9,18.1
+random,Random Forest,48,50,6,0.129,68.1,22.7
+random,Random Forest,49,27,5,0.658,47.5,18.4
+random,Random Forest,49,32,6,-0.288,52.0,19.2
+random,Random Forest,49,34,5,-0.505,53.8,19.6
+random,Random Forest,50,29,5,0.155,49.2,20.0
+random,Random Forest,50,31,6,0.249,51.0,20.4
+random,Random Forest,50,33,5,-0.771,52.8,20.8
+random,Random Forest,50,37,6,0.49,56.3,21.8
+random,Random Forest,50,43,5,-0.198,61.6,23.8
+random,Random Forest,50,44,6,-0.075,62.5,24.2
+random,Random Forest,50,46,5,0.122,64.2,25.1
+random,Random Forest,50,48,5,0.151,66.0,26.1
+random,Random Forest,51,29,6,-0.242,49.1,21.4
+random,Random Forest,51,34,5,-0.596,53.5,22.6
+random,Random Forest,51,35,5,0.332,54.4,22.8
+random,Random Forest,51,43,5,-0.026,61.4,25.6
+random,Random Forest,51,45,6,0.006,63.2,26.6
+random,Random Forest,52,19,5,0.41,40.0,20.9
+random,Random Forest,52,36,5,0.329,55.1,24.7
+random,Random Forest,52,39,6,-0.568,57.7,25.7
+random,Random Forest,52,43,5,-0.248,61.2,27.4
+random,Random Forest,52,45,6,0.422,62.9,28.5
+random,Random Forest,53,37,5,0.355,55.8,26.6
+random,Random Forest,54,17,6,0.613,38.0,22.8
+random,Random Forest,64,16,5,-0.012,35.0,33.5
+random,UK,27,19,6,0.157,38.9,-8.2
+random,UK,28,18,5,-0.084,38.3,-6.8
+random,UK,28,20,5,0.021,40.0,-7.3
+random,UK,28,22,5,-0.154,41.8,-7.8
+random,UK,29,20,8,-0.161,40.2,-6.2
+random,UK,29,22,5,-0.321,42.0,-6.6
+random,UK,30,18,7,-0.154,38.6,-4.6
+random,UK,30,19,5,0.4,39.5,-4.8
+random,UK,30,21,5,0.055,41.3,-5.2
+random,UK,30,23,5,0.131,43.1,-5.7
+random,UK,32,17,5,0.075,38.1,-2.2
+random,UK,32,19,7,0.176,39.8,-2.5
+random,UK,32,22,5,0.309,42.5,-3.1
+random,UK,32,36,6,0.384,54.8,-6.8
+random,UK,33,17,5,-0.034,38.2,-1.1
+random,UK,33,20,6,0.167,40.9,-1.5
+random,UK,33,31,5,-0.236,50.6,-3.8
+random,UK,34,31,5,-0.114,50.8,-2.4
+random,UK,34,34,5,-0.186,53.4,-3.2
+random,UK,35,21,5,-0.118,42.0,0.7
+random,UK,35,23,7,-0.317,43.8,0.4
+random,UK,35,25,5,0.47,45.6,0.1
+random,UK,35,32,5,0.105,51.8,-1.2
+random,UK,35,36,5,0.073,55.4,-2.2
+random,UK,36,24,5,0.223,44.8,1.5
+random,UK,36,25,7,-0.276,45.7,1.4
+random,UK,36,26,5,0.066,46.6,1.2
+random,UK,36,33,5,0.17,52.8,0.0
+random,UK,37,26,5,0.133,46.7,2.5
+random,UK,37,27,7,0.222,47.6,2.4
+random,UK,37,29,6,0.408,49.4,2.1
+random,UK,38,24,6,-0.449,45.0,4.0
+random,UK,38,29,6,-0.125,49.5,3.5
+random,UK,38,30,6,0.134,50.4,3.4
+random,UK,39,27,6,0.188,47.8,5.1
+random,UK,40,23,5,0.141,44.2,6.6
+random,UK,40,29,7,-0.181,49.6,6.2
+random,UK,40,30,5,-0.017,50.5,6.2
+random,UK,41,24,5,-0.684,45.1,7.8
+random,UK,42,18,6,-0.006,39.7,9.2
+random,UK,42,28,5,-0.152,48.8,9.0
+random,UK,42,32,5,-0.077,52.4,9.0
+random,UK,43,24,5,0.427,45.2,10.4
+random,UK,43,32,5,0.142,52.4,10.4
+random,UK,44,22,5,-0.001,43.3,11.6
+random,UK,44,24,5,0.021,45.1,11.6
+random,UK,44,26,5,-0.358,47.0,11.7
+random,UK,44,31,5,0.508,51.4,11.9
+random,UK,45,28,7,0.079,48.7,13.1
+random,UK,45,33,5,-0.179,53.2,13.4
+random,UK,45,36,6,-0.166,55.9,13.7
+random,UK,45,37,5,0.021,56.8,13.7
+random,UK,45,43,6,-0.073,62.2,14.4
+random,UK,45,44,5,0.124,63.1,14.5
+random,UK,45,45,6,-0.032,64.0,14.7
+random,UK,46,26,5,0.06,46.9,14.3
+random,UK,46,29,6,-0.012,49.6,14.6
+random,UK,46,30,5,-0.17,50.5,14.6
+random,UK,46,31,5,0.328,51.4,14.7
+random,UK,46,32,6,0.01,52.3,14.8
+random,UK,46,37,6,0.061,56.7,15.4
+random,UK,46,41,5,-0.049,60.3,15.9
+random,UK,46,42,5,-0.048,61.2,16.1
+random,UK,46,43,5,0.16,62.1,16.3
+random,UK,46,47,5,-0.141,65.7,17.1
+random,UK,47,20,5,-0.026,41.4,15.1
+random,UK,47,25,5,0.487,45.9,15.5
+random,UK,47,26,5,-0.556,46.8,15.6
+random,UK,47,28,7,0.371,48.6,15.8
+random,UK,47,31,5,-0.499,51.3,16.2
+random,UK,47,40,7,-0.011,59.3,17.5
+random,UK,47,46,6,0.009,64.7,19.0
+random,UK,48,29,5,-0.379,49.4,17.3
+random,UK,48,30,8,0.111,50.3,17.4
+random,UK,48,34,7,-0.27,53.9,18.1
+random,UK,48,50,6,0.084,68.1,22.7
+random,UK,49,27,5,0.585,47.5,18.4
+random,UK,49,32,6,-0.287,52.0,19.2
+random,UK,49,34,5,-0.261,53.8,19.6
+random,UK,50,29,5,0.131,49.2,20.0
+random,UK,50,31,6,0.215,51.0,20.4
+random,UK,50,33,5,-0.458,52.8,20.8
+random,UK,50,37,6,-0.01,56.3,21.8
+random,UK,50,43,5,-0.185,61.6,23.8
+random,UK,50,44,6,-0.097,62.5,24.2
+random,UK,50,46,5,0.075,64.2,25.1
+random,UK,50,48,5,0.078,66.0,26.1
+random,UK,51,29,6,-0.36,49.1,21.4
+random,UK,51,34,5,-0.513,53.5,22.6
+random,UK,51,35,5,0.309,54.4,22.8
+random,UK,51,43,5,0.019,61.4,25.6
+random,UK,51,45,6,-0.038,63.2,26.6
+random,UK,52,19,5,0.138,40.0,20.9
+random,UK,52,36,5,0.31,55.1,24.7
+random,UK,52,39,6,-0.635,57.7,25.7
+random,UK,52,43,5,-0.234,61.2,27.4
+random,UK,52,45,6,0.321,62.9,28.5
+random,UK,53,37,5,0.045,55.8,26.6
+random,UK,54,17,6,0.34,38.0,22.8
+random,UK,64,16,5,0.128,35.0,33.5
+spatial,GPR,27,19,6,0.563,38.9,-8.2
+spatial,GPR,28,18,5,0.263,38.3,-6.8
+spatial,GPR,28,20,5,-0.216,40.0,-7.3
+spatial,GPR,28,22,5,-0.879,41.8,-7.8
+spatial,GPR,29,20,8,-0.436,40.2,-6.2
+spatial,GPR,29,22,5,-0.92,42.0,-6.6
+spatial,GPR,30,18,7,0.154,38.6,-4.6
+spatial,GPR,30,19,5,0.543,39.5,-4.8
+spatial,GPR,30,21,5,0.752,41.3,-5.2
+spatial,GPR,30,23,5,0.713,43.1,-5.7
+spatial,GPR,32,17,5,1.304,38.1,-2.2
+spatial,GPR,32,19,7,0.849,39.8,-2.5
+spatial,GPR,32,22,5,1.244,42.5,-3.1
+spatial,GPR,32,36,6,0.449,54.8,-6.8
+spatial,GPR,33,17,5,1.26,38.2,-1.1
+spatial,GPR,33,20,6,0.387,40.9,-1.5
+spatial,GPR,33,31,5,-0.794,50.6,-3.8
+spatial,GPR,34,31,5,-0.529,50.8,-2.4
+spatial,GPR,34,34,5,-0.188,53.4,-3.2
+spatial,GPR,35,21,5,-0.158,42.0,0.7
+spatial,GPR,35,23,7,-0.233,43.8,0.4
+spatial,GPR,35,25,5,0.434,45.6,0.1
+spatial,GPR,35,32,5,0.304,51.8,-1.2
+spatial,GPR,35,36,5,0.068,55.4,-2.2
+spatial,GPR,36,24,5,0.009,44.8,1.5
+spatial,GPR,36,25,7,-0.871,45.7,1.4
+spatial,GPR,36,26,5,-0.523,46.6,1.2
+spatial,GPR,36,33,5,0.55,52.8,0.0
+spatial,GPR,37,26,5,-0.596,46.7,2.5
+spatial,GPR,37,27,7,-0.116,47.6,2.4
+spatial,GPR,37,29,6,0.322,49.4,2.1
+spatial,GPR,38,24,6,-1.306,45.0,4.0
+spatial,GPR,38,29,6,0.124,49.5,3.5
+spatial,GPR,38,30,6,0.397,50.4,3.4
+spatial,GPR,39,27,6,0.27,47.8,5.1
+spatial,GPR,40,23,5,0.155,44.2,6.6
+spatial,GPR,40,29,7,-0.175,49.6,6.2
+spatial,GPR,40,30,5,0.099,50.5,6.2
+spatial,GPR,41,24,5,-1.008,45.1,7.8
+spatial,GPR,42,18,6,-0.12,39.7,9.2
+spatial,GPR,42,28,5,0.038,48.8,9.0
+spatial,GPR,42,32,5,0.3,52.4,9.0
+spatial,GPR,43,24,5,0.546,45.2,10.4
+spatial,GPR,43,32,5,0.437,52.4,10.4
+spatial,GPR,44,22,5,0.242,43.3,11.6
+spatial,GPR,44,24,5,0.331,45.1,11.6
+spatial,GPR,44,26,5,-0.251,47.0,11.7
+spatial,GPR,44,31,5,0.836,51.4,11.9
+spatial,GPR,45,28,7,0.117,48.7,13.1
+spatial,GPR,45,33,5,-0.301,53.2,13.4
+spatial,GPR,45,36,6,-0.38,55.9,13.7
+spatial,GPR,45,37,5,-0.232,56.8,13.7
+spatial,GPR,45,43,6,-0.019,62.2,14.4
+spatial,GPR,45,44,5,0.179,63.1,14.5
+spatial,GPR,45,45,6,-0.089,64.0,14.7
+spatial,GPR,46,26,5,0.35,46.9,14.3
+spatial,GPR,46,29,6,0.007,49.6,14.6
+spatial,GPR,46,30,5,-0.13,50.5,14.6
+spatial,GPR,46,31,5,0.279,51.4,14.7
+spatial,GPR,46,32,6,-0.08,52.3,14.8
+spatial,GPR,46,37,6,0.246,56.7,15.4
+spatial,GPR,46,41,5,-0.058,60.3,15.9
+spatial,GPR,46,42,5,-0.041,61.2,16.1
+spatial,GPR,46,43,5,0.174,62.1,16.3
+spatial,GPR,46,47,5,-0.577,65.7,17.1
+spatial,GPR,47,20,5,0.073,41.4,15.1
+spatial,GPR,47,25,5,0.493,45.9,15.5
+spatial,GPR,47,26,5,-0.424,46.8,15.6
+spatial,GPR,47,28,7,0.747,48.6,15.8
+spatial,GPR,47,31,5,-0.667,51.3,16.2
+spatial,GPR,47,40,7,-0.146,59.3,17.5
+spatial,GPR,47,46,6,-0.235,64.7,19.0
+spatial,GPR,48,29,5,-0.393,49.4,17.3
+spatial,GPR,48,30,8,0.4,50.3,17.4
+spatial,GPR,48,34,7,-0.379,53.9,18.1
+spatial,GPR,48,50,6,0.117,68.1,22.7
+spatial,GPR,49,27,5,0.932,47.5,18.4
+spatial,GPR,49,32,6,-0.412,52.0,19.2
+spatial,GPR,49,34,5,-0.442,53.8,19.6
+spatial,GPR,50,29,5,-0.224,49.2,20.0
+spatial,GPR,50,31,6,0.508,51.0,20.4
+spatial,GPR,50,33,5,-0.598,52.8,20.8
+spatial,GPR,50,37,6,-0.092,56.3,21.8
+spatial,GPR,50,43,5,-0.521,61.6,23.8
+spatial,GPR,50,44,6,-0.363,62.5,24.2
+spatial,GPR,50,46,5,0.211,64.2,25.1
+spatial,GPR,50,48,5,0.106,66.0,26.1
+spatial,GPR,51,29,6,-0.682,49.1,21.4
+spatial,GPR,51,34,5,-0.634,53.5,22.6
+spatial,GPR,51,35,5,0.449,54.4,22.8
+spatial,GPR,51,43,5,-0.408,61.4,25.6
+spatial,GPR,51,45,6,0.136,63.2,26.6
+spatial,GPR,52,19,5,0.507,40.0,20.9
+spatial,GPR,52,36,5,0.989,55.1,24.7
+spatial,GPR,52,39,6,-0.982,57.7,25.7
+spatial,GPR,52,43,5,-0.547,61.2,27.4
+spatial,GPR,52,45,6,0.36,62.9,28.5
+spatial,GPR,53,37,5,0.407,55.8,26.6
+spatial,GPR,54,17,6,0.73,38.0,22.8
+spatial,GPR,64,16,5,0.786,35.0,33.5
+spatial,LinReg (coords + covariates),27,19,6,-0.04,38.9,-8.2
+spatial,LinReg (coords + covariates),28,18,5,-0.272,38.3,-6.8
+spatial,LinReg (coords + covariates),28,20,5,-1.142,40.0,-7.3
+spatial,LinReg (coords + covariates),28,22,5,-1.19,41.8,-7.8
+spatial,LinReg (coords + covariates),29,20,8,-1.612,40.2,-6.2
+spatial,LinReg (coords + covariates),29,22,5,-1.409,42.0,-6.6
+spatial,LinReg (coords + covariates),30,18,7,-0.694,38.6,-4.6
+spatial,LinReg (coords + covariates),30,19,5,-0.878,39.5,-4.8
+spatial,LinReg (coords + covariates),30,21,5,-0.47,41.3,-5.2
+spatial,LinReg (coords + covariates),30,23,5,-0.634,43.1,-5.7
+spatial,LinReg (coords + covariates),32,17,5,1.043,38.1,-2.2
+spatial,LinReg (coords + covariates),32,19,7,0.856,39.8,-2.5
+spatial,LinReg (coords + covariates),32,22,5,0.759,42.5,-3.1
+spatial,LinReg (coords + covariates),32,36,6,0.928,54.8,-6.8
+spatial,LinReg (coords + covariates),33,17,5,0.574,38.2,-1.1
+spatial,LinReg (coords + covariates),33,20,6,0.955,40.9,-1.5
+spatial,LinReg (coords + covariates),33,31,5,-0.204,50.6,-3.8
+spatial,LinReg (coords + covariates),34,31,5,0.151,50.8,-2.4
+spatial,LinReg (coords + covariates),34,34,5,0.05,53.4,-3.2
+spatial,LinReg (coords + covariates),35,21,5,0.283,42.0,0.7
+spatial,LinReg (coords + covariates),35,23,7,-0.655,43.8,0.4
+spatial,LinReg (coords + covariates),35,25,5,0.331,45.6,0.1
+spatial,LinReg (coords + covariates),35,32,5,0.671,51.8,-1.2
+spatial,LinReg (coords + covariates),35,36,5,0.042,55.4,-2.2
+spatial,LinReg (coords + covariates),36,24,5,-0.204,44.8,1.5
+spatial,LinReg (coords + covariates),36,25,7,-0.866,45.7,1.4
+spatial,LinReg (coords + covariates),36,26,5,-0.501,46.6,1.2
+spatial,LinReg (coords + covariates),36,33,5,0.78,52.8,0.0
+spatial,LinReg (coords + covariates),37,26,5,-0.376,46.7,2.5
+spatial,LinReg (coords + covariates),37,27,7,0.001,47.6,2.4
+spatial,LinReg (coords + covariates),37,29,6,0.825,49.4,2.1
+spatial,LinReg (coords + covariates),38,24,6,-0.614,45.0,4.0
+spatial,LinReg (coords + covariates),38,29,6,0.475,49.5,3.5
+spatial,LinReg (coords + covariates),38,30,6,0.822,50.4,3.4
+spatial,LinReg (coords + covariates),39,27,6,0.358,47.8,5.1
+spatial,LinReg (coords + covariates),40,23,5,0.967,44.2,6.6
+spatial,LinReg (coords + covariates),40,29,7,0.163,49.6,6.2
+spatial,LinReg (coords + covariates),40,30,5,-0.041,50.5,6.2
+spatial,LinReg (coords + covariates),41,24,5,-0.753,45.1,7.8
+spatial,LinReg (coords + covariates),42,18,6,-0.701,39.7,9.2
+spatial,LinReg (coords + covariates),42,28,5,0.42,48.8,9.0
+spatial,LinReg (coords + covariates),42,32,5,-0.298,52.4,9.0
+spatial,LinReg (coords + covariates),43,24,5,0.937,45.2,10.4
+spatial,LinReg (coords + covariates),43,32,5,-0.311,52.4,10.4
+spatial,LinReg (coords + covariates),44,22,5,0.586,43.3,11.6
+spatial,LinReg (coords + covariates),44,24,5,0.605,45.1,11.6
+spatial,LinReg (coords + covariates),44,26,5,0.467,47.0,11.7
+spatial,LinReg (coords + covariates),44,31,5,0.67,51.4,11.9
+spatial,LinReg (coords + covariates),45,28,7,0.68,48.7,13.1
+spatial,LinReg (coords + covariates),45,33,5,-0.544,53.2,13.4
+spatial,LinReg (coords + covariates),45,36,6,-0.444,55.9,13.7
+spatial,LinReg (coords + covariates),45,37,5,-0.435,56.8,13.7
+spatial,LinReg (coords + covariates),45,43,6,-0.117,62.2,14.4
+spatial,LinReg (coords + covariates),45,44,5,0.027,63.1,14.5
+spatial,LinReg (coords + covariates),45,45,6,-0.124,64.0,14.7
+spatial,LinReg (coords + covariates),46,26,5,1.037,46.9,14.3
+spatial,LinReg (coords + covariates),46,29,6,0.223,49.6,14.6
+spatial,LinReg (coords + covariates),46,30,5,-0.155,50.5,14.6
+spatial,LinReg (coords + covariates),46,31,5,-0.013,51.4,14.7
+spatial,LinReg (coords + covariates),46,32,6,-0.567,52.3,14.8
+spatial,LinReg (coords + covariates),46,37,6,-0.195,56.7,15.4
+spatial,LinReg (coords + covariates),46,41,5,-0.286,60.3,15.9
+spatial,LinReg (coords + covariates),46,42,5,-0.266,61.2,16.1
+spatial,LinReg (coords + covariates),46,43,5,0.056,62.1,16.3
+spatial,LinReg (coords + covariates),46,47,5,-0.081,65.7,17.1
+spatial,LinReg (coords + covariates),47,20,5,-0.076,41.4,15.1
+spatial,LinReg (coords + covariates),47,25,5,0.399,45.9,15.5
+spatial,LinReg (coords + covariates),47,26,5,-0.078,46.8,15.6
+spatial,LinReg (coords + covariates),47,28,7,1.077,48.6,15.8
+spatial,LinReg (coords + covariates),47,31,5,-0.972,51.3,16.2
+spatial,LinReg (coords + covariates),47,40,7,-0.212,59.3,17.5
+spatial,LinReg (coords + covariates),47,46,6,-0.008,64.7,19.0
+spatial,LinReg (coords + covariates),48,29,5,0.247,49.4,17.3
+spatial,LinReg (coords + covariates),48,30,8,0.334,50.3,17.4
+spatial,LinReg (coords + covariates),48,34,7,-0.879,53.9,18.1
+spatial,LinReg (coords + covariates),48,50,6,0.186,68.1,22.7
+spatial,LinReg (coords + covariates),49,27,5,1.118,47.5,18.4
+spatial,LinReg (coords + covariates),49,32,6,-1.266,52.0,19.2
+spatial,LinReg (coords + covariates),49,34,5,-0.97,53.8,19.6
+spatial,LinReg (coords + covariates),50,29,5,0.265,49.2,20.0
+spatial,LinReg (coords + covariates),50,31,6,-0.52,51.0,20.4
+spatial,LinReg (coords + covariates),50,33,5,-1.801,52.8,20.8
+spatial,LinReg (coords + covariates),50,37,6,0.622,56.3,21.8
+spatial,LinReg (coords + covariates),50,43,5,-0.54,61.6,23.8
+spatial,LinReg (coords + covariates),50,44,6,-0.274,62.5,24.2
+spatial,LinReg (coords + covariates),50,46,5,0.337,64.2,25.1
+spatial,LinReg (coords + covariates),50,48,5,0.25,66.0,26.1
+spatial,LinReg (coords + covariates),51,29,6,-0.289,49.1,21.4
+spatial,LinReg (coords + covariates),51,34,5,-1.304,53.5,22.6
+spatial,LinReg (coords + covariates),51,35,5,0.063,54.4,22.8
+spatial,LinReg (coords + covariates),51,43,5,-0.307,61.4,25.6
+spatial,LinReg (coords + covariates),51,45,6,0.102,63.2,26.6
+spatial,LinReg (coords + covariates),52,19,5,0.432,40.0,20.9
+spatial,LinReg (coords + covariates),52,36,5,1.068,55.1,24.7
+spatial,LinReg (coords + covariates),52,39,6,-0.037,57.7,25.7
+spatial,LinReg (coords + covariates),52,43,5,-0.506,61.2,27.4
+spatial,LinReg (coords + covariates),52,45,6,0.362,62.9,28.5
+spatial,LinReg (coords + covariates),53,37,5,0.76,55.8,26.6
+spatial,LinReg (coords + covariates),54,17,6,0.949,38.0,22.8
+spatial,LinReg (coords + covariates),64,16,5,-0.38,35.0,33.5
+spatial,LinReg (coords),27,19,6,-0.669,38.9,-8.2
+spatial,LinReg (coords),28,18,5,-0.716,38.3,-6.8
+spatial,LinReg (coords),28,20,5,-1.698,40.0,-7.3
+spatial,LinReg (coords),28,22,5,-2.083,41.8,-7.8
+spatial,LinReg (coords),29,20,8,-1.992,40.2,-6.2
+spatial,LinReg (coords),29,22,5,-1.945,42.0,-6.6
+spatial,LinReg (coords),30,18,7,-0.689,38.6,-4.6
+spatial,LinReg (coords),30,19,5,-0.567,39.5,-4.8
+spatial,LinReg (coords),30,21,5,-0.312,41.3,-5.2
+spatial,LinReg (coords),30,23,5,-0.772,43.1,-5.7
+spatial,LinReg (coords),32,17,5,1.14,38.1,-2.2
+spatial,LinReg (coords),32,19,7,1.201,39.8,-2.5
+spatial,LinReg (coords),32,22,5,0.842,42.5,-3.1
+spatial,LinReg (coords),32,36,6,0.857,54.8,-6.8
+spatial,LinReg (coords),33,17,5,1.144,38.2,-1.1
+spatial,LinReg (coords),33,20,6,1.153,40.9,-1.5
+spatial,LinReg (coords),33,31,5,-0.242,50.6,-3.8
+spatial,LinReg (coords),34,31,5,0.366,50.8,-2.4
+spatial,LinReg (coords),34,34,5,0.341,53.4,-3.2
+spatial,LinReg (coords),35,21,5,0.442,42.0,0.7
+spatial,LinReg (coords),35,23,7,-0.766,43.8,0.4
+spatial,LinReg (coords),35,25,5,0.203,45.6,0.1
+spatial,LinReg (coords),35,32,5,1.031,51.8,-1.2
+spatial,LinReg (coords),35,36,5,0.5,55.4,-2.2
+spatial,LinReg (coords),36,24,5,-0.104,44.8,1.5
+spatial,LinReg (coords),36,25,7,-0.742,45.7,1.4
+spatial,LinReg (coords),36,26,5,-0.303,46.6,1.2
+spatial,LinReg (coords),36,33,5,1.31,52.8,0.0
+spatial,LinReg (coords),37,26,5,-0.221,46.7,2.5
+spatial,LinReg (coords),37,27,7,0.302,47.6,2.4
+spatial,LinReg (coords),37,29,6,1.172,49.4,2.1
+spatial,LinReg (coords),38,24,6,-0.775,45.0,4.0
+spatial,LinReg (coords),38,29,6,0.8,49.5,3.5
+spatial,LinReg (coords),38,30,6,1.083,50.4,3.4
+spatial,LinReg (coords),39,27,6,0.423,47.8,5.1
+spatial,LinReg (coords),40,23,5,0.8,44.2,6.6
+spatial,LinReg (coords),40,29,7,0.029,49.6,6.2
+spatial,LinReg (coords),40,30,5,0.26,50.5,6.2
+spatial,LinReg (coords),41,24,5,-0.779,45.1,7.8
+spatial,LinReg (coords),42,18,6,-0.663,39.7,9.2
+spatial,LinReg (coords),42,28,5,0.113,48.8,9.0
+spatial,LinReg (coords),42,32,5,0.089,52.4,9.0
+spatial,LinReg (coords),43,24,5,1.036,45.2,10.4
+spatial,LinReg (coords),43,32,5,0.124,52.4,10.4
+spatial,LinReg (coords),44,22,5,0.742,43.3,11.6
+spatial,LinReg (coords),44,24,5,0.969,45.1,11.6
+spatial,LinReg (coords),44,26,5,-0.163,47.0,11.7
+spatial,LinReg (coords),44,31,5,0.907,51.4,11.9
+spatial,LinReg (coords),45,28,7,0.177,48.7,13.1
+spatial,LinReg (coords),45,33,5,-0.242,53.2,13.4
+spatial,LinReg (coords),45,36,6,-0.11,55.9,13.7
+spatial,LinReg (coords),45,37,5,-0.269,56.8,13.7
+spatial,LinReg (coords),45,43,6,-0.41,62.2,14.4
+spatial,LinReg (coords),45,44,5,-0.04,63.1,14.5
+spatial,LinReg (coords),45,45,6,-0.254,64.0,14.7
+spatial,LinReg (coords),46,26,5,0.043,46.9,14.3
+spatial,LinReg (coords),46,29,6,-0.055,49.6,14.6
+spatial,LinReg (coords),46,30,5,-0.314,50.5,14.6
+spatial,LinReg (coords),46,31,5,0.074,51.4,14.7
+spatial,LinReg (coords),46,32,6,-0.348,52.3,14.8
+spatial,LinReg (coords),46,37,6,0.203,56.7,15.4
+spatial,LinReg (coords),46,41,5,-0.221,60.3,15.9
+spatial,LinReg (coords),46,42,5,-0.248,61.2,16.1
+spatial,LinReg (coords),46,43,5,-0.038,62.1,16.3
+spatial,LinReg (coords),46,47,5,-0.499,65.7,17.1
+spatial,LinReg (coords),47,20,5,0.64,41.4,15.1
+spatial,LinReg (coords),47,25,5,-0.216,45.9,15.5
+spatial,LinReg (coords),47,26,5,-0.709,46.8,15.6
+spatial,LinReg (coords),47,28,7,0.765,48.6,15.8
+spatial,LinReg (coords),47,31,5,-1.064,51.3,16.2
+spatial,LinReg (coords),47,40,7,0.091,59.3,17.5
+spatial,LinReg (coords),47,46,6,-0.131,64.7,19.0
+spatial,LinReg (coords),48,29,5,-0.28,49.4,17.3
+spatial,LinReg (coords),48,30,8,-0.054,50.3,17.4
+spatial,LinReg (coords),48,34,7,-0.799,53.9,18.1
+spatial,LinReg (coords),48,50,6,-0.166,68.1,22.7
+spatial,LinReg (coords),49,27,5,1.281,47.5,18.4
+spatial,LinReg (coords),49,32,6,-1.268,52.0,19.2
+spatial,LinReg (coords),49,34,5,-0.976,53.8,19.6
+spatial,LinReg (coords),50,29,5,-0.379,49.2,20.0
+spatial,LinReg (coords),50,31,6,-0.641,51.0,20.4
+spatial,LinReg (coords),50,33,5,-1.8,52.8,20.8
+spatial,LinReg (coords),50,37,6,0.497,56.3,21.8
+spatial,LinReg (coords),50,43,5,-0.474,61.6,23.8
+spatial,LinReg (coords),50,44,6,-0.301,62.5,24.2
+spatial,LinReg (coords),50,46,5,0.291,64.2,25.1
+spatial,LinReg (coords),50,48,5,0.113,66.0,26.1
+spatial,LinReg (coords),51,29,6,-0.782,49.1,21.4
+spatial,LinReg (coords),51,34,5,-1.345,53.5,22.6
+spatial,LinReg (coords),51,35,5,0.032,54.4,22.8
+spatial,LinReg (coords),51,43,5,-0.246,61.4,25.6
+spatial,LinReg (coords),51,45,6,0.038,63.2,26.6
+spatial,LinReg (coords),52,19,5,0.153,40.0,20.9
+spatial,LinReg (coords),52,36,5,1.113,55.1,24.7
+spatial,LinReg (coords),52,39,6,-0.059,57.7,25.7
+spatial,LinReg (coords),52,43,5,-0.379,61.2,27.4
+spatial,LinReg (coords),52,45,6,0.339,62.9,28.5
+spatial,LinReg (coords),53,37,5,0.823,55.8,26.6
+spatial,LinReg (coords),54,17,6,0.688,38.0,22.8
+spatial,LinReg (coords),64,16,5,-0.311,35.0,33.5
+spatial,Mean,27,19,6,-0.255,38.9,-8.2
+spatial,Mean,28,18,5,-0.223,38.3,-6.8
+spatial,Mean,28,20,5,-1.189,40.0,-7.3
+spatial,Mean,28,22,5,-1.673,41.8,-7.8
+spatial,Mean,29,20,8,-1.485,40.2,-6.2
+spatial,Mean,29,22,5,-1.547,42.0,-6.6
+spatial,Mean,30,18,7,-0.276,38.6,-4.6
+spatial,Mean,30,19,5,-0.224,39.5,-4.8
+spatial,Mean,30,21,5,-0.062,41.3,-5.2
+spatial,Mean,30,23,5,-0.63,43.1,-5.7
+spatial,Mean,32,17,5,1.65,38.1,-2.2
+spatial,Mean,32,19,7,1.598,39.8,-2.5
+spatial,Mean,32,22,5,1.072,42.5,-3.1
+spatial,Mean,32,36,6,0.129,54.8,-6.8
+spatial,Mean,33,17,5,1.668,38.2,-1.1
+spatial,Mean,33,20,6,1.513,40.9,-1.5
+spatial,Mean,33,31,5,-0.466,50.6,-3.8
+spatial,Mean,34,31,5,0.16,50.8,-2.4
+spatial,Mean,34,34,5,-0.012,53.4,-3.2
+spatial,Mean,35,21,5,0.875,42.0,0.7
+spatial,Mean,35,23,7,-0.452,43.8,0.4
+spatial,Mean,35,25,5,0.401,45.6,0.1
+spatial,Mean,35,32,5,0.652,51.8,-1.2
+spatial,Mean,35,36,5,0.056,55.4,-2.2
+spatial,Mean,36,24,5,0.167,44.8,1.5
+spatial,Mean,36,25,7,-0.533,45.7,1.4
+spatial,Mean,36,26,5,-0.163,46.6,1.2
+spatial,Mean,36,33,5,0.88,52.8,0.0
+spatial,Mean,37,26,5,-0.055,46.7,2.5
+spatial,Mean,37,27,7,0.403,47.6,2.4
+spatial,Mean,37,29,6,1.165,49.4,2.1
+spatial,Mean,38,24,6,-0.473,45.0,4.0
+spatial,Mean,38,29,6,0.817,49.5,3.5
+spatial,Mean,38,30,6,0.895,50.4,3.4
+spatial,Mean,39,27,6,0.575,47.8,5.1
+spatial,Mean,40,23,5,1.136,44.2,6.6
+spatial,Mean,40,29,7,0.072,49.6,6.2
+spatial,Mean,40,30,5,0.228,50.5,6.2
+spatial,Mean,41,24,5,-0.482,45.1,7.8
+spatial,Mean,42,18,6,0.024,39.7,9.2
+spatial,Mean,42,28,5,0.217,48.8,9.0
+spatial,Mean,42,32,5,-0.002,52.4,9.0
+spatial,Mean,43,24,5,1.374,45.2,10.4
+spatial,Mean,43,32,5,0.044,52.4,10.4
+spatial,Mean,44,22,5,1.21,43.3,11.6
+spatial,Mean,44,24,5,1.324,45.1,11.6
+spatial,Mean,44,26,5,0.055,47.0,11.7
+spatial,Mean,44,31,5,0.912,51.4,11.9
+spatial,Mean,45,28,7,0.292,48.7,13.1
+spatial,Mean,45,33,5,-0.366,53.2,13.4
+spatial,Mean,45,36,6,-0.355,55.9,13.7
+spatial,Mean,45,37,5,-0.576,56.8,13.7
+spatial,Mean,45,43,6,-1.216,62.2,14.4
+spatial,Mean,45,44,5,-0.922,63.1,14.5
+spatial,Mean,45,45,6,-1.112,64.0,14.7
+spatial,Mean,46,26,5,0.277,46.9,14.3
+spatial,Mean,46,29,6,0.005,49.6,14.6
+spatial,Mean,46,30,5,-0.254,50.5,14.6
+spatial,Mean,46,31,5,0.08,51.4,14.7
+spatial,Mean,46,32,6,-0.402,52.3,14.8
+spatial,Mean,46,37,6,-0.075,56.7,15.4
+spatial,Mean,46,41,5,-0.893,60.3,15.9
+spatial,Mean,46,42,5,-0.981,61.2,16.1
+spatial,Mean,46,43,5,-0.837,62.1,16.3
+spatial,Mean,46,47,5,-1.473,65.7,17.1
+spatial,Mean,47,20,5,1.284,41.4,15.1
+spatial,Mean,47,25,5,0.077,45.9,15.5
+spatial,Mean,47,26,5,-0.473,46.8,15.6
+spatial,Mean,47,28,7,0.886,48.6,15.8
+spatial,Mean,47,31,5,-1.04,51.3,16.2
+spatial,Mean,47,40,7,-0.487,59.3,17.5
+spatial,Mean,47,46,6,-1.049,64.7,19.0
+spatial,Mean,48,29,5,-0.209,49.4,17.3
+spatial,Mean,48,30,8,0.047,50.3,17.4
+spatial,Mean,48,34,7,-0.918,53.9,18.1
+spatial,Mean,48,50,6,-1.344,68.1,22.7
+spatial,Mean,49,27,5,1.471,47.5,18.4
+spatial,Mean,49,32,6,-1.252,52.0,19.2
+spatial,Mean,49,34,5,-1.078,53.8,19.6
+spatial,Mean,50,29,5,-0.169,49.2,20.0
+spatial,Mean,50,31,6,-0.554,51.0,20.4
+spatial,Mean,50,33,5,-1.86,52.8,20.8
+spatial,Mean,50,37,6,0.202,56.3,21.8
+spatial,Mean,50,43,5,-1.087,61.6,23.8
+spatial,Mean,50,44,6,-0.983,62.5,24.2
+spatial,Mean,50,46,5,-0.47,64.2,25.1
+spatial,Mean,50,48,5,-0.756,66.0,26.1
+spatial,Mean,51,29,6,-0.558,49.1,21.4
+spatial,Mean,51,34,5,-1.426,53.5,22.6
+spatial,Mean,51,35,5,-0.101,54.4,22.8
+spatial,Mean,51,43,5,-0.843,61.4,25.6
+spatial,Mean,51,45,6,-0.634,63.2,26.6
+spatial,Mean,52,19,5,0.95,40.0,20.9
+spatial,Mean,52,36,5,0.918,55.1,24.7
+spatial,Mean,52,39,6,-0.425,57.7,25.7
+spatial,Mean,52,43,5,-0.949,61.2,27.4
+spatial,Mean,52,45,6,-0.316,62.9,28.5
+spatial,Mean,53,37,5,0.59,55.8,26.6
+spatial,Mean,54,17,6,1.622,38.0,22.8
+spatial,Mean,64,16,5,1.102,35.0,33.5
+spatial,OK,27,19,6,0.738,38.9,-8.2
+spatial,OK,28,18,5,0.23,38.3,-6.8
+spatial,OK,28,20,5,-0.184,40.0,-7.3
+spatial,OK,28,22,5,-0.883,41.8,-7.8
+spatial,OK,29,20,8,-0.297,40.2,-6.2
+spatial,OK,29,22,5,-0.887,42.0,-6.6
+spatial,OK,30,18,7,0.093,38.6,-4.6
+spatial,OK,30,19,5,0.462,39.5,-4.8
+spatial,OK,30,21,5,0.945,41.3,-5.2
+spatial,OK,30,23,5,1.037,43.1,-5.7
+spatial,OK,32,17,5,0.95,38.1,-2.2
+spatial,OK,32,19,7,0.71,39.8,-2.5
+spatial,OK,32,22,5,1.004,42.5,-3.1
+spatial,OK,32,36,6,0.285,54.8,-6.8
+spatial,OK,33,17,5,0.768,38.2,-1.1
+spatial,OK,33,20,6,0.087,40.9,-1.5
+spatial,OK,33,31,5,-0.848,50.6,-3.8
+spatial,OK,34,31,5,-0.636,50.8,-2.4
+spatial,OK,34,34,5,-0.247,53.4,-3.2
+spatial,OK,35,21,5,0.0,42.0,0.7
+spatial,OK,35,23,7,-0.138,43.8,0.4
+spatial,OK,35,25,5,0.515,45.6,0.1
+spatial,OK,35,32,5,0.273,51.8,-1.2
+spatial,OK,35,36,5,0.058,55.4,-2.2
+spatial,OK,36,24,5,0.091,44.8,1.5
+spatial,OK,36,25,7,-0.781,45.7,1.4
+spatial,OK,36,26,5,-0.417,46.6,1.2
+spatial,OK,36,33,5,0.628,52.8,0.0
+spatial,OK,37,26,5,-0.533,46.7,2.5
+spatial,OK,37,27,7,-0.07,47.6,2.4
+spatial,OK,37,29,6,0.309,49.4,2.1
+spatial,OK,38,24,6,-1.248,45.0,4.0
+spatial,OK,38,29,6,0.085,49.5,3.5
+spatial,OK,38,30,6,0.468,50.4,3.4
+spatial,OK,39,27,6,0.288,47.8,5.1
+spatial,OK,40,23,5,0.024,44.2,6.6
+spatial,OK,40,29,7,-0.116,49.6,6.2
+spatial,OK,40,30,5,-0.035,50.5,6.2
+spatial,OK,41,24,5,-0.915,45.1,7.8
+spatial,OK,42,18,6,-0.433,39.7,9.2
+spatial,OK,42,28,5,0.085,48.8,9.0
+spatial,OK,42,32,5,0.081,52.4,9.0
+spatial,OK,43,24,5,0.607,45.2,10.4
+spatial,OK,43,32,5,0.335,52.4,10.4
+spatial,OK,44,22,5,0.057,43.3,11.6
+spatial,OK,44,24,5,0.325,45.1,11.6
+spatial,OK,44,26,5,-0.264,47.0,11.7
+spatial,OK,44,31,5,0.811,51.4,11.9
+spatial,OK,45,28,7,0.179,48.7,13.1
+spatial,OK,45,33,5,-0.502,53.2,13.4
+spatial,OK,45,36,6,-0.21,55.9,13.7
+spatial,OK,45,37,5,-0.116,56.8,13.7
+spatial,OK,45,43,6,0.044,62.2,14.4
+spatial,OK,45,44,5,0.21,63.1,14.5
+spatial,OK,45,45,6,-0.072,64.0,14.7
+spatial,OK,46,26,5,0.353,46.9,14.3
+spatial,OK,46,29,6,0.09,49.6,14.6
+spatial,OK,46,30,5,-0.12,50.5,14.6
+spatial,OK,46,31,5,0.097,51.4,14.7
+spatial,OK,46,32,6,-0.369,52.3,14.8
+spatial,OK,46,37,6,0.317,56.7,15.4
+spatial,OK,46,41,5,-0.009,60.3,15.9
+spatial,OK,46,42,5,0.057,61.2,16.1
+spatial,OK,46,43,5,0.322,62.1,16.3
+spatial,OK,46,47,5,-0.448,65.7,17.1
+spatial,OK,47,20,5,0.197,41.4,15.1
+spatial,OK,47,25,5,0.58,45.9,15.5
+spatial,OK,47,26,5,-0.421,46.8,15.6
+spatial,OK,47,28,7,0.689,48.6,15.8
+spatial,OK,47,31,5,-0.814,51.3,16.2
+spatial,OK,47,40,7,-0.17,59.3,17.5
+spatial,OK,47,46,6,-0.182,64.7,19.0
+spatial,OK,48,29,5,-0.438,49.4,17.3
+spatial,OK,48,30,8,0.291,50.3,17.4
+spatial,OK,48,34,7,-0.223,53.9,18.1
+spatial,OK,48,50,6,0.152,68.1,22.7
+spatial,OK,49,27,5,0.922,47.5,18.4
+spatial,OK,49,32,6,-0.32,52.0,19.2
+spatial,OK,49,34,5,-0.43,53.8,19.6
+spatial,OK,50,29,5,-0.157,49.2,20.0
+spatial,OK,50,31,6,0.468,51.0,20.4
+spatial,OK,50,33,5,-0.444,52.8,20.8
+spatial,OK,50,37,6,0.014,56.3,21.8
+spatial,OK,50,43,5,-0.48,61.6,23.8
+spatial,OK,50,44,6,-0.332,62.5,24.2
+spatial,OK,50,46,5,0.237,64.2,25.1
+spatial,OK,50,48,5,0.221,66.0,26.1
+spatial,OK,51,29,6,-0.599,49.1,21.4
+spatial,OK,51,34,5,-0.314,53.5,22.6
+spatial,OK,51,35,5,0.795,54.4,22.8
+spatial,OK,51,43,5,-0.342,61.4,25.6
+spatial,OK,51,45,6,0.127,63.2,26.6
+spatial,OK,52,19,5,0.376,40.0,20.9
+spatial,OK,52,36,5,0.895,55.1,24.7
+spatial,OK,52,39,6,-0.851,57.7,25.7
+spatial,OK,52,43,5,-0.434,61.2,27.4
+spatial,OK,52,45,6,0.392,62.9,28.5
+spatial,OK,53,37,5,0.487,55.8,26.6
+spatial,OK,54,17,6,0.504,38.0,22.8
+spatial,OK,64,16,5,-0.027,35.0,33.5
+spatial,RK (RF),27,19,6,0.912,38.9,-8.2
+spatial,RK (RF),28,18,5,0.385,38.3,-6.8
+spatial,RK (RF),28,20,5,0.319,40.0,-7.3
+spatial,RK (RF),28,22,5,-0.638,41.8,-7.8
+spatial,RK (RF),29,20,8,0.016,40.2,-6.2
+spatial,RK (RF),29,22,5,-0.501,42.0,-6.6
+spatial,RK (RF),30,18,7,-0.51,38.6,-4.6
+spatial,RK (RF),30,19,5,-0.076,39.5,-4.8
+spatial,RK (RF),30,21,5,0.354,41.3,-5.2
+spatial,RK (RF),30,23,5,0.959,43.1,-5.7
+spatial,RK (RF),32,17,5,-0.095,38.1,-2.2
+spatial,RK (RF),32,19,7,-0.531,39.8,-2.5
+spatial,RK (RF),32,22,5,0.709,42.5,-3.1
+spatial,RK (RF),32,36,6,0.505,54.8,-6.8
+spatial,RK (RF),33,17,5,-0.363,38.2,-1.1
+spatial,RK (RF),33,20,6,-0.914,40.9,-1.5
+spatial,RK (RF),33,31,5,-0.857,50.6,-3.8
+spatial,RK (RF),34,31,5,-0.923,50.8,-2.4
+spatial,RK (RF),34,34,5,-0.915,53.4,-3.2
+spatial,RK (RF),35,21,5,-0.051,42.0,0.7
+spatial,RK (RF),35,23,7,0.062,43.8,0.4
+spatial,RK (RF),35,25,5,0.201,45.6,0.1
+spatial,RK (RF),35,32,5,0.067,51.8,-1.2
+spatial,RK (RF),35,36,5,-0.197,55.4,-2.2
+spatial,RK (RF),36,24,5,0.164,44.8,1.5
+spatial,RK (RF),36,25,7,-0.498,45.7,1.4
+spatial,RK (RF),36,26,5,-0.712,46.6,1.2
+spatial,RK (RF),36,33,5,0.182,52.8,0.0
+spatial,RK (RF),37,26,5,-0.747,46.7,2.5
+spatial,RK (RF),37,27,7,-0.435,47.6,2.4
+spatial,RK (RF),37,29,6,-0.126,49.4,2.1
+spatial,RK (RF),38,24,6,-1.37,45.0,4.0
+spatial,RK (RF),38,29,6,-0.306,49.5,3.5
+spatial,RK (RF),38,30,6,0.073,50.4,3.4
+spatial,RK (RF),39,27,6,0.247,47.8,5.1
+spatial,RK (RF),40,23,5,0.188,44.2,6.6
+spatial,RK (RF),40,29,7,-0.044,49.6,6.2
+spatial,RK (RF),40,30,5,-0.007,50.5,6.2
+spatial,RK (RF),41,24,5,-1.507,45.1,7.8
+spatial,RK (RF),42,18,6,-0.655,39.7,9.2
+spatial,RK (RF),42,28,5,0.091,48.8,9.0
+spatial,RK (RF),42,32,5,0.113,52.4,9.0
+spatial,RK (RF),43,24,5,0.091,45.2,10.4
+spatial,RK (RF),43,32,5,0.495,52.4,10.4
+spatial,RK (RF),44,22,5,-0.034,43.3,11.6
+spatial,RK (RF),44,24,5,-0.198,45.1,11.6
+spatial,RK (RF),44,26,5,0.397,47.0,11.7
+spatial,RK (RF),44,31,5,0.75,51.4,11.9
+spatial,RK (RF),45,28,7,0.527,48.7,13.1
+spatial,RK (RF),45,33,5,0.096,53.2,13.4
+spatial,RK (RF),45,36,6,0.299,55.9,13.7
+spatial,RK (RF),45,37,5,0.193,56.8,13.7
+spatial,RK (RF),45,43,6,0.205,62.2,14.4
+spatial,RK (RF),45,44,5,0.267,63.1,14.5
+spatial,RK (RF),45,45,6,-0.025,64.0,14.7
+spatial,RK (RF),46,26,5,0.641,46.9,14.3
+spatial,RK (RF),46,29,6,0.184,49.6,14.6
+spatial,RK (RF),46,30,5,-0.241,50.5,14.6
+spatial,RK (RF),46,31,5,0.004,51.4,14.7
+spatial,RK (RF),46,32,6,-0.052,52.3,14.8
+spatial,RK (RF),46,37,6,0.371,56.7,15.4
+spatial,RK (RF),46,41,5,-0.139,60.3,15.9
+spatial,RK (RF),46,42,5,0.112,61.2,16.1
+spatial,RK (RF),46,43,5,0.295,62.1,16.3
+spatial,RK (RF),46,47,5,-0.403,65.7,17.1
+spatial,RK (RF),47,20,5,-0.417,41.4,15.1
+spatial,RK (RF),47,25,5,0.749,45.9,15.5
+spatial,RK (RF),47,26,5,-0.3,46.8,15.6
+spatial,RK (RF),47,28,7,0.866,48.6,15.8
+spatial,RK (RF),47,31,5,-0.703,51.3,16.2
+spatial,RK (RF),47,40,7,-0.492,59.3,17.5
+spatial,RK (RF),47,46,6,-0.221,64.7,19.0
+spatial,RK (RF),48,29,5,-0.216,49.4,17.3
+spatial,RK (RF),48,30,8,0.442,50.3,17.4
+spatial,RK (RF),48,34,7,0.088,53.9,18.1
+spatial,RK (RF),48,50,6,0.537,68.1,22.7
+spatial,RK (RF),49,27,5,0.566,47.5,18.4
+spatial,RK (RF),49,32,6,0.286,52.0,19.2
+spatial,RK (RF),49,34,5,0.052,53.8,19.6
+spatial,RK (RF),50,29,5,-0.225,49.2,20.0
+spatial,RK (RF),50,31,6,1.085,51.0,20.4
+spatial,RK (RF),50,33,5,0.301,52.8,20.8
+spatial,RK (RF),50,37,6,0.309,56.3,21.8
+spatial,RK (RF),50,43,5,-0.525,61.6,23.8
+spatial,RK (RF),50,44,6,-0.294,62.5,24.2
+spatial,RK (RF),50,46,5,0.058,64.2,25.1
+spatial,RK (RF),50,48,5,0.257,66.0,26.1
+spatial,RK (RF),51,29,6,-0.501,49.1,21.4
+spatial,RK (RF),51,34,5,-0.211,53.5,22.6
+spatial,RK (RF),51,35,5,0.69,54.4,22.8
+spatial,RK (RF),51,43,5,-0.489,61.4,25.6
+spatial,RK (RF),51,45,6,0.122,63.2,26.6
+spatial,RK (RF),52,19,5,0.93,40.0,20.9
+spatial,RK (RF),52,36,5,0.699,55.1,24.7
+spatial,RK (RF),52,39,6,-1.597,57.7,25.7
+spatial,RK (RF),52,43,5,-0.699,61.2,27.4
+spatial,RK (RF),52,45,6,0.394,62.9,28.5
+spatial,RK (RF),53,37,5,0.401,55.8,26.6
+spatial,RK (RF),54,17,6,1.116,38.0,22.8
+spatial,RK (RF),64,16,5,0.554,35.0,33.5
+spatial,RK (linear),27,19,6,0.776,38.9,-8.2
+spatial,RK (linear),28,18,5,0.253,38.3,-6.8
+spatial,RK (linear),28,20,5,0.146,40.0,-7.3
+spatial,RK (linear),28,22,5,-0.289,41.8,-7.8
+spatial,RK (linear),29,20,8,-0.054,40.2,-6.2
+spatial,RK (linear),29,22,5,-0.558,42.0,-6.6
+spatial,RK (linear),30,18,7,-0.516,38.6,-4.6
+spatial,RK (linear),30,19,5,-0.219,39.5,-4.8
+spatial,RK (linear),30,21,5,0.324,41.3,-5.2
+spatial,RK (linear),30,23,5,0.525,43.1,-5.7
+spatial,RK (linear),32,17,5,0.22,38.1,-2.2
+spatial,RK (linear),32,19,7,-0.001,39.8,-2.5
+spatial,RK (linear),32,22,5,0.907,42.5,-3.1
+spatial,RK (linear),32,36,6,0.504,54.8,-6.8
+spatial,RK (linear),33,17,5,-0.324,38.2,-1.1
+spatial,RK (linear),33,20,6,-0.197,40.9,-1.5
+spatial,RK (linear),33,31,5,-0.815,50.6,-3.8
+spatial,RK (linear),34,31,5,-0.815,50.8,-2.4
+spatial,RK (linear),34,34,5,-0.711,53.4,-3.2
+spatial,RK (linear),35,21,5,-0.019,42.0,0.7
+spatial,RK (linear),35,23,7,-0.139,43.8,0.4
+spatial,RK (linear),35,25,5,0.558,45.6,0.1
+spatial,RK (linear),35,32,5,-0.03,51.8,-1.2
+spatial,RK (linear),35,36,5,-0.7,55.4,-2.2
+spatial,RK (linear),36,24,5,-0.12,44.8,1.5
+spatial,RK (linear),36,25,7,-1.04,45.7,1.4
+spatial,RK (linear),36,26,5,-0.774,46.6,1.2
+spatial,RK (linear),36,33,5,0.212,52.8,0.0
+spatial,RK (linear),37,26,5,-0.877,46.7,2.5
+spatial,RK (linear),37,27,7,-0.459,47.6,2.4
+spatial,RK (linear),37,29,6,0.133,49.4,2.1
+spatial,RK (linear),38,24,6,-1.251,45.0,4.0
+spatial,RK (linear),38,29,6,-0.093,49.5,3.5
+spatial,RK (linear),38,30,6,0.412,50.4,3.4
+spatial,RK (linear),39,27,6,0.034,47.8,5.1
+spatial,RK (linear),40,23,5,0.304,44.2,6.6
+spatial,RK (linear),40,29,7,-0.006,49.6,6.2
+spatial,RK (linear),40,30,5,-0.164,50.5,6.2
+spatial,RK (linear),41,24,5,-1.136,45.1,7.8
+spatial,RK (linear),42,18,6,-0.714,39.7,9.2
+spatial,RK (linear),42,28,5,0.232,48.8,9.0
+spatial,RK (linear),42,32,5,-0.064,52.4,9.0
+spatial,RK (linear),43,24,5,0.323,45.2,10.4
+spatial,RK (linear),43,32,5,0.211,52.4,10.4
+spatial,RK (linear),44,22,5,0.213,43.3,11.6
+spatial,RK (linear),44,24,5,-0.139,45.1,11.6
+spatial,RK (linear),44,26,5,0.278,47.0,11.7
+spatial,RK (linear),44,31,5,0.752,51.4,11.9
+spatial,RK (linear),45,28,7,0.452,48.7,13.1
+spatial,RK (linear),45,33,5,-0.334,53.2,13.4
+spatial,RK (linear),45,36,6,-0.103,55.9,13.7
+spatial,RK (linear),45,37,5,0.071,56.8,13.7
+spatial,RK (linear),45,43,6,0.098,62.2,14.4
+spatial,RK (linear),45,44,5,0.128,63.1,14.5
+spatial,RK (linear),45,45,6,0.016,64.0,14.7
+spatial,RK (linear),46,26,5,1.017,46.9,14.3
+spatial,RK (linear),46,29,6,0.038,49.6,14.6
+spatial,RK (linear),46,30,5,-0.176,50.5,14.6
+spatial,RK (linear),46,31,5,-0.004,51.4,14.7
+spatial,RK (linear),46,32,6,-0.213,52.3,14.8
+spatial,RK (linear),46,37,6,0.209,56.7,15.4
+spatial,RK (linear),46,41,5,-0.155,60.3,15.9
+spatial,RK (linear),46,42,5,-0.095,61.2,16.1
+spatial,RK (linear),46,43,5,0.181,62.1,16.3
+spatial,RK (linear),46,47,5,-0.146,65.7,17.1
+spatial,RK (linear),47,20,5,-0.684,41.4,15.1
+spatial,RK (linear),47,25,5,0.734,45.9,15.5
+spatial,RK (linear),47,26,5,-0.153,46.8,15.6
+spatial,RK (linear),47,28,7,0.673,48.6,15.8
+spatial,RK (linear),47,31,5,-0.72,51.3,16.2
+spatial,RK (linear),47,40,7,-0.228,59.3,17.5
+spatial,RK (linear),47,46,6,-0.096,64.7,19.0
+spatial,RK (linear),48,29,5,-0.382,49.4,17.3
+spatial,RK (linear),48,30,8,0.449,50.3,17.4
+spatial,RK (linear),48,34,7,-0.232,53.9,18.1
+spatial,RK (linear),48,50,6,0.217,68.1,22.7
+spatial,RK (linear),49,27,5,0.652,47.5,18.4
+spatial,RK (linear),49,32,6,-0.438,52.0,19.2
+spatial,RK (linear),49,34,5,-0.299,53.8,19.6
+spatial,RK (linear),50,29,5,0.127,49.2,20.0
+spatial,RK (linear),50,31,6,0.38,51.0,20.4
+spatial,RK (linear),50,33,5,-0.519,52.8,20.8
+spatial,RK (linear),50,37,6,0.46,56.3,21.8
+spatial,RK (linear),50,43,5,-0.54,61.6,23.8
+spatial,RK (linear),50,44,6,-0.289,62.5,24.2
+spatial,RK (linear),50,46,5,0.2,64.2,25.1
+spatial,RK (linear),50,48,5,0.105,66.0,26.1
+spatial,RK (linear),51,29,6,-0.351,49.1,21.4
+spatial,RK (linear),51,34,5,-0.595,53.5,22.6
+spatial,RK (linear),51,35,5,0.46,54.4,22.8
+spatial,RK (linear),51,43,5,-0.403,61.4,25.6
+spatial,RK (linear),51,45,6,0.167,63.2,26.6
+spatial,RK (linear),52,19,5,0.933,40.0,20.9
+spatial,RK (linear),52,36,5,1.146,55.1,24.7
+spatial,RK (linear),52,39,6,-0.628,57.7,25.7
+spatial,RK (linear),52,43,5,-0.567,61.2,27.4
+spatial,RK (linear),52,45,6,0.358,62.9,28.5
+spatial,RK (linear),53,37,5,0.688,55.8,26.6
+spatial,RK (linear),54,17,6,0.708,38.0,22.8
+spatial,RK (linear),64,16,5,-0.066,35.0,33.5
+spatial,Random Forest,27,19,6,0.285,38.9,-8.2
+spatial,Random Forest,28,18,5,0.276,38.3,-6.8
+spatial,Random Forest,28,20,5,-0.514,40.0,-7.3
+spatial,Random Forest,28,22,5,-1.123,41.8,-7.8
+spatial,Random Forest,29,20,8,-0.866,40.2,-6.2
+spatial,Random Forest,29,22,5,-1.021,42.0,-6.6
+spatial,Random Forest,30,18,7,-0.242,38.6,-4.6
+spatial,Random Forest,30,19,5,-0.173,39.5,-4.8
+spatial,Random Forest,30,21,5,-0.108,41.3,-5.2
+spatial,Random Forest,30,23,5,-0.067,43.1,-5.7
+spatial,Random Forest,32,17,5,0.859,38.1,-2.2
+spatial,Random Forest,32,19,7,0.725,39.8,-2.5
+spatial,Random Forest,32,22,5,0.673,42.5,-3.1
+spatial,Random Forest,32,36,6,0.724,54.8,-6.8
+spatial,Random Forest,33,17,5,0.626,38.2,-1.1
+spatial,Random Forest,33,20,6,0.367,40.9,-1.5
+spatial,Random Forest,33,31,5,-0.443,50.6,-3.8
+spatial,Random Forest,34,31,5,-0.151,50.8,-2.4
+spatial,Random Forest,34,34,5,-0.318,53.4,-3.2
+spatial,Random Forest,35,21,5,0.176,42.0,0.7
+spatial,Random Forest,35,23,7,-0.443,43.8,0.4
+spatial,Random Forest,35,25,5,-0.089,45.6,0.1
+spatial,Random Forest,35,32,5,0.575,51.8,-1.2
+spatial,Random Forest,35,36,5,0.25,55.4,-2.2
+spatial,Random Forest,36,24,5,0.056,44.8,1.5
+spatial,Random Forest,36,25,7,-0.5,45.7,1.4
+spatial,Random Forest,36,26,5,-0.766,46.6,1.2
+spatial,Random Forest,36,33,5,0.648,52.8,0.0
+spatial,Random Forest,37,26,5,-0.587,46.7,2.5
+spatial,Random Forest,37,27,7,-0.292,47.6,2.4
+spatial,Random Forest,37,29,6,0.285,49.4,2.1
+spatial,Random Forest,38,24,6,-0.874,45.0,4.0
+spatial,Random Forest,38,29,6,0.031,49.5,3.5
+spatial,Random Forest,38,30,6,0.398,50.4,3.4
+spatial,Random Forest,39,27,6,0.369,47.8,5.1
+spatial,Random Forest,40,23,5,0.71,44.2,6.6
+spatial,Random Forest,40,29,7,-0.102,49.6,6.2
+spatial,Random Forest,40,30,5,0.04,50.5,6.2
+spatial,Random Forest,41,24,5,-1.096,45.1,7.8
+spatial,Random Forest,42,18,6,-0.865,39.7,9.2
+spatial,Random Forest,42,28,5,0.194,48.8,9.0
+spatial,Random Forest,42,32,5,-0.193,52.4,9.0
+spatial,Random Forest,43,24,5,0.736,45.2,10.4
+spatial,Random Forest,43,32,5,-0.168,52.4,10.4
+spatial,Random Forest,44,22,5,0.291,43.3,11.6
+spatial,Random Forest,44,24,5,0.549,45.1,11.6
+spatial,Random Forest,44,26,5,0.445,47.0,11.7
+spatial,Random Forest,44,31,5,0.455,51.4,11.9
+spatial,Random Forest,45,28,7,0.627,48.7,13.1
+spatial,Random Forest,45,33,5,-0.351,53.2,13.4
+spatial,Random Forest,45,36,6,-0.049,55.9,13.7
+spatial,Random Forest,45,37,5,-0.193,56.8,13.7
+spatial,Random Forest,45,43,6,-0.007,62.2,14.4
+spatial,Random Forest,45,44,5,0.23,63.1,14.5
+spatial,Random Forest,45,45,6,-0.041,64.0,14.7
+spatial,Random Forest,46,26,5,0.691,46.9,14.3
+spatial,Random Forest,46,29,6,0.23,49.6,14.6
+spatial,Random Forest,46,30,5,-0.274,50.5,14.6
+spatial,Random Forest,46,31,5,-0.151,51.4,14.7
+spatial,Random Forest,46,32,6,-0.559,52.3,14.8
+spatial,Random Forest,46,37,6,0.098,56.7,15.4
+spatial,Random Forest,46,41,5,-0.104,60.3,15.9
+spatial,Random Forest,46,42,5,0.036,61.2,16.1
+spatial,Random Forest,46,43,5,0.224,62.1,16.3
+spatial,Random Forest,46,47,5,-0.307,65.7,17.1
+spatial,Random Forest,47,20,5,0.244,41.4,15.1
+spatial,Random Forest,47,25,5,0.434,45.9,15.5
+spatial,Random Forest,47,26,5,-0.255,46.8,15.6
+spatial,Random Forest,47,28,7,1.004,48.6,15.8
+spatial,Random Forest,47,31,5,-1.083,51.3,16.2
+spatial,Random Forest,47,40,7,-0.202,59.3,17.5
+spatial,Random Forest,47,46,6,-0.099,64.7,19.0
+spatial,Random Forest,48,29,5,0.101,49.4,17.3
+spatial,Random Forest,48,30,8,0.263,50.3,17.4
+spatial,Random Forest,48,34,7,-0.571,53.9,18.1
+spatial,Random Forest,48,50,6,0.211,68.1,22.7
+spatial,Random Forest,49,27,5,0.85,47.5,18.4
+spatial,Random Forest,49,32,6,-0.682,52.0,19.2
+spatial,Random Forest,49,34,5,-0.691,53.8,19.6
+spatial,Random Forest,50,29,5,-0.116,49.2,20.0
+spatial,Random Forest,50,31,6,0.13,51.0,20.4
+spatial,Random Forest,50,33,5,-1.025,52.8,20.8
+spatial,Random Forest,50,37,6,0.734,56.3,21.8
+spatial,Random Forest,50,43,5,-0.428,61.6,23.8
+spatial,Random Forest,50,44,6,-0.251,62.5,24.2
+spatial,Random Forest,50,46,5,0.208,64.2,25.1
+spatial,Random Forest,50,48,5,0.289,66.0,26.1
+spatial,Random Forest,51,29,6,-0.345,49.1,21.4
+spatial,Random Forest,51,34,5,-0.906,53.5,22.6
+spatial,Random Forest,51,35,5,0.406,54.4,22.8
+spatial,Random Forest,51,43,5,-0.309,61.4,25.6
+spatial,Random Forest,51,45,6,0.099,63.2,26.6
+spatial,Random Forest,52,19,5,0.798,40.0,20.9
+spatial,Random Forest,52,36,5,0.828,55.1,24.7
+spatial,Random Forest,52,39,6,-0.657,57.7,25.7
+spatial,Random Forest,52,43,5,-0.5,61.2,27.4
+spatial,Random Forest,52,45,6,0.377,62.9,28.5
+spatial,Random Forest,53,37,5,0.711,55.8,26.6
+spatial,Random Forest,54,17,6,1.134,38.0,22.8
+spatial,Random Forest,64,16,5,0.319,35.0,33.5
+spatial,UK,27,19,6,0.92,38.9,-8.2
+spatial,UK,28,18,5,0.244,38.3,-6.8
+spatial,UK,28,20,5,-0.037,40.0,-7.3
+spatial,UK,28,22,5,-0.764,41.8,-7.8
+spatial,UK,29,20,8,-0.25,40.2,-6.2
+spatial,UK,29,22,5,-0.853,42.0,-6.6
+spatial,UK,30,18,7,0.039,38.6,-4.6
+spatial,UK,30,19,5,0.453,39.5,-4.8
+spatial,UK,30,21,5,0.891,41.3,-5.2
+spatial,UK,30,23,5,0.966,43.1,-5.7
+spatial,UK,32,17,5,0.797,38.1,-2.2
+spatial,UK,32,19,7,0.578,39.8,-2.5
+spatial,UK,32,22,5,1.263,42.5,-3.1
+spatial,UK,32,36,6,0.242,54.8,-6.8
+spatial,UK,33,17,5,0.585,38.2,-1.1
+spatial,UK,33,20,6,0.156,40.9,-1.5
+spatial,UK,33,31,5,-0.872,50.6,-3.8
+spatial,UK,34,31,5,-0.703,50.8,-2.4
+spatial,UK,34,34,5,-0.441,53.4,-3.2
+spatial,UK,35,21,5,-0.126,42.0,0.7
+spatial,UK,35,23,7,-0.112,43.8,0.4
+spatial,UK,35,25,5,0.759,45.6,0.1
+spatial,UK,35,32,5,0.06,51.8,-1.2
+spatial,UK,35,36,5,-0.142,55.4,-2.2
+spatial,UK,36,24,5,0.244,44.8,1.5
+spatial,UK,36,25,7,-0.636,45.7,1.4
+spatial,UK,36,26,5,-0.352,46.6,1.2
+spatial,UK,36,33,5,0.449,52.8,0.0
+spatial,UK,37,26,5,-0.511,46.7,2.5
+spatial,UK,37,27,7,-0.015,47.6,2.4
+spatial,UK,37,29,6,0.249,49.4,2.1
+spatial,UK,38,24,6,-1.361,45.0,4.0
+spatial,UK,38,29,6,0.087,49.5,3.5
+spatial,UK,38,30,6,0.453,50.4,3.4
+spatial,UK,39,27,6,0.393,47.8,5.1
+spatial,UK,40,23,5,0.18,44.2,6.6
+spatial,UK,40,29,7,-0.122,49.6,6.2
+spatial,UK,40,30,5,-0.017,50.5,6.2
+spatial,UK,41,24,5,-0.901,45.1,7.8
+spatial,UK,42,18,6,-0.705,39.7,9.2
+spatial,UK,42,28,5,0.051,48.8,9.0
+spatial,UK,42,32,5,0.089,52.4,9.0
+spatial,UK,43,24,5,0.554,45.2,10.4
+spatial,UK,43,32,5,0.355,52.4,10.4
+spatial,UK,44,22,5,0.199,43.3,11.6
+spatial,UK,44,24,5,0.288,45.1,11.6
+spatial,UK,44,26,5,-0.262,47.0,11.7
+spatial,UK,44,31,5,0.84,51.4,11.9
+spatial,UK,45,28,7,0.111,48.7,13.1
+spatial,UK,45,33,5,-0.422,53.2,13.4
+spatial,UK,45,36,6,-0.196,55.9,13.7
+spatial,UK,45,37,5,-0.115,56.8,13.7
+spatial,UK,45,43,6,0.027,62.2,14.4
+spatial,UK,45,44,5,0.203,63.1,14.5
+spatial,UK,45,45,6,-0.066,64.0,14.7
+spatial,UK,46,26,5,0.332,46.9,14.3
+spatial,UK,46,29,6,0.052,49.6,14.6
+spatial,UK,46,30,5,-0.145,50.5,14.6
+spatial,UK,46,31,5,0.105,51.4,14.7
+spatial,UK,46,32,6,-0.148,52.3,14.8
+spatial,UK,46,37,6,0.314,56.7,15.4
+spatial,UK,46,41,5,-0.102,60.3,15.9
+spatial,UK,46,42,5,-0.005,61.2,16.1
+spatial,UK,46,43,5,0.228,62.1,16.3
+spatial,UK,46,47,5,-0.424,65.7,17.1
+spatial,UK,47,20,5,0.159,41.4,15.1
+spatial,UK,47,25,5,0.53,45.9,15.5
+spatial,UK,47,26,5,-0.444,46.8,15.6
+spatial,UK,47,28,7,0.659,48.6,15.8
+spatial,UK,47,31,5,-0.692,51.3,16.2
+spatial,UK,47,40,7,-0.093,59.3,17.5
+spatial,UK,47,46,6,-0.171,64.7,19.0
+spatial,UK,48,29,5,-0.433,49.4,17.3
+spatial,UK,48,30,8,0.438,50.3,17.4
+spatial,UK,48,34,7,-0.382,53.9,18.1
+spatial,UK,48,50,6,0.175,68.1,22.7
+spatial,UK,49,27,5,0.926,47.5,18.4
+spatial,UK,49,32,6,-0.386,52.0,19.2
+spatial,UK,49,34,5,-0.427,53.8,19.6
+spatial,UK,50,29,5,-0.169,49.2,20.0
+spatial,UK,50,31,6,0.489,51.0,20.4
+spatial,UK,50,33,5,-0.43,52.8,20.8
+spatial,UK,50,37,6,0.117,56.3,21.8
+spatial,UK,50,43,5,-0.512,61.6,23.8
+spatial,UK,50,44,6,-0.33,62.5,24.2
+spatial,UK,50,46,5,0.186,64.2,25.1
+spatial,UK,50,48,5,0.103,66.0,26.1
+spatial,UK,51,29,6,-0.552,49.1,21.4
+spatial,UK,51,34,5,-0.628,53.5,22.6
+spatial,UK,51,35,5,0.335,54.4,22.8
+spatial,UK,51,43,5,-0.355,61.4,25.6
+spatial,UK,51,45,6,0.118,63.2,26.6
+spatial,UK,52,19,5,0.374,40.0,20.9
+spatial,UK,52,36,5,1.038,55.1,24.7
+spatial,UK,52,39,6,-0.779,57.7,25.7
+spatial,UK,52,43,5,-0.425,61.2,27.4
+spatial,UK,52,45,6,0.339,62.9,28.5
+spatial,UK,53,37,5,0.59,55.8,26.6
+spatial,UK,54,17,6,0.487,38.0,22.8
+spatial,UK,64,16,5,0.138,35.0,33.5
