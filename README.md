@@ -41,7 +41,7 @@ What this cannot show: thinning can only make GEMAS *sparser* than its 42 km spa
 | `tests/` | `test_models.py` (synthetic data), `check_site.py` (headless-browser check of the website) |
 | `data/splits/` | Exact fold assignment for every sample (IDs and labels only) |
 | `results/` | Row counts, spatial statistics, hypotheses, predictions, metrics; `deviations.md` lists changes to the plan |
-| `docs/` | GitHub Pages website and `theory.md` (derivations) |
+| `docs/` | GitHub Pages website and `theory.md` (derivations). `docs/js/general.js` drives the "General user understanding" section: a simulated country (not survey data) with simple kriging on a known covariance, plus a scoreboard from the published per-method averages |
 
 ## Setup
 
