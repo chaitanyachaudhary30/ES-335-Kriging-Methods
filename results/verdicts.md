@@ -1,0 +1,35 @@
+# Hypothesis verdicts
+
+Produced by `scripts/08_verdicts.py`. The decision rule is the one in `results/hypotheses.md` (mean difference with the predicted sign and at least 4 of 5 folds agree), with the multi-part rules of `results/deviations.md` D2. Skill = 1 - RMSE / RMSE of the mean baseline of the same fold. The rules and thresholds were fixed in D2 before any Phase 2 model was scored on test data and were not changed afterwards. Fold *i* of the random split is paired with fold *i* of the spatial split in H6, although their test sets differ.
+
+| Hypothesis | Verdict | Key number |
+|---|---|---|
+| H1: UK beats OK on held-out regions | **inconclusive** | UK - OK = +0.004 |
+| H2: Nugget bound holds for OK and GPR | **supported** | bound holds; OK RMSE ratio 0.804 >= 0.689 |
+| H3: RK is the best method and RK (linear) beats UK | **inconclusive** | best: RK (linear); RK(lin) - UK = +0.004 |
+| H4: Kriging gain vanishes far from data and falls with density | **inconclusive** | see parts |
+| H5: Denser data gives a larger kriging gain (LUCAS vs GEMAS) | **not testable** | not testable |
+| H6: A random split overstates skill | **inconclusive** | OK: 0.245 (random) vs 0.196 (spatial) |
+| H7: Predicted ranking matches the observed ranking | **inconclusive** | rho (fold means) = 0.62 |
+| H8: GPR and OK are equivalent | **supported** | mean absolute difference, spatial 0.016 |
+
+## Evidence by part
+
+| Hypothesis | Part | Statement | Evidence | Verdict |
+|---|---|---|---|---|
+| H1 | UK - OK, spatial | UK skill > OK skill | per-fold differences [-0.004, 0.006, -0.002, 0.019, 0.001]; mean +0.004; UK > OK in 3/5 folds | inconclusive |
+| H2 | OK, spatial | RMSE ratio >= sqrt(eta) | RMSE ratios [0.804, 0.740, 0.882, 0.842, 0.750] vs sqrt(eta) [0.707, 0.738, 0.707, 0.667, 0.627]; bound holds in 5/5 folds | supported |
+| H2 | GPR, spatial | RMSE ratio >= sqrt(eta) | RMSE ratios [0.804, 0.739, 0.890, 0.818, 0.798] vs sqrt(eta) [0.707, 0.738, 0.707, 0.667, 0.627]; bound holds in 5/5 folds | supported |
+| H3 | (a) best method is an RK variant | an RK variant has the highest skill | best method per fold: ['RK (linear)', 'RK (linear)', 'OK', 'RK (linear)', 'UK']; mean skills: RK (linear) 0.205, UK 0.200, OK 0.196, Random Forest 0.195, GPR 0.190, RK (RF) 0.172, LinReg (coords + covariates) 0.130, LinReg (coords) 0.091, Mean 0.000 | inconclusive |
+| H3 | (b) RK (linear) - UK | RK (linear) beats UK | per-fold differences [0.014, 0.010, -0.043, 0.056, -0.017]; mean +0.004 | inconclusive |
+| H4 | (a) gain beyond 250 km | RK (linear) skill - trend-only skill <= 0.02 for points > 250 km | only 3 folds have at least 15 test points beyond 250 km (n = [34, 16, 17]); gains [0.106, -0.187, 0.044]; pooled over spatial folds (n=82): RK (linear) 0.157 - LinReg (coords + covariates) 0.134 = +0.022; RK (RF) 0.202 - Random Forest 0.190 = +0.012 | inconclusive |
+| H4 | (b) gain vs density | kriging gain falls as the training fraction falls | mean gain at fractions 1.0/0.5/0.25/0.1: [0.074, 0.061, 0.041, 0.006]; folds where the gain never rises as data are removed: 3/5 | inconclusive |
+| H6 | OK | random-split skill > spatial-split skill | per-fold differences [0.021, -0.017, 0.148, 0.091, -0.002]; mean +0.048 | inconclusive |
+| H6 | GPR | random-split skill > spatial-split skill | per-fold differences [0.027, -0.017, 0.159, 0.065, 0.049]; mean +0.057 | supported |
+| H6 | UK | random-split skill > spatial-split skill | per-fold differences [0.023, -0.022, 0.150, 0.069, -0.005]; mean +0.043 | inconclusive |
+| H6 | RK (linear) | random-split skill > spatial-split skill | per-fold differences [0.015, -0.020, 0.208, 0.021, 0.019]; mean +0.049 | supported |
+| H6 | RK (RF) | random-split skill > spatial-split skill | per-fold differences [0.077, -0.011, 0.179, 0.070, 0.035]; mean +0.070 | supported |
+| H7 | (a) Spearman rho | rho >= 0.7 in at least 4 of 5 folds | per-fold rho [0.43, 0.33, 0.30, 0.80, 0.49]; rho of fold means 0.62 | not supported |
+| H7 | (b) best method | predicted best is within one fold SD of the observed best | predicted best RK (RF) (observed 0.172); observed best RK (linear) (0.205, fold SD 0.078); gap 0.033 | supported |
+| H8 | spatial | abs(skill(GPR) - skill(OK)) <= 0.03 | per-fold absolute differences [0.000, 0.001, 0.008, 0.025, 0.048]; <= 0.03 in 4/5 folds | supported |
+| H8 | random | abs(skill(GPR) - skill(OK)) <= 0.03 | per-fold absolute differences [0.006, 0.000, 0.003, 0.001, 0.003]; <= 0.03 in 5/5 folds | supported |
