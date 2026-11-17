@@ -12,7 +12,7 @@ ES 335 course project by **Chaitanya** and **Saksham**.
 
 ## Why there is only one dataset (LUCAS 2018)
 
-The proposal planned to compare GEMAS (sparse, about one site per 2,500 km²) with LUCAS 2018 Topsoil (dense, 18,984 samples). LUCAS is not a direct download: ESDAC releases it only after a manual process, in which you fill in a registration form and wait for JRC staff to approve the request and send a download link. We submitted the form, but the request was not processed before the deadline, so we could not fetch the data in time. The LUCAS loader (`src/data.py: load_lucas`) stays in the repository, untested on the real file, and every script skips LUCAS when its file is missing.
+The proposal planned to compare GEMAS (sparse, designed as one site per 2,500 km²; about one per 1,900 km² after cleaning) with LUCAS 2018 Topsoil (dense, 18,984 samples). LUCAS is not a direct download: ESDAC releases it only after a manual process, in which you fill in a registration form and wait for JRC staff to approve the request and send a download link. We submitted the form, but the request was not processed before the deadline, so we could not fetch the data in time. The LUCAS loader (`src/data.py: load_lucas`) stays in the repository, untested on the real file, and every script skips LUCAS when its file is missing.
 
 What we lost: the comparison of two independent surveys, and with it hypothesis **H5** (denser LUCAS data gives a larger kriging gain than GEMAS on the same regions).
 
@@ -59,7 +59,7 @@ Raw survey data are **not** included in this repository: neither licence allows 
 
 | Dataset | Source | Access | Put files in |
 |---|---|---|---|
-| GEMAS Extended Dataset (BGR) | https://data.europa.eu/data/datasets/0554568e-c60f-4106-b099-839bb30f9c44 | Free download: `https://download.bgr.de/bgr/geochemie/GEMAS_ExtendedDataset/csv/ExtendedDataset_CSV.zip` | unzip into `data/raw/gemas/` |
+| GEMAS Extended Dataset (BGR) | https://data.europa.eu/data/datasets/0554568e-c60f-4106-b099-839bb30f9c44 | Free download: `https://download.bgr.de/bgr/geochemie/GEMAS_ExtendedDataset/csv/ExtendedDataset_CSV.zip` | unzip so that `11 GEMAS Ap - Ident.csv` and `15a GEMAS Ap - pH-CEC-C-N-S-χ-CIA.csv` sit directly in `data/raw/gemas/` (no subfolder) |
 | LUCAS 2018 Topsoil (ESDAC, JRC) | https://esdac.jrc.ec.europa.eu/content/lucas-2018-topsoil-data | Manual: registration form, then approval by JRC. **Requested, but not received in time; not used.** | the CSV into `data/raw/lucas/` (optional) |
 | WorldClim 2.1, 5 arc-min | https://www.worldclim.org/data/worldclim21.html | Free download: `wc2.1_5m_elev.zip`, `wc2.1_5m_bio.zip` | `wc2.1_5m_elev.tif`, `wc2.1_5m_bio_{1,4,12,15}.tif` into `data/raw/worldclim/` |
 
@@ -115,7 +115,7 @@ On held-out regions the five best methods differ by less than one fold SD, so no
 | `results/density/` | Thinning experiment (observed and predicted skill) |
 | `results/errors/` | Errors by distance, cell, country, fold, pH range; figures |
 | `results/verdicts.csv`, `results/verdicts.md` | Hypothesis verdicts with evidence |
-| `results/deviations.md` | D1 (LUCAS not obtained; GEMAS thinning instead), D2 (rules for multi-part hypotheses) |
+| `results/deviations.md` | D1 (LUCAS not obtained; GEMAS thinning instead), D2 (rules for multi-part hypotheses), D3 (what the commit history shows about timing) |
 
 ## Team and contributions
 
@@ -124,11 +124,13 @@ On held-out regions the five best methods differ by less than one fold SD, so no
 | Phase 1 | Chaitanya | Data access and cleaning, prediction-time inputs, spatial statistics, splits, theory, pre-registered hypotheses, baselines, website skeleton and theory sections |
 | Phase 2 | Saksham | OK, UK, GPR, RK; tuning; final evaluation; density (thinning) experiment; error analysis; hypothesis verdicts; results pages; README completion; publishing |
 
-Chaitanya's work is in pull requests #1 to #8 (`chaitanya/*` branches). Saksham's work is in pull requests #9 to #16 (`saksham/*` branches): models (#9), tuning (#10), evaluation (#11), density experiment (#12), error analysis (#13), verdicts (#14), website sections 7 to 10 (#15) and this README (#16). Both partners review each other's pull requests and are expected to explain every step in the viva.
+Chaitanya's work is in pull requests #1 to #8 (`chaitanya/*` branches). Saksham's work is in pull requests #9 to #16 (`saksham/*` branches): models (#9), tuning (#10), evaluation (#11), density experiment (#12), error analysis (#13), verdicts (#14), website sections 7 to 10 (#15) and this README (#16). After the merge, Chaitanya removed the unused survey from the website and rewrote the LUCAS and AI-use sections of the README (#17), added the "General user understanding" section (#18), and applied the fixes from a pre-submission review (#19). Both partners review each other's pull requests and are expected to explain every step in the viva.
 
 ## AI-use disclosure
 
 We used an AI coding assistant (Kiro) in **both phases** of the project. It is a tool, not an author or contributor.
+
+We used it to draft and debug code, to draft the derivations, the hypothesis text and the website and README text, to check reference DOIs, and to run the pipeline and the website checks. After the main work was merged, we also used it for the website changes in #17 and #18, and for an independent pre-submission review whose fixes are in #19.
 
 The research question, the choice of datasets, methods and evaluation design, and the decision to pre-register the hypotheses come from our proposal. We are responsible for every result and statement in this repository and on the website, and we reviewed the code, the numbers against the output files, and the references before submission.
 

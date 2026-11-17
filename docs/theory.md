@@ -55,7 +55,9 @@ If every training point is farther than the range from $s_0$, then $c_0=0$. Solv
 
 $$\hat Z(s_0)=\hat\mu, \qquad \sigma^2_{OK}(s_0)=C(0)+\frac{1}{\mathbf 1^\top C^{-1}\mathbf 1}.$$
 
-OK then predicts the (generalised least squares) mean everywhere, so it cannot beat the mean baseline in regions that are far from all training data.
+OK then predicts the (generalised least squares) mean of the samples in the system, so it cannot beat that mean in regions that are far from all of them.
+
+**In our implementation** the system uses only the 16–64 nearest training samples (`src/models.py: krige_local`), so $\hat\mu$ is a *local* mean, not the overall training mean used by the Mean baseline. Because pH varies gradually across Europe, the local mean can beat the overall mean far from the data. This is what we observe: on the spatial split, OK's skill is 0.17 for test samples more than 250 km from any training sample (n = 82) and 0.13 at 150–250 km (`results/errors/gemas_error_by_distance.csv`). Result 1 therefore bounds the gain over the *local* mean, not over the overall mean.
 
 ### Result 2: the nugget caps the gain
 
@@ -86,7 +88,7 @@ So the same method can look useful or useless depending only on how far the test
 
 ## 4. Trends: Universal and Regression Kriging
 
-Universal Kriging (UK) uses $m(s)=\beta^\top x(s)$ with $x$ = coordinates; Regression Kriging (RK) fits the trend with covariates first, then krige the residuals (Hengl et al., 2007). Splitting the error into a trend part and a residual part gives
+Universal Kriging (UK) uses $m(s)=\beta^\top x(s)$ with $x$ = coordinates; Regression Kriging (RK) fits the trend with covariates first, then kriges the residuals (Hengl et al., 2007). In our code both are implemented in two steps: fit the trend, then krige its out-of-fold residuals. For UK this approximates the one-step UK system. Splitting the error into a trend part and a residual part gives
 
 $$\text{MSE}_{\text{UK/RK}} \approx \text{MSE}_{\text{trend}}\times \underbrace{\frac{\overline{\sigma^2_{OK,R}}}{C_{0,R}+C_{1,R}}}_{\text{residual kriging factor}},$$
 
@@ -103,9 +105,9 @@ With a constant mean $m$, a covariance kernel $k$ and noise variance $\sigma_n^2
 
 $$\bar f(s_0) = m + k_0^\top(K+\sigma_n^2 I)^{-1}(y-m\mathbf 1).$$
 
-Setting $k(h)=C_1 r(h)$ and $\sigma_n^2=C_0$ gives exactly the simple kriging predictor; estimating $m$ by generalised least squares gives Ordinary Kriging (Rasmussen & Williams, 2006, §2.7; Stein, 1999). So GPR and OK differ in practice only in how the covariance is chosen and fitted: GPR maximises the marginal likelihood, kriging fits the empirical variogram. We therefore expect their accuracy to be close, and any gap tells us which fitting procedure suits the data better.
+Setting $k(h)=C_1 r(h)$ and $\sigma_n^2=C_0$ gives exactly the simple kriging predictor; estimating $m$ by generalised least squares gives Ordinary Kriging (Rasmussen & Williams, 2006, §2.7; Stein, 1999). So in theory GPR and OK differ only in how the covariance is chosen and fitted: GPR maximises the marginal likelihood, kriging fits the empirical variogram. Our implementations add two practical differences: GPR uses all ~1,400 training points and subtracts the plain training mean (`normalize_y`), while OK uses the 16–64 nearest points and re-estimates the mean locally. We therefore expect their accuracy to be close, and any gap tells us which fitting procedure suits the data better.
 
-## 6. Why a random split flatters every method
+## 6. Why a random split can flatter spatial methods
 
 Under a random split, test points sit among the training points, at roughly the sampling spacing. Under a spatial block split, whole regions are held out, and test points are farther away. For GEMAS (design: about one site per 50 × 50 km cell):
 
@@ -124,7 +126,7 @@ For each outer fold we use **only training pH values and test locations** to com
 
 $$\widehat{\frac{\text{MSE}}{\text{MSE}_{\text{mean}}}} = \begin{cases}\overline{\sigma^2_{OK}(s_0)}/\text{sill} & \text{OK, GPR}\\[3pt] \dfrac{\text{CV-MSE}_{\text{trend}}}{\text{CV-MSE}_{\text{mean}}}\times\overline{\sigma^2_{OK,R}(s_0)}/\text{sill}_R & \text{UK, RK}\\[6pt] \dfrac{\text{CV-MSE}_{\text{model}}}{\text{CV-MSE}_{\text{mean}}} & \text{LinReg, RF}\end{cases}$$
 
-using a local neighbourhood of the 64 nearest training points (code: `src/kriging_theory.py`, `scripts/04_hypotheses.py`). This turns "which method should win?" into a number per method, written down before the test set is used. Phase 2 compares these numbers with the observed test errors.
+using a local neighbourhood of the 64 nearest training points (code: `src/kriging_theory.py`, `scripts/04_hypotheses.py`). This turns "which method should win?" into a number per method, written down before the test set is used. Section 8 of the website and `results/verdicts.md` compare these numbers with the observed test errors. On GEMAS, the random split gave higher skill than the spatial split for every kriging method on average, but not consistently enough across folds for H6 to count as supported.
 
 **Assumptions that can break the prediction:**
 - *Stationarity:* one variogram for all of Europe. If the spatial structure differs between, say, Scandinavia and the Mediterranean, the kriging variance is wrong locally.

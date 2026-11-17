@@ -129,7 +129,7 @@ function updateExplainer() {
   const r = rmseRatio(d, eta, a);
   $("gain-readout").innerHTML = `With η = <b>${eta.toFixed(2)}</b>, range <b>${a} km</b> and the nearest sample <b>${d} km</b> away, kriging can at best cut the error of the average by <b>${((1 - r) * 100).toFixed(1)}%</b>. ` +
     `Even with a sample right next door, the nugget caps the cut at <b>${((1 - Math.sqrt(eta)) * 100).toFixed(0)}%</b>. ` +
-    (d >= a ? "You are beyond the range: kriging just returns the average." : `Correlation at this distance: r(d) = ${corr(d, a).toFixed(2)}.`);
+    (d >= a ? "You are beyond the range: the neighbours carry no information, and kriging falls back to an average of the samples it uses." : `Correlation at this distance: r(d) = ${corr(d, a).toFixed(2)}.`);
 }
 
 /* ---------- Section 5: split map ---------- */

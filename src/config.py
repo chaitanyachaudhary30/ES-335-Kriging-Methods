@@ -21,24 +21,24 @@ N_FOLDS = 5
 # Spatial block side length in km. The fitted GEMAS pH variograms reach 95%
 # of their sill at 380-520 km (results/spatial_stats/summary.json), so 500 km
 # blocks keep most test points beyond the correlation range of the training
-# data on at least one side. The same size is used for both surveys so that
-# the test geometry is comparable.
+# data on at least one side. The variogram was fitted on all cleaned samples,
+# so this choice uses test-region pH; it affects only the split geometry.
 BLOCK_KM = 500
 
-# LUCAS sparsity experiment: training fractions and repeat seeds.
+# Density (thinning) experiment on GEMAS: training fractions and repeat seeds.
 SPARSITY_FRACTIONS = [1.0, 0.5, 0.25, 0.10]
 SPARSITY_SEEDS = [0, 1, 2, 3, 4]
 
-# Countries present in both surveys (GEMAS three-letter codes).
-# GEMAS also sampled Norway, Switzerland, Ukraine and Western Balkan states,
-# which LUCAS 2018 (EU-27 + UK) does not cover. They are excluded so that
-# both datasets describe the same region.
+# Study area: the 26 EU and UK countries GEMAS sampled (GEMAS three-letter codes).
+# GEMAS also sampled Norway, Switzerland, Ukraine and Western Balkan states;
+# they are outside the study area. (The area was chosen to match LUCAS 2018,
+# which could not be obtained; see results/deviations.md, D1.)
 GEMAS_COMMON_COUNTRIES = [
     "AUS", "BEL", "BUL", "CRO", "CYP", "CZR", "DEN", "EST", "FIN", "FRA",
     "GER", "HEL", "HUN", "IRL", "ITA", "LAV", "LIT", "LUX", "NEL", "POL",
     "PTG", "SKA", "SLO", "SPA", "SWE", "UNK",
 ]
-# Same countries as LUCAS NUTS_0 codes.
+# Same countries as NUTS_0 codes (used by the unused LUCAS loader).
 GEMAS_TO_NUTS0 = {
     "AUS": "AT", "BEL": "BE", "BUL": "BG", "CRO": "HR", "CYP": "CY",
     "CZR": "CZ", "DEN": "DK", "EST": "EE", "FIN": "FI", "FRA": "FR",
