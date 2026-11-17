@@ -78,3 +78,7 @@ details.maths[open] summary { margin-bottom: 8px; }
 
 footer { padding: 26px 0 40px; color: var(--muted); font-size: 0.85rem; }
 .legend-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 4px; }
+
+td.inconclusive { color: #8a6100; font-weight: 600; }
+h4 { font-size: 1rem; margin: 18px 0 6px; }
+.controls label.check { white-space: nowrap; }
