@@ -131,8 +131,7 @@ Chaitanya's work is in pull requests #1 to #8 (`chaitanya/*` branches). Saksham'
 We used an AI coding assistant (Kiro) in **both phases** of the project. It is a tool, not an author or contributor.
 
 We used it to draft and debug code, to draft the derivations, the hypothesis text and the website and README text, to check reference DOIs, and to run the pipeline and the website checks. After the main work was merged, we also used it for the website changes in #17 and #18, and for an independent pre-submission review whose fixes are in #19.
-
-The research question, the choice of datasets, methods and evaluation design, and the decision to pre-register the hypotheses come from our proposal. We are responsible for every result and statement in this repository and on the website, and we reviewed the code, the numbers against the output files, and the references before submission.
+We are responsible for every result and statement in this repository and on the website, and we reviewed the code, the numbers against the output files, and the references before submission.
 
 ## Citations
 
