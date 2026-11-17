@@ -503,14 +503,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   $("sel-map-method").addEventListener("change", renderResMap);
   $("sel-map-split").addEventListener("change", renderResMap);
   $("sl-frac").addEventListener("input", renderDensity);
-  document.querySelectorAll(".ds-btn").forEach((b) => b.addEventListener("click", () => {
-    if (b.disabled) return;
-    document.querySelectorAll(".ds-btn").forEach((x) => x.classList.toggle("active", x === b));
-    loadDataset(b.dataset.ds);
-  }));
   try {
     state.site = await getJSON("data/site.json");
-    if (state.site.datasets.lucas) { const lb = document.querySelector('.ds-btn[data-ds="lucas"]'); lb.disabled = false; lb.textContent = "LUCAS 2018 (dense)"; }
     await loadDataset("gemas");
   } catch (err) {
     console.error(err);
