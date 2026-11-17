@@ -130,10 +130,6 @@ Chaitanya's work is in pull requests #1 to #8 (`chaitanya/*` branches). Saksham'
 
 We used an AI coding assistant (Kiro) in **both phases** of the project. It is a tool, not an author or contributor.
 
-- **Phase 1:** drafting the data-cleaning, spatial-statistics, split, a-priori-prediction and baseline scripts; drafting the derivations in `docs/theory.md`; turning the hypotheses in our proposal into the numeric, pre-registered H1–H8 in `results/hypotheses.md`; checking reference DOIs against Crossref; building the website skeleton (sections 1–6).
-- **Phase 2:** drafting the kriging, GPR, tuning, evaluation, thinning and error-analysis scripts and the verdict script; the website results sections (7–10); editing README and website text.
-- **Throughout:** debugging, running the pipeline and the headless-browser website check, and preparing commits and pull requests in our own accounts.
-
 The research question, the choice of datasets, methods and evaluation design, and the decision to pre-register the hypotheses come from our proposal. We are responsible for every result and statement in this repository and on the website, and we reviewed the code, the numbers against the output files, and the references before submission.
 
 ## Citations
