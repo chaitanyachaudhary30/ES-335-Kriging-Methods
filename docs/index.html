@@ -18,7 +18,7 @@
     <div class="dataset-switch" role="group" aria-label="Dataset">
       <span>Dataset:</span>
       <button class="ds-btn active" data-ds="gemas">GEMAS (sparse, n≈1,700)</button>
-      <button class="ds-btn" data-ds="lucas" disabled title="LUCAS 2018 data pending registration">LUCAS 2018 (dense) · pending</button>
+      <button class="ds-btn" data-ds="lucas" disabled title="We requested LUCAS 2018 but did not receive access">LUCAS 2018 · access not granted</button>
     </div>
   </div>
 </header>
@@ -60,7 +60,7 @@
     <li><strong>The usual random train/test split flatters every spatial method.</strong> It tests at distances where neighbours are informative, unlike real gaps on a map (Section 5).</li>
     <li><strong>A more flexible model is not automatically better.</strong> When much of the variation is pure noise at the sampling scale (a high <em>nugget</em>), no method can recover it (Sections 4 and 6).</li>
   </ol>
-  <p class="claim-limit"><strong>Scope of the claim.</strong> Two European surveys of agricultural soil, 26 countries. We do not claim the findings transfer to other regions, soil properties or sampling designs.</p>
+  <p class="claim-limit"><strong>Scope of the claim.</strong> One European survey of agricultural soil (GEMAS), 26 countries. A second survey (LUCAS 2018) was planned but access was not granted. We do not claim the findings transfer to other regions, soil properties or sampling designs.</p>
 </section>
 
 <!-- 2. DATA -->
@@ -74,8 +74,8 @@
     </div>
     <div class="card muted">
       <h3>LUCAS 2018 Topsoil</h3>
-      <p>EU Land Use/Cover Area frame Survey soil module (JRC/ESDAC). 18,984 samples in total; we keep <strong>cropland, 0–20 cm</strong>, in the same countries as GEMAS. Free after registration.</p>
-      <p class="stat-line">Pending: access requires a registration request to ESDAC. The pipeline runs unchanged once the file arrives.</p>
+      <p>EU Land Use/Cover Area frame Survey soil module (JRC/ESDAC). 18,984 samples in total; we planned to keep <strong>cropland, 0–20 cm</strong>, in the same countries as GEMAS. Free after registration.</p>
+      <p class="stat-line"><strong>Not used.</strong> We submitted the ESDAC registration form but did not receive access to the data before the deadline. All results on this site use GEMAS only; the effect of sampling density is studied by thinning GEMAS instead (see <a href="https://github.com/chaitanyachaudhary30/ES-335-Kriging-Methods/blob/main/results/deviations.md">deviations</a>).</p>
     </div>
   </div>
 
@@ -198,7 +198,7 @@
     <tr><td>H2</td><td>The nugget caps coordinate-only kriging: RMSE ratio ≥ √η.</td><td>OK skill ≤ 0.27–0.38 per fold</td><td class="pending">Phase 2</td></tr>
     <tr><td>H3</td><td>When covariates help and residuals stay correlated, Regression Kriging is best.</td><td>RK has the highest skill</td><td class="pending">Phase 2</td></tr>
     <tr><td>H4</td><td>Kriging's gain over its own trend vanishes far from the data.</td><td>≤ 0.02 for points &gt; 250 km away</td><td class="pending">Phase 2</td></tr>
-    <tr><td>H5</td><td>Denser data gives a larger kriging gain on the same regions.</td><td>LUCAS OK skill &gt; GEMAS OK skill</td><td class="pending">Phase 2</td></tr>
+    <tr><td>H5</td><td>Denser data gives a larger kriging gain on the same regions.</td><td>LUCAS OK skill &gt; GEMAS OK skill</td><td class="pending">Not testable (LUCAS not accessible)</td></tr>
     <tr><td>H6</td><td>A random split overstates spatial generalisation.</td><td>OK: 0.21 (random) vs 0.10 (spatial)</td><td class="pending">Phase 2</td></tr>
     <tr><td>H7</td><td>The predictions rank the methods correctly (the main question).</td><td>Spearman ρ ≥ 0.7</td><td class="pending">Phase 2</td></tr>
     <tr><td>H8</td><td>GPR and OK give similar accuracy.</td><td>|difference| ≤ 0.03</td><td class="pending">Phase 2</td></tr>
@@ -240,7 +240,7 @@
   <h2><span class="num">9</span> Limitations</h2>
   <ul>
     <li>Two surveys, one continent, agricultural soil only.</li>
-    <li>The surveys differ in more than density (year, lab, sampling design). The LUCAS sparsity experiment separates density from these differences.</li>
+    <li>Only one survey could be used: LUCAS 2018 was requested but access was not granted. The effect of density is studied by thinning GEMAS, which can only make the data sparser than its 42 km spacing.</li>
     <li>One variogram for all of Europe assumes stationarity; soils in Scandinavia and the Mediterranean may vary differently.</li>
     <li>Covariates are coarse (5′ ≈ 9 km grid) and limited to climate and elevation.</li>
     <li>The 500 km block size fixes how hard the test is; results at other block sizes may differ.</li>

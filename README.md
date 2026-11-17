@@ -6,7 +6,9 @@ ES 335 course project by **Chaitanya** and **Saksham**.
 - **Question:** Can statistics of the training data (sample size, spacing, nugget ratio, range, trend strength) predict which kriging-based method gives the lowest error when predicting topsoil pH (CaCl$_2$) in geographically held-out regions?
 - **Unit of analysis:** one row = one georeferenced agricultural topsoil sample (0–20 cm) with its measured pH.
 
-> Status: Phase 1 (data, statistics, splits, theory, hypotheses, baselines, website skeleton) is in progress. Phase 2 (kriging models, experiments, results pages) follows from the `phase1-handoff` tag.
+> Status: Phase 1 (data, statistics, splits, theory, hypotheses, baselines, website skeleton) is complete. Phase 2 (kriging models, experiments, results pages) follows from the `phase1-handoff` tag.
+>
+> **LUCAS 2018 was not used.** We submitted the ESDAC registration form but did not receive access before the deadline, so all results use GEMAS only. See `results/deviations.md` for the effect on the hypotheses.
 
 ## Repository layout
 
@@ -21,7 +23,7 @@ ES 335 course project by **Chaitanya** and **Saksham**.
 | `src/baselines.py`, `src/metrics.py` | Mean / Linear Regression / Random Forest baselines; RMSE, MAE, skill |
 | `scripts/01_clean.py` … `05_baselines.py` | Pipeline steps, run in order |
 | `data/splits/` | Exact fold assignment for every sample (IDs and labels only) |
-| `results/` | Row counts, spatial statistics, hypotheses, predictions, metrics |
+| `results/` | Row counts, spatial statistics, hypotheses, predictions, metrics; `deviations.md` lists changes to the plan |
 | `docs/` | GitHub Pages website and `theory.md` (derivations) |
 
 ## Setup
@@ -41,7 +43,7 @@ Raw survey data are **not** included in this repository: neither licence allows 
 | Dataset | Source | Access | Put files in |
 |---|---|---|---|
 | GEMAS Extended Dataset (BGR) | https://data.europa.eu/data/datasets/0554568e-c60f-4106-b099-839bb30f9c44 | Free download: `https://download.bgr.de/bgr/geochemie/GEMAS_ExtendedDataset/csv/ExtendedDataset_CSV.zip` | unzip into `data/raw/gemas/` |
-| LUCAS 2018 Topsoil (ESDAC, JRC) | https://esdac.jrc.ec.europa.eu/content/lucas-2018-topsoil-data | Free after registration (request form) | the CSV into `data/raw/lucas/` |
+| LUCAS 2018 Topsoil (ESDAC, JRC) | https://esdac.jrc.ec.europa.eu/content/lucas-2018-topsoil-data | Free after registration (request form). **We requested access but it was not granted in time; not used in this project.** | the CSV into `data/raw/lucas/` (optional) |
 | WorldClim 2.1, 5 arc-min | https://www.worldclim.org/data/worldclim21.html | Free download: `wc2.1_5m_elev.zip`, `wc2.1_5m_bio.zip` | `wc2.1_5m_elev.tif`, `wc2.1_5m_bio_{1,4,12,15}.tif` into `data/raw/worldclim/` |
 
 The website shows only aggregates, model outputs, and sample locations rounded to 0.1°. The split files list sample IDs and fold labels only.
@@ -56,7 +58,7 @@ python scripts/04_hypotheses.py     # training-only statistics + a-priori predic
 python scripts/05_baselines.py      # baseline test metrics (first script that reads test pH)
 ```
 
-All steps are deterministic (seed 42 in `src/config.py`). LUCAS steps are skipped with a message until the LUCAS CSV is present.
+All steps are deterministic (seed 42 in `src/config.py`). LUCAS steps are skipped with a message because the LUCAS CSV is not present.
 
 ## Team and contributions
 
