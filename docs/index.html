@@ -54,7 +54,7 @@
       <span class="ph-farm" style="left:25%;width:31.25%">most farm soils (pH 4–8)</span>
     </div>
   </div>
-  <p>The catch: pH is measured by digging up soil and sending it to a lab. The European survey we use measured about <strong>1,700 farms</strong> across an area of over <strong>3 million km²</strong>, about one farm per 2,000 km². For every other field we have to <strong>guess from the farms that were measured</strong>. Our project asks which way of guessing works best, especially for whole regions with no measurements at all.</p>
+  <p>The catch: pH is measured by digging up soil and sending it to a lab. The European survey we use measured about <strong>1,700 farms</strong> across an area of over <strong>3 million km²</strong>, about one farm per 1,900 km². For every other field we have to <strong>guess from the farms that were measured</strong>. Our project asks which way of guessing works best, especially for whole regions with no measurements at all.</p>
 
   <h3>Step 2. Try guessing yourself</h3>
   <div class="interactive">
@@ -92,7 +92,7 @@
       <div id="gu-curve" class="plot"></div>
       <div>
         <p class="readout" id="gu-gap-readout"></p>
-        <p><strong>What to notice.</strong> In a small gap, smart averaging still helps, because there are measured farms nearby. As the gap grows, the help shrinks to <strong>zero</strong>: deep inside a large gap, kriging gives back the plain average. <strong>Copying the nearest dot gets worse than the average</strong>, because a far-away farm is no better than a random one, and you also copy its quirks.</p>
+        <p><strong>What to notice.</strong> In a small gap, smart averaging still helps, because there are measured farms nearby. As the gap grows, the help shrinks to <strong>zero</strong>: deep inside a large gap, kriging gives back the plain average. (This toy uses one known average for the whole country. Our real models estimate the average from the nearest samples instead, so far from the data they fall back to a <em>local</em> average, which in Europe can still beat the overall one; see Section 8.) <strong>Copying the nearest dot gets worse than the average</strong>, because a far-away farm is no better than a random one, and you also copy its quirks.</p>
       </div>
     </div>
   </div>
@@ -129,7 +129,7 @@
   </div>
   <div class="callout">
     <p class="label">The short version</p>
-    <p>Using nearby measurements helps, but only up to a distance, and never beyond the limit set by random noise. In regions far from any measurement, the best methods were only about 20% better than guessing the average, and several quite different methods tied. The noise limit we worked out before testing held in every test, and the statistics predicted kriging's error closely (0.93 predicted vs 0.90 observed, in pH units). They could not reliably pick a single winner.</p>
+    <p>Using nearby measurements helps, but only up to a distance, and never beyond the limit set by random noise. In regions far from any measurement, the best methods were only about 20% better than guessing the average, and several quite different methods tied. Our main test failed: the statistics did not rank the methods correctly (the rank correlation reached the target of 0.7 in only 1 of 5 tests), and they predicted that kriging would improve on the average by about 10%, when it reached about 20%. The noise limit worked out before testing did hold. Only after testing did we find why the prediction was off: kriging's own error was predicted closely (0.93 vs 0.90 pH units), but the average turned out to be a worse guess for unseen regions than the statistics assumed.</p>
   </div>
   <p class="caption">Where to read more: the similarity distance and noise (Section 4), fair testing (Section 5), our predictions made before testing (Section 6), and the full results (Section 8).</p>
 </section>
@@ -141,7 +141,7 @@
   <p>The usual tools for this are <em>geostatistical</em>: Ordinary Kriging, Universal Kriging, Regression Kriging, and Gaussian Process Regression. They all use the fact that nearby samples tend to have similar values. The open question is how far that fact carries when we predict into a <strong>whole region with no samples</strong>.</p>
   <div class="callout question">
     <p class="label">Research question</p>
-    <p>Can statistics of the training data, such as sample spacing, nugget ratio, correlation range and trend strength, predict which kriging-based method will have the lowest error when predicting topsoil pH in geographically held-out regions of Europe?</p>
+    <p>Can statistics of the training data, such as sample size and spacing, nugget ratio, correlation range and trend strength, predict which kriging-based method will have the lowest error when predicting topsoil pH in geographically held-out regions of Europe?</p>
   </div>
   <div class="grid3">
     <div class="card"><p class="label">Target</p><p>Topsoil pH measured in 0.01 M CaCl<sub>2</sub> (unitless, about 3.3–8 here).</p></div>
@@ -150,7 +150,7 @@
   </div>
   <h3>Three ideas this project puts to the test</h3>
   <ol class="surprises">
-    <li><strong>"Nearby soils are similar" stops helping at a certain distance.</strong> Beyond the correlation range, kriging gives back the average and nothing more (Section 4).</li>
+    <li><strong>"Nearby soils are similar" stops helping at a certain distance.</strong> Beyond the correlation range, neighbours carry no information about the exact spot, and kriging falls back to an average of the samples it uses (Section 4). In our data that local average still beat the overall average far from the data, because pH changes gradually across Europe (Section 8).</li>
     <li><strong>The usual random train/test split can flatter spatial methods.</strong> It tests at distances where neighbours are informative, unlike real gaps on a map (Sections 5 and 8).</li>
     <li><strong>A more flexible model is not automatically better.</strong> When much of the variation is pure noise at the sampling scale (a high <em>nugget</em>), no method can recover it (Sections 4 and 6).</li>
   </ol>
@@ -163,7 +163,7 @@
   <div>
     <div class="card">
       <h3>GEMAS (2008)</h3>
-      <p>Geochemical Mapping of Agricultural and grazing land Soil, by EuroGeoSurveys and Eurometaux. Agricultural (Ap, ploughed 0–20 cm) samples on a regular design of about <strong>one site per 2,500 km²</strong>. Distributed by BGR as the GEMAS Extended Dataset (free download).</p>
+      <p>Geochemical Mapping of Agricultural and grazing land Soil, by EuroGeoSurveys and Eurometaux. Agricultural (Ap, ploughed 0–20 cm) samples on a regular design of one site per 50 × 50 km cell (<strong>2,500 km²</strong>); after cleaning, about one site per 1,900 km² of sampled area. Distributed by BGR as the GEMAS Extended Dataset (free download).</p>
       <p class="stat-line"><span id="g-n">–</span> samples after cleaning · median spacing <span id="g-nn">–</span> km · density <span id="g-dens">–</span> per 1,000 km²</p>
     </div>
   </div>
@@ -241,7 +241,7 @@
     <p>Model: $Z(s)=m(s)+S(s)+\varepsilon(s)$, with structured variance $C_1$, correlation $r(h)$ and nugget $C_0$. The semivariogram is $\gamma(h)=C_0+C_1(1-r(h))$ and $\eta=C_0/(C_0+C_1)$. The slider uses an exponential model, $r(h)=e^{-3h/a}$, so that $r(a)\approx0.05$.</p>
     <p>With one neighbour at distance $d$ and a known mean, the best linear predictor has error</p>
     $$\frac{\text{MSE}_{\text{kriging}}}{\text{MSE}_{\text{mean}}}=1-(1-\eta)^2\,r(d)^2 .$$
-    <p>Because the nugget $\varepsilon(s_0)$ is independent of every other sample, <em>any</em> predictor built from other locations has $\text{MSE}\ge C_0$, so $\text{RMSE}/\text{RMSE}_{\text{mean}}\gtrsim\sqrt\eta$. If all samples lie beyond the range, $c_0=0$ and the Ordinary Kriging system returns the generalised-least-squares mean: $\hat Z(s_0)=\hat\mu$.</p>
+    <p>Because the nugget $\varepsilon(s_0)$ is independent of every other sample, <em>any</em> predictor built from other locations has $\text{MSE}\ge C_0$, so $\text{RMSE}/\text{RMSE}_{\text{mean}}\gtrsim\sqrt\eta$. If all samples lie beyond the range, $c_0=0$ and the Ordinary Kriging system returns the generalised-least-squares mean of the samples in the system: $\hat Z(s_0)=\hat\mu$. Our models solve this system with only the 16–64 nearest samples, so $\hat\mu$ is a <em>local</em> mean, not the overall training mean (Section 8 shows what this does far from the data).</p>
     <p>GEMAS fit (all cleaned samples): exponential, $C_0=0.39$, $C_0+C_1=1.10$, $\eta=0.36$, practical range ≈ 517 km. Derivations: <a href="https://github.com/chaitanyachaudhary30/ES-335-Kriging-Methods/blob/main/docs/theory.md">docs/theory.md</a> (Matheron, 1963; Cressie, 1993).</p>
   </details>
 </section>
@@ -274,7 +274,7 @@
 <!-- 6. HYPOTHESES -->
 <section id="hypotheses">
   <h2><span class="num">6</span> What the statistics predict, before testing</h2>
-  <p>For each test fold we computed, from the <strong>training data and the test locations only</strong>, how much each method should improve on the average. For kriging this uses the kriging variance, which depends on where the samples are, not on their values. For trend models it uses cross-validation inside the training data. These predictions were <a href="https://github.com/chaitanyachaudhary30/ES-335-Kriging-Methods/blob/main/results/hypotheses.md">committed to the repository</a> before any model was tested.</p>
+  <p>For each test fold we computed, from the <strong>training data and the test locations only</strong>, how much each method should improve on the average. For kriging this uses the kriging variance, which depends on where the samples are, not on their values. For trend models it uses cross-validation inside the training data. These predictions were <a href="https://github.com/chaitanyachaudhary30/ES-335-Kriging-Methods/blob/main/results/hypotheses.md">committed to the repository</a> and pushed to GitHub before any test score was pushed. The script that makes them reads only training pH and test locations. GitHub's push log shows the hypotheses on GitHub at 17:18 UTC on 16 November and the first test scores (baselines) pushed at 18:03 UTC. Commit order shows the order of the files; it cannot prove when each script was run. See <a href="https://github.com/chaitanyachaudhary30/ES-335-Kriging-Methods/blob/main/results/deviations.md">deviations.md, D3</a>.</p>
   <div class="interactive">
     <p class="label">Predicted skill (1 − RMSE / RMSE of the mean)</p>
     <div id="pred-plot" class="plot tall"></div>
@@ -294,7 +294,7 @@
   <p class="caption">H5 is not listed: it needed a second dataset that we could not obtain (see the README). Decision rule: "supported" if the mean per-fold difference has the predicted sign and at least 4 of 5 folds agree; "not supported" if the opposite holds; otherwise "inconclusive".</p>
 
   <h3>First check: do the predictions work for the baselines?</h3>
-  <p>The three non-spatial baselines have already been tested. Their predicted skill (from cross-validation inside the training data) can be compared with their actual test skill:</p>
+  <p>For the three non-spatial baselines, the predicted skill (from cross-validation inside the training data) can be compared with their actual test skill:</p>
   <div id="check-plot" class="plot"></div>
   <p class="readout" id="check-readout"></p>
 </section>
@@ -315,7 +315,7 @@
   </table></div>
   <details class="maths">
     <summary>Why GPR equals kriging</summary>
-    <p>With constant mean $m$, kernel $k$ and noise $\sigma_n^2$, the GP posterior mean is $\bar f(s_0)=m+k_0^\top(K+\sigma_n^2I)^{-1}(y-m\mathbf 1)$. Setting $k(h)=C_1r(h)$ and $\sigma_n^2=C_0$ gives simple kriging; estimating $m$ by GLS gives Ordinary Kriging (Rasmussen &amp; Williams, 2006, §2.7). The two differ only in how the covariance is fitted.</p>
+    <p>With constant mean $m$, kernel $k$ and noise $\sigma_n^2$, the GP posterior mean is $\bar f(s_0)=m+k_0^\top(K+\sigma_n^2I)^{-1}(y-m\mathbf 1)$. Setting $k(h)=C_1r(h)$ and $\sigma_n^2=C_0$ gives simple kriging; estimating $m$ by GLS gives Ordinary Kriging (Rasmussen &amp; Williams, 2006, §2.7). In theory the two differ only in how the covariance is fitted. Our code adds two practical differences: GPR uses all ~1,400 training points and subtracts the plain training mean, while OK uses the 16–64 nearest points and re-estimates the mean locally. Universal Kriging is implemented in two steps (fit a coordinate trend, then krige its residuals), an approximation to the one-step UK system.</p>
   </details>
 
   <h3>How the models were built</h3>
@@ -337,6 +337,7 @@
 <section id="results">
   <h2><span class="num">8</span> Results and error analysis</h2>
   <p>Every number below is measured on test folds that no model saw during fitting or tuning. <strong>Skill</strong> is 1 − RMSE / RMSE of the average on the same fold: 0 means no better than the training mean, 1 would be perfect. The "spatial" split holds out whole 500 km blocks. The "random" split holds out random samples.</p>
+  <p><strong>Why these metrics.</strong> RMSE is the main error because kriging and GPR are built to minimise squared error, and the kriging variance used for our predictions in Section 6 is a prediction of squared error. Skill divides by the error of the average on the same fold, so folds with more or less pH variation can be compared. MAE is shown as a check that is not dominated by a few large errors.</p>
 
   <div class="interactive" id="res-main">
     <p class="label">Test results for all nine methods</p>
@@ -387,6 +388,7 @@
     <div class="controls" id="err-methods" role="group" aria-label="Methods shown"></div>
     <div id="err-dist-plot" class="plot"></div>
     <p class="readout" id="err-dist-readout"></p>
+    <p><strong>Why kriging still helps far from the data.</strong> The theory (Section 4) says that beyond the range kriging gives back the mean of the samples it uses. On the spatial split, Ordinary Kriging is 17% better than the average for the 82 test samples more than 250 km from any training sample, more than its 13% at 150–250 km. Our kriging uses only the nearest 16–64 samples, so far from the data it falls back to a <em>regional</em> average, while the Mean baseline uses one average for all of Europe, which is a poor guess there (its RMSE is 1.27 pH units beyond 250 km, against 1.09 at 150–250 km). This is the same reason the a-priori predictions underestimated skill (Section 6). Only 82 samples fall beyond 250 km, so these two percentages are themselves uncertain.</p>
   </div>
 
   <h3>Where the errors are: map of mean residuals</h3>
@@ -455,7 +457,9 @@
     <li>Density is studied by thinning GEMAS, which can only make the data sparser than its 42 km spacing. We cannot say how the methods compare with denser sampling.</li>
     <li>One variogram for all of Europe assumes stationarity; soils in Scandinavia and the Mediterranean may vary differently.</li>
     <li>Covariates are coarse (5′ ≈ 9 km grid) and limited to climate and elevation.</li>
-    <li>The 500 km block size fixes how hard the test is; results at other block sizes may differ. We did not test other sizes.</li>
+    <li>The 500 km block size fixes how hard the test is; results at other block sizes may differ. We did not test other sizes. The size was chosen from a variogram fitted on all cleaned samples, test regions included; this affects only the split geometry, not any model.</li>
+    <li>Two of the supported tests were easy to pass: the nugget bound (H2) held with a wide margin because predicted skill was far below the cap, and H7(b) passed partly because the fold-to-fold spread (0.078) is large.</li>
+    <li>The commit history shows the hypotheses were committed and pushed first, but it cannot prove when each script was run (deviations.md, D3).</li>
   </ul>
 </section>
 

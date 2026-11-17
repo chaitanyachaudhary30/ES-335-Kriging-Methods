@@ -27,3 +27,12 @@ Written and committed in the `saksham/models` pull request, before any Phase 2 m
 - **H5:** not testable (D1).
 
 **Effect:** none on the data or models. These rules only fix how the pre-registered text is turned into code.
+
+## D3. What the commit history can and cannot show about timing
+
+Added after testing, as a clarification. Nothing in the analysis changed.
+
+- **What the history shows.** `results/hypotheses.md` was committed in `45c3ebe` and has not changed since (`git diff 45c3ebe main -- results/hypotheses.md` is empty). GitHub's push log (repository activity API) records the branch holding it on GitHub at 2026-11-16 17:18 UTC, and the first test scores (`chaitanya/baselines`, commit `36c61d9`) pushed at 18:03 UTC. D2 was pushed in `saksham/models` at 2026-11-17 14:22 UTC, before the tuning (14:32 UTC) and evaluation (14:33 UTC) branches.
+- **What it cannot show.** A commit records when files were saved, not when a script was run. Commit times alone therefore cannot prove that no test score had been looked at before a hypothesis or rule was written. For Phase 1, `05_baselines.py` runs in about 15 seconds, so the 62 seconds between the hypotheses commit and the baselines commit is consistent with the stated order. For Phase 2, the evaluation commit came 83 seconds after the tuning commit, while `07_models.py` takes a few minutes, so the evaluation must have been run before the tuning commit was made. The history shows that D2 was committed before the evaluation results, not that it was written before the evaluation was run.
+- **What does not depend on timing.** The a-priori predictions are produced by `scripts/04_hypotheses.py`, which reads training pH values and test *locations* only (see the per-fold loop, which builds the training frame from rows outside the test fold). Anyone can rerun it and get the committed predictions without touching test pH. The verdicts are produced mechanically by `scripts/08_verdicts.py` from the rules in `hypotheses.md` and D2.
+
