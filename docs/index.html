@@ -7,6 +7,7 @@
   <meta name="description" content="ES 335 project: can a dataset's statistics predict which kriging method works best for soil pH in held-out European regions?">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+  <link rel="icon" href="data:,">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -54,10 +55,10 @@
     <div class="card"><p class="label">One row</p><p>One georeferenced agricultural topsoil sample (0–20 cm) with its measured pH.</p></div>
     <div class="card"><p class="label">Inputs at prediction time</p><p>Only things known at an unsampled place: its coordinates, and gridded climate and elevation. No lab measurements.</p></div>
   </div>
-  <h3>Three results that go against intuition</h3>
+  <h3>Three ideas this project puts to the test</h3>
   <ol class="surprises">
     <li><strong>"Nearby soils are similar" stops helping at a certain distance.</strong> Beyond the correlation range, kriging gives back the average and nothing more (Section 4).</li>
-    <li><strong>The usual random train/test split flatters every spatial method.</strong> It tests at distances where neighbours are informative, unlike real gaps on a map (Section 5).</li>
+    <li><strong>The usual random train/test split can flatter spatial methods.</strong> It tests at distances where neighbours are informative, unlike real gaps on a map (Sections 5 and 8).</li>
     <li><strong>A more flexible model is not automatically better.</strong> When much of the variation is pure noise at the sampling scale (a high <em>nugget</em>), no method can recover it (Sections 4 and 6).</li>
   </ol>
   <p class="claim-limit"><strong>Scope of the claim.</strong> One European survey of agricultural soil (GEMAS), 26 countries. A second survey (LUCAS 2018) was planned but access was not granted. We do not claim the findings transfer to other regions, soil properties or sampling designs.</p>
@@ -159,7 +160,7 @@
 
 <!-- 5. SPLIT -->
 <section id="split">
-  <h2><span class="num">5</span> A random test split flatters every method</h2>
+  <h2><span class="num">5</span> A random test split is easier than a real gap</h2>
   <p>To test a model we hide some samples and predict them. If we hide <strong>random</strong> samples, every hidden sample still has training neighbours about 43 km away. If we hide <strong>whole regions</strong> (500 km × 500 km blocks), hidden samples are typically 100 km and often over 200 km from the nearest training sample. That is the real situation when mapping an unsampled region.</p>
   <div class="interactive">
     <p class="label">Try it</p>
@@ -194,14 +195,14 @@
   <h3>Hypotheses</h3>
   <div class="table-wrap"><table class="data">
     <tr><th>ID</th><th>Hypothesis</th><th>Predicted for GEMAS</th><th>Verdict</th></tr>
-    <tr><td>H1</td><td>A coordinate trend that extrapolates well lets Universal Kriging beat Ordinary Kriging in held-out regions.</td><td>UK 0.18 vs OK 0.10</td><td class="pending">Phase 2</td></tr>
-    <tr><td>H2</td><td>The nugget caps coordinate-only kriging: RMSE ratio ≥ √η.</td><td>OK skill ≤ 0.27–0.38 per fold</td><td class="pending">Phase 2</td></tr>
-    <tr><td>H3</td><td>When covariates help and residuals stay correlated, Regression Kriging is best.</td><td>RK has the highest skill</td><td class="pending">Phase 2</td></tr>
-    <tr><td>H4</td><td>Kriging's gain over its own trend vanishes far from the data.</td><td>≤ 0.02 for points &gt; 250 km away</td><td class="pending">Phase 2</td></tr>
-    <tr><td>H5</td><td>Denser data gives a larger kriging gain on the same regions.</td><td>LUCAS OK skill &gt; GEMAS OK skill</td><td class="pending">Not testable (LUCAS not accessible)</td></tr>
-    <tr><td>H6</td><td>A random split overstates spatial generalisation.</td><td>OK: 0.21 (random) vs 0.10 (spatial)</td><td class="pending">Phase 2</td></tr>
-    <tr><td>H7</td><td>The predictions rank the methods correctly (the main question).</td><td>Spearman ρ ≥ 0.7</td><td class="pending">Phase 2</td></tr>
-    <tr><td>H8</td><td>GPR and OK give similar accuracy.</td><td>|difference| ≤ 0.03</td><td class="pending">Phase 2</td></tr>
+    <tr><td>H1</td><td>A coordinate trend that extrapolates well lets Universal Kriging beat Ordinary Kriging in held-out regions.</td><td>UK 0.18 vs OK 0.10</td><td class="pending" data-verdict="H1">loading</td></tr>
+    <tr><td>H2</td><td>The nugget caps coordinate-only kriging: RMSE ratio ≥ √η.</td><td>OK skill ≤ 0.27–0.38 per fold</td><td class="pending" data-verdict="H2">loading</td></tr>
+    <tr><td>H3</td><td>When covariates help and residuals stay correlated, Regression Kriging is best.</td><td>RK has the highest skill</td><td class="pending" data-verdict="H3">loading</td></tr>
+    <tr><td>H4</td><td>Kriging's gain over its own trend vanishes far from the data.</td><td>≤ 0.02 for points &gt; 250 km away</td><td class="pending" data-verdict="H4">loading</td></tr>
+    <tr><td>H5</td><td>Denser data gives a larger kriging gain on the same regions.</td><td>LUCAS OK skill &gt; GEMAS OK skill</td><td class="pending" data-verdict="H5">loading</td></tr>
+    <tr><td>H6</td><td>A random split overstates spatial generalisation.</td><td>OK: 0.21 (random) vs 0.10 (spatial)</td><td class="pending" data-verdict="H6">loading</td></tr>
+    <tr><td>H7</td><td>The predictions rank the methods correctly (the main question).</td><td>Spearman ρ ≥ 0.7</td><td class="pending" data-verdict="H7">loading</td></tr>
+    <tr><td>H8</td><td>GPR and OK give similar accuracy.</td><td>|difference| ≤ 0.03</td><td class="pending" data-verdict="H8">loading</td></tr>
   </table></div>
   <p class="caption">Decision rule: "supported" if the mean per-fold difference has the predicted sign and at least 4 of 5 folds agree; "not supported" if the opposite holds; otherwise "inconclusive".</p>
 
@@ -211,48 +212,190 @@
   <p class="readout" id="check-readout"></p>
 </section>
 
-<!-- PHASE 2 SECTIONS -->
+<!-- 7. METHODS -->
 <section id="methods">
   <h2><span class="num">7</span> Methods compared</h2>
+  <p>Nine methods are compared on the same folds. Four need no spatial model (the average, two linear regressions, a random forest); five use the spatial correlation of the data. Every method gets only the inputs allowed in Section 3.</p>
   <div class="table-wrap"><table class="data">
     <tr><th>Method</th><th>Idea in one line</th><th>Key assumption</th></tr>
     <tr><td>Mean</td><td>Predict the training average everywhere.</td><td>None; the reference point.</td></tr>
-    <tr><td>Linear Regression</td><td>pH as a straight-line function of coordinates and climate.</td><td>Global linear trend, independent errors.</td></tr>
-    <tr><td>Random Forest</td><td>Flexible non-spatial ML on the same inputs.</td><td>Patterns in the inputs transfer to new regions.</td></tr>
+    <tr><td>Linear Regression</td><td>pH as a straight-line function of coordinates (and, in the second version, climate).</td><td>Global linear trend, independent errors.</td></tr>
+    <tr><td>Random Forest</td><td>Flexible non-spatial ML on coordinates and climate.</td><td>Patterns in the inputs transfer to new regions.</td></tr>
     <tr><td>Ordinary Kriging (OK)</td><td>Weighted average of nearby samples, weights from the variogram.</td><td>Constant mean, one variogram for all of Europe.</td></tr>
-    <tr><td>Universal Kriging (UK)</td><td>OK around a trend in the coordinates.</td><td>The coordinate trend holds in unseen regions.</td></tr>
-    <tr><td>Regression Kriging (RK)</td><td>Regression on climate/elevation, then OK on the residuals.</td><td>Covariate effects transfer; residuals are stationary.</td></tr>
-    <tr><td>Gaussian Process Regression (GPR)</td><td>Bayesian version of kriging with a Matérn kernel.</td><td>Same as OK; kernel fitted by marginal likelihood.</td></tr>
+    <tr><td>Universal Kriging (UK)</td><td>A trend in the coordinates, plus kriging of what the trend misses.</td><td>The coordinate trend holds in unseen regions.</td></tr>
+    <tr><td>Regression Kriging (RK)</td><td>A regression (linear on coordinates + climate, or a random forest), plus kriging of its residuals.</td><td>Covariate effects transfer; residuals are stationary.</td></tr>
+    <tr><td>Gaussian Process Regression (GPR)</td><td>Bayesian version of kriging with a Matérn kernel and a noise term.</td><td>Same as OK; kernel fitted by marginal likelihood.</td></tr>
   </table></div>
   <details class="maths">
     <summary>Why GPR equals kriging</summary>
     <p>With constant mean $m$, kernel $k$ and noise $\sigma_n^2$, the GP posterior mean is $\bar f(s_0)=m+k_0^\top(K+\sigma_n^2I)^{-1}(y-m\mathbf 1)$. Setting $k(h)=C_1r(h)$ and $\sigma_n^2=C_0$ gives simple kriging; estimating $m$ by GLS gives Ordinary Kriging (Rasmussen &amp; Williams, 2006, §2.7). The two differ only in how the covariance is fitted.</p>
   </details>
-  <p class="phase-note">Model results, tuning details and the sparsity experiment are added in Phase 2.</p>
+
+  <h3>How the models were built</h3>
+  <ul>
+    <li><strong>Kriging neighbourhood.</strong> Each prediction uses the 16, 32 or 64 nearest training samples (chosen by tuning). The kriging equations are solved directly; the same solver gives the kriging variance used for the predicted skill in Section 6.</li>
+    <li><strong>UK and RK.</strong> A trend model is fitted on the training fold. Its <em>out-of-fold</em> residuals (the trend is predicted for each sample by a model that did not see it) are used for the variogram and for kriging. This keeps a flexible trend, such as the random forest, from making the residuals look smaller than they will be at new places.</li>
+    <li><strong>GPR.</strong> scikit-learn, kernel = constant × Matérn + white noise, inputs in km, targets standardised. Exact GPR is feasible with about 1,400 training samples per fold.</li>
+    <li><strong>Uncertainty.</strong> Kriging and GPR also return a standard deviation for a new measurement. Section 8 checks whether 95% intervals contain about 95% of the test values.</li>
+    <li><strong>No leakage.</strong> Scaling, trends, variograms, kernel parameters and the forest are fitted on the training fold only. Test values are used once, for scoring.</li>
+  </ul>
+
+  <h3>Tuning</h3>
+  <p>Settings were chosen by cross-validation <em>inside each training fold</em>. The inner folds are the other outer folds, so in the spatial split the inner validation sets are whole regions, like the real test. For UK and RK the whole procedure (trend, residuals, variogram) is repeated inside each inner fold. The grids are small on purpose. The Random Forest settings are fixed (300 trees, at least 5 samples per leaf, half the features per split) and were not tuned.</p>
+  <div class="table-wrap"><table class="data" id="tune-table"><thead><tr><th>Method</th><th>Grid searched</th><th>Chosen over the 10 outer folds (5 spatial + 5 random)</th></tr></thead><tbody></tbody></table></div>
+  <p class="caption">Counts are the number of outer folds that chose each value. Chosen settings per fold are in <code>results/tuning/</code>.</p>
 </section>
 
+<!-- 8. RESULTS -->
 <section id="results">
   <h2><span class="num">8</span> Results and error analysis</h2>
-  <p class="phase-note">Phase 2: test RMSE, MAE and skill for every method on both splits; whether each hypothesis held; error against distance to the nearest training sample; and the LUCAS training-density slider.</p>
+  <p>Every number below is measured on test folds that no model saw during fitting or tuning. <strong>Skill</strong> is 1 − RMSE / RMSE of the average on the same fold: 0 means no better than the training mean, 1 would be perfect. The "spatial" split holds out whole 500 km blocks. The "random" split holds out random samples.</p>
+
+  <div class="interactive" id="res-main">
+    <p class="label">Test results for all nine methods</p>
+    <div class="controls">
+      <span>Split:</span>
+      <label class="radio"><input type="radio" name="rsplit" value="spatial" checked> spatial blocks (held-out regions)</label>
+      <label class="radio"><input type="radio" name="rsplit" value="random"> random</label>
+    </div>
+    <p class="readout" id="res-headline"></p>
+    <div class="table-wrap"><table class="data" id="res-table"><thead><tr><th>Method</th><th>RMSE</th><th>MAE</th><th>Skill (observed)</th><th>Skill (predicted in Section 6)</th><th>Rank observed</th><th>Rank predicted</th></tr></thead><tbody></tbody></table></div>
+    <p class="caption">Mean over the 5 test folds, with the standard deviation across folds after "±". RMSE and MAE are in pH units.</p>
+    <div id="skill-bar" class="plot tall"></div>
+    <p class="caption">Bars: mean skill with ±1 SD across folds. Dots: the five single folds. Orange = observed on test data, blue = predicted from the training data only.</p>
+  </div>
+
+  <h3>Did the training statistics predict the results?</h3>
+  <div class="interactive">
+    <p class="label">Predicted against observed skill</p>
+    <p>Each point is one method on one test fold. A method on the dashed line would have performed exactly as predicted. Diamonds are the means over folds. Click a method in the legend to hide or show it.</p>
+    <div class="controls">
+      <span>Split:</span>
+      <label class="radio"><input type="radio" name="ssplit" value="spatial" checked> spatial blocks</label>
+      <label class="radio"><input type="radio" name="ssplit" value="random"> random</label>
+    </div>
+    <div id="scatter-plot" class="plot tall"></div>
+    <p class="readout" id="scatter-readout"></p>
+  </div>
+  <p class="readout" id="apriori-check"></p>
+
+  <h3>Hypotheses: what held</h3>
+  <p>The decision rule was fixed before testing (Section 6). Mixed results count as inconclusive. The full evidence is in <a href="https://github.com/chaitanyachaudhary30/ES-335-Kriging-Methods/blob/main/results/verdicts.md">results/verdicts.md</a>; the rules for hypotheses with several parts are in <a href="https://github.com/chaitanyachaudhary30/ES-335-Kriging-Methods/blob/main/results/deviations.md">results/deviations.md</a> (D2).</p>
+  <div class="table-wrap"><table class="data" id="verdict-table"><thead><tr><th>ID</th><th>Hypothesis</th><th>Verdict</th><th>Key number</th></tr></thead><tbody></tbody></table></div>
+  <details class="maths" id="verdict-details">
+    <summary>Evidence behind each verdict</summary>
+    <div class="table-wrap"><table class="data compact" id="verdict-evidence"><thead><tr><th>ID</th><th>Part</th><th>Evidence</th><th>Verdict</th></tr></thead><tbody></tbody></table></div>
+  </details>
+
+  <h3>Errors against distance from the training data</h3>
+  <div class="interactive">
+    <p class="label">Try it</p>
+    <p>Kriging should help most close to the samples and fade towards the average far away. Choose the methods and the split. The dashed line marks the mean fitted correlation range of the spatial folds.</p>
+    <div class="controls">
+      <span>Split:</span>
+      <label class="radio"><input type="radio" name="esplit" value="spatial" checked> spatial blocks</label>
+      <label class="radio"><input type="radio" name="esplit" value="random"> random</label>
+      <label>Error measure <select id="sel-emetric"><option value="mae">mean absolute error</option><option value="rmse">RMSE</option></select></label>
+    </div>
+    <div class="controls" id="err-methods" role="group" aria-label="Methods shown"></div>
+    <div id="err-dist-plot" class="plot"></div>
+    <p class="readout" id="err-dist-readout"></p>
+  </div>
+
+  <h3>Where the errors are: map of mean residuals</h3>
+  <div class="interactive">
+    <p class="label">Try it</p>
+    <p>Residual = observed − predicted pH, averaged over 100 km grid cells that hold at least 5 test samples. <span style="color:#b3261e">Red</span> cells: the method predicted too low. <span style="color:#2c6fb5">Blue</span> cells: too high. Sample-level values are not shown (see Section 2).</p>
+    <div class="controls">
+      <label>Method <select id="sel-map-method"></select></label>
+      <label>Split <select id="sel-map-split"><option value="spatial">spatial blocks</option><option value="random">random</option></select></label>
+    </div>
+    <div id="res-map" class="map"></div>
+    <p class="readout" id="res-map-readout"></p>
+  </div>
+
+  <h3>Does thinning the data change the ranking?</h3>
+  <div class="interactive">
+    <p class="label">Try it: density slider</p>
+    <p>LUCAS 2018 was not available, so density is varied by <strong>removing training samples from GEMAS</strong> (the test regions stay the same, five random thinnings each). Move the slider to keep 100%, 50%, 25% or 10% of the training samples. The chart shows observed skill (orange) and the skill predicted from the thinned training data (blue). This can only make the data sparser than they are.</p>
+    <div class="controls">
+      <label>Training samples kept <input type="range" id="sl-frac" min="0" max="3" step="1" value="0"> <output id="o-frac">100%</output></label>
+    </div>
+    <div class="grid2">
+      <div id="density-plot" class="plot tall"></div>
+      <div id="density-lines" class="plot tall"></div>
+    </div>
+    <p class="readout" id="density-readout"></p>
+  </div>
+
+  <h3>More error analysis</h3>
+  <div class="grid2">
+    <div>
+      <h4>By pH range (spatial split)</h4>
+      <div class="table-wrap"><table class="data compact" id="tbl-ph"></table></div>
+      <p class="caption">RMSE, with the mean residual (observed − predicted) in brackets. Very acidic and very alkaline soils are rare, and all methods pull their predictions towards the middle.</p>
+    </div>
+    <div>
+      <h4>By country, largest errors (spatial split)</h4>
+      <div class="table-wrap"><table class="data compact" id="tbl-country"></table></div>
+      <p class="caption">RMSE of the Mean baseline and of the best method (by mean skill), countries with at least 10 test samples.</p>
+    </div>
+  </div>
+  <h4>RMSE per test fold (spatial split)</h4>
+  <div class="table-wrap"><table class="data compact" id="tbl-fold"></table></div>
+  <p class="caption">Folds differ by a lot, and the ranking of methods changes from fold to fold. This is why the verdicts use the 4-of-5 folds rule.</p>
+  <h4>Do the uncertainty estimates hold up?</h4>
+  <div class="table-wrap"><table class="data compact" id="tbl-cov"></table></div>
+  <p class="caption">Coverage: share of test samples inside the 95% interval (target 0.95). RMSE / mean SD near 1 means the predicted SD matches the actual error. The SD of UK and RK covers the residual process only.</p>
 </section>
 
+<!-- 9. LIMITATIONS -->
 <section id="limits">
   <h2><span class="num">9</span> Limitations</h2>
+  <h3>What the results show, and what they do not</h3>
   <ul>
-    <li>Two surveys, one continent, agricultural soil only.</li>
-    <li>Only one survey could be used: LUCAS 2018 was requested but access was not granted. The effect of density is studied by thinning GEMAS, which can only make the data sparser than its 42 km spacing.</li>
+    <li><strong>Most methods are statistically close.</strong> On held-out regions the five best methods (RK (linear), UK, OK, Random Forest, GPR) are within <span id="lim-gap">a few hundredths</span> of skill of each other, less than the fold-to-fold SD of <span id="lim-sd">0.05 to 0.08</span>. With 5 folds we cannot name a winner among them. This is why H1 (UK against OK) and H3 (RK is best) are inconclusive.</li>
+    <li><strong>The a-priori predictions ranked the methods only roughly.</strong> The correlation between predicted and observed skill is below the pre-registered 0.7. The post-hoc check in Section 8 suggests the error scale was predicted well and the reference (the mean baseline) was not. We have not tested this explanation further.</li>
+    <li><strong>The far-from-data test is thin.</strong> Only 82 test samples in the spatial split are more than 250 km from training data, and only three folds have at least 15 of them. H4 could not be decided from them.</li>
+    <li><strong>Random and spatial folds are paired by number only.</strong> Fold <em>i</em> of one split is compared with fold <em>i</em> of the other, although their test sets differ. This adds noise to H6.</li>
+    <li><strong>No significance tests.</strong> With five folds per split we report means, SDs and the 4-of-5 rule, nothing more.</li>
+    <li><strong>Limited tuning.</strong> Grids are small, the Random Forest was not tuned, and the GPR kernel is isotropic with one length scale for all of Europe. A tuned forest may do better than the Random Forest and RK (RF) shown here.</li>
+    <li><strong>The density experiment keeps discrete settings.</strong> Variogram model, neighbour count and drift degree come from the full training fold; the numeric parameters are refitted on each thinned set.</li>
+  </ul>
+  <h3>What the design limits</h3>
+  <ul>
+    <li>One survey, one continent, agricultural topsoil only (GEMAS, 26 countries).</li>
+    <li>LUCAS 2018 was requested but access was not granted. H5 is therefore not testable, and density is studied by thinning GEMAS, which can only make the data sparser than its 42 km spacing.</li>
     <li>One variogram for all of Europe assumes stationarity; soils in Scandinavia and the Mediterranean may vary differently.</li>
     <li>Covariates are coarse (5′ ≈ 9 km grid) and limited to climate and elevation.</li>
-    <li>The 500 km block size fixes how hard the test is; results at other block sizes may differ.</li>
+    <li>The 500 km block size fixes how hard the test is; results at other block sizes may differ. We did not test other sizes.</li>
   </ul>
-  <p class="phase-note">Extended in Phase 2 with what the results show.</p>
 </section>
 
 <section id="repro">
   <h2><span class="num">10</span> Reproduce and check</h2>
-  <p>Code, exact splits, all results and the run order are in the repository: <a href="https://github.com/chaitanyachaudhary30/ES-335-Kriging-Methods">github.com/chaitanyachaudhary30/ES-335-Kriging-Methods</a>. Derivations: <a href="https://github.com/chaitanyachaudhary30/ES-335-Kriging-Methods/blob/main/docs/theory.md">docs/theory.md</a>. Pre-registered hypotheses: <a href="https://github.com/chaitanyachaudhary30/ES-335-Kriging-Methods/blob/main/results/hypotheses.md">results/hypotheses.md</a>.</p>
+  <p>Code, exact splits, all results and the run order are in the repository: <a href="https://github.com/chaitanyachaudhary30/ES-335-Kriging-Methods">github.com/chaitanyachaudhary30/ES-335-Kriging-Methods</a>. Derivations: <a href="https://github.com/chaitanyachaudhary30/ES-335-Kriging-Methods/blob/main/docs/theory.md">docs/theory.md</a>. Pre-registered hypotheses: <a href="https://github.com/chaitanyachaudhary30/ES-335-Kriging-Methods/blob/main/results/hypotheses.md">results/hypotheses.md</a>. Changes of plan: <a href="https://github.com/chaitanyachaudhary30/ES-335-Kriging-Methods/blob/main/results/deviations.md">results/deviations.md</a>.</p>
+  <p>Raw GEMAS and WorldClim data are not in the repository (licences). The README lists the download links. All steps are deterministic (seed 42).</p>
+  <h3>Run order</h3>
+  <div class="table-wrap"><table class="data compact">
+    <tr><th>Step</th><th>Script</th><th>What it does</th><th>Output</th></tr>
+    <tr><td>1</td><td><code>01_clean.py</code></td><td>Clean GEMAS, add climate covariates</td><td><code>results/data_quality/</code></td></tr>
+    <tr><td>2</td><td><code>02_spatial_stats.py</code></td><td>Spacing, Moran's I, trend R², variograms</td><td><code>results/spatial_stats/</code></td></tr>
+    <tr><td>3</td><td><code>03_splits.py</code></td><td>Spatial block and random folds</td><td><code>data/splits/</code></td></tr>
+    <tr><td>4</td><td><code>04_hypotheses.py</code></td><td>Training-only statistics and predicted skill</td><td><code>results/hypotheses/</code></td></tr>
+    <tr><td>5</td><td><code>05_baselines.py</code></td><td>Mean, linear regressions, random forest on test folds</td><td><code>results/baselines/</code></td></tr>
+    <tr><td>6</td><td><code>06_export_site.py</code></td><td>Aggregates for this website</td><td><code>docs/data/</code></td></tr>
+    <tr><td>7a</td><td><code>07a_tune.py</code></td><td>Inner-CV tuning</td><td><code>results/tuning/</code></td></tr>
+    <tr><td>7</td><td><code>07_models.py</code></td><td>OK, UK, GPR, RK and baselines on all folds</td><td><code>results/models/</code></td></tr>
+    <tr><td>7b</td><td><code>07b_density.py</code></td><td>Thinning experiment</td><td><code>results/density/</code></td></tr>
+    <tr><td>7c</td><td><code>07c_errors.py</code></td><td>Error analysis</td><td><code>results/errors/</code></td></tr>
+    <tr><td>8</td><td><code>08_verdicts.py</code></td><td>Apply the decision rule to H1 to H8</td><td><code>results/verdicts.md</code></td></tr>
+    <tr><td>6</td><td><code>06_export_site.py</code></td><td>Run again to refresh the website data</td><td><code>docs/data/</code></td></tr>
+  </table></div>
+  <p class="caption">Order of a full run: 01, 02, 03, 04, 05, 07a, 07, 07b, 07c, 08, then 06.</p>
   <h3>References</h3>
   <ul class="refs">
+    <li>Breiman, L. (2001). Random forests. <em>Machine Learning</em>, 45, 5–32. doi:10.1023/A:1010933404324</li>
     <li>Cressie, N. (1985). Fitting variogram models by weighted least squares. <em>Mathematical Geology</em>, 17, 563–586. doi:10.1007/BF01032109</li>
     <li>Cressie, N. (1993). <em>Statistics for Spatial Data</em>. Wiley. doi:10.1002/9781119115151</li>
     <li>Fernández-Ugalde, O., et al. (2022). <em>LUCAS 2018 Soil Module</em>. Publications Office of the EU. doi:10.2760/215013</li>
@@ -260,6 +403,7 @@
     <li>Hengl, T., Heuvelink, G. B. M., &amp; Rossiter, D. G. (2007). About regression-kriging. <em>Computers &amp; Geosciences</em>, 33, 1301–1315. doi:10.1016/j.cageo.2007.05.001</li>
     <li>Matheron, G. (1963). Principles of geostatistics. <em>Economic Geology</em>, 58, 1246–1266. doi:10.2113/gsecongeo.58.8.1246</li>
     <li>Meyer, H., &amp; Pebesma, E. (2021). Predicting into unknown space? <em>Methods in Ecology and Evolution</em>, 12, 1620–1633. doi:10.1111/2041-210X.13650</li>
+    <li>Müller, S., Schüler, L., Zech, A., &amp; Heße, F. (2022). GSTools v1.3: a toolbox for geostatistical modelling in Python. <em>Geoscientific Model Development</em>, 15, 3161–3182. doi:10.5194/gmd-15-3161-2022</li>
     <li>Orgiazzi, A., et al. (2018). LUCAS Soil, the largest expandable soil dataset for Europe. <em>European Journal of Soil Science</em>, 69, 140–153. doi:10.1111/ejss.12499</li>
     <li>Ploton, P., et al. (2020). Spatial validation reveals poor predictive performance of large-scale ecological mapping models. <em>Nature Communications</em>, 11, 4540. doi:10.1038/s41467-020-18321-y</li>
     <li>Rasmussen, C. E., &amp; Williams, C. K. I. (2006). <em>Gaussian Processes for Machine Learning</em>. MIT Press.</li>
