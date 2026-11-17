@@ -21,6 +21,7 @@
 
 <nav class="toc">
   <div class="wrap">
+    <a href="#general">★ Start here</a>
     <a href="#question">1 Question</a>
     <a href="#data">2 Data</a>
     <a href="#prep">3 Preprocessing</a>
@@ -35,6 +36,103 @@
 </nav>
 
 <main class="wrap">
+
+<!-- 0. GENERAL USER UNDERSTANDING -->
+<section id="general">
+  <h2><span class="num">★</span> General user understanding</h2>
+  <p class="lede-dark">New to the topic? This section explains the whole project with a made-up country you can play with. No background is needed. The rest of the site (Sections 1–10) gives the full evidence and the maths.</p>
+
+  <h3>Step 1. What are we trying to predict?</h3>
+  <p>Soil can be <strong>acidic</strong> or <strong>alkaline</strong>, like the liquids below. This is measured as <strong>pH</strong>. Farmers care because most crops grow best between about pH 5.5 and 7, and acidic soil needs lime.</p>
+  <div class="ph-scale" aria-label="pH scale">
+    <div class="ph-bar"></div>
+    <div class="ph-ticks">
+      <span style="left:12.5%">2<br>lemon juice</span>
+      <span style="left:31.25%">5<br>coffee</span>
+      <span style="left:50%">7<br>pure water</span>
+      <span style="left:62.5%">9<br>baking soda</span>
+      <span class="ph-farm" style="left:25%;width:31.25%">most farm soils (pH 4–8)</span>
+    </div>
+  </div>
+  <p>The catch: pH is measured by digging up soil and sending it to a lab. The European survey we use measured about <strong>1,700 farms</strong> across an area of over <strong>3 million km²</strong>, about one farm per 2,000 km². For every other field we have to <strong>guess from the farms that were measured</strong>. Our project asks which way of guessing works best, especially for whole regions with no measurements at all.</p>
+
+  <h3>Step 2. Try guessing yourself</h3>
+  <div class="interactive">
+    <p class="label">Try it: a made-up country</p>
+    <p>This is a <strong>simulated</strong> country, 1,000 km across (not real data), so you can see the true answer. Each dot is a measured farm, coloured by its pH. <strong>Click any spot without a dot.</strong> Three ways of guessing its pH are compared with the real value:</p>
+    <ol class="gu-list">
+      <li><strong>The average</strong>: use the same number everywhere. Simple, and the yardstick for everything else.</li>
+      <li><strong>Copy the nearest</strong>: take the value of the closest dot.</li>
+      <li><strong>Smart averaging (kriging)</strong>: blend nearby dots, giving more weight to dots that are closer and more related. The blue lines show which dots it uses; thicker means more weight.</li>
+    </ol>
+    <div class="gu-grid">
+      <div>
+        <canvas id="gu-map" width="520" height="520" aria-label="Simulated soil map; click to guess"></canvas>
+        <div class="gu-legend"><span>acidic</span><div class="gu-legend-bar"></div><span>alkaline</span></div>
+        <div class="controls">
+          <label class="check"><input type="checkbox" id="gu-truth"> reveal the real soil everywhere</label>
+          <button id="gu-new" class="small">new country</button>
+        </div>
+      </div>
+      <div>
+        <div id="gu-guess" class="readout"></div>
+        <p class="caption">Try a spot right next to a dot, then a spot in a corner far from any dot. Close to a dot, smart averaging is usually best. Far away, all three guesses end up similar.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>Step 3. What happens when a whole region has no measurements?</h3>
+  <p>Real maps have gaps: areas where no farm was sampled. Use the slider to <strong>remove every measurement inside a square</strong> in the middle of the country, then see how well each guess does inside that square.</p>
+  <div class="interactive">
+    <p class="label">Try it: make a gap</p>
+    <div class="controls">
+      <label>Unsampled region <input type="range" id="sl-gu-gap" min="0" max="800" step="50" value="0"> <output id="o-gu-gap">none</output></label>
+    </div>
+    <div class="grid2">
+      <div id="gu-curve" class="plot"></div>
+      <div>
+        <p class="readout" id="gu-gap-readout"></p>
+        <p><strong>What to notice.</strong> In a small gap, smart averaging still helps, because there are measured farms nearby. As the gap grows, the help shrinks to <strong>zero</strong>: deep inside a large gap, kriging gives back the plain average. <strong>Copying the nearest dot gets worse than the average</strong>, because a far-away farm is no better than a random one, and you also copy its quirks.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>Step 4. Two properties of the soil decide how much guessing can help</h3>
+  <div class="interactive">
+    <p class="label">Try it: change the soil</p>
+    <div class="controls">
+      <label>Soil stays similar over about <input type="range" id="sl-gu-L" min="100" max="700" step="10" value="220"> <output id="o-gu-L">220 km</output></label>
+      <label>Random noise in the measurements <input type="range" id="sl-gu-eta" min="0" max="0.8" step="0.05" value="0.3"> <output id="o-gu-eta">30%</output></label>
+    </div>
+    <ul>
+      <li><strong>Similarity distance.</strong> Farms closer than this distance tend to have similar soil; farther apart they are unrelated. A short distance means patchy soil, and the dots stop helping sooner (the curve in Step 3 drops faster).</li>
+      <li><strong>Random noise.</strong> Part of every measurement is pure chance: lab error, or a different patch of the same field. No method can predict chance. The dashed line in Step 3 shows the best any method could do; more noise pushes it down.</li>
+    </ul>
+    <p class="caption">Experts call the similarity distance the <em>range</em> and the noise share the <em>nugget ratio</em>. For the real European data we measured both: soils stay related over about 500 km, and about 36% of the variation is noise. Sections 4 and 6 use these two numbers to predict, before testing, how well each method should do.</p>
+  </div>
+
+  <h3>Step 5. A fair test hides whole regions</h3>
+  <p>To score a method we hide some measured farms, guess them, and compare. How we hide them changes the score.</p>
+  <div class="interactive">
+    <p class="label">Same method, two tests</p>
+    <div class="grid2">
+      <div id="gu-fair" class="plot"></div>
+      <p class="readout" id="gu-fair-readout"></p>
+    </div>
+    <p class="caption">The usual habit in machine learning, hiding random rows, would make our methods look better than they really are for unmapped regions. That is why our main test hides whole 500 km regions of Europe (Section 5).</p>
+  </div>
+
+  <h3>Step 6. What we found on real European soils</h3>
+  <div class="interactive">
+    <div id="gu-real" class="plot tall"></div>
+    <p class="readout" id="gu-real-readout"></p>
+  </div>
+  <div class="callout">
+    <p class="label">The short version</p>
+    <p>Using nearby measurements helps, but only up to a distance, and never beyond the limit set by random noise. In regions far from any measurement, the best methods were only about 20% better than guessing the average, and several quite different methods tied. The noise limit we worked out before testing held in every test, and the statistics predicted kriging's error closely (0.93 predicted vs 0.90 observed, in pH units). They could not reliably pick a single winner.</p>
+  </div>
+  <p class="caption">Where to read more: the similarity distance and noise (Section 4), fair testing (Section 5), our predictions made before testing (Section 6), and the full results (Section 8).</p>
+</section>
 
 <!-- 1. QUESTION -->
 <section id="question">
@@ -415,5 +513,6 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"
   onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
 <script src="js/app.js"></script>
+<script src="js/general.js"></script>
 </body>
 </html>

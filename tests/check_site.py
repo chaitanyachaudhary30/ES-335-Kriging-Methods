@@ -51,7 +51,7 @@ def main(url: str | None) -> int:
             page.wait_for_timeout(1500)
 
             # sections and placeholders
-            for s in ("question", "data", "prep", "nearby", "split", "hypotheses", "methods", "results", "limits", "repro"):
+            for s in ("general", "question", "data", "prep", "nearby", "split", "hypotheses", "methods", "results", "limits", "repro"):
                 check(page.locator(f"section#{s}").count() == 1, f"section #{s} present")
             text = page.inner_text("body")
             check("Phase 2" not in text and "phase-note" not in page.content(), "no 'Phase 2' placeholder text")
@@ -112,6 +112,28 @@ def main(url: str | None) -> int:
             page.check("input[name=split][value=random]")
             page.wait_for_timeout(500)
             check("Random" in page.inner_text("#split-readout"), "section 5 split toggle works")
+
+            # General user understanding section
+            for pid in ("gu-curve", "gu-fair", "gu-real"):
+                check(page.locator(f"#{pid} .main-svg").count() > 0, f"chart #{pid} drawn")
+            page.locator("#gu-map").scroll_into_view_if_needed()
+            page.wait_for_timeout(300)
+            box = page.locator("#gu-map").bounding_box()
+            page.mouse.click(box["x"] + box["width"] * 0.4, box["y"] + box["height"] * 0.6)
+            page.wait_for_timeout(300)
+            check("The real soil at this spot" in page.inner_text("#gu-guess"), "toy map click shows the three guesses")
+            g0 = page.inner_text("#gu-gap-readout")
+            page.locator("#sl-gu-gap").fill("600")
+            page.wait_for_timeout(1500)
+            check(page.inner_text("#gu-gap-readout") != g0 and "600 km" in page.inner_text("#gu-gap-readout"), "toy gap slider updates the readout")
+            f0 = page.inner_text("#gu-fair-readout")
+            page.locator("#sl-gu-eta").fill("0.7")
+            page.wait_for_timeout(1500)
+            check(page.inner_text("#gu-fair-readout") != f0, "toy noise slider updates the fair-test chart")
+            page.click("#gu-new")
+            page.wait_for_timeout(1500)
+            check("Click anywhere" in page.inner_text("#gu-guess"), "new-country button resets the toy map")
+            check("19" in page.inner_text("#gu-real-readout") or "20" in page.inner_text("#gu-real-readout"), "real-data scoreboard filled")
 
             check(not errors, f"no console errors {errors[:3]}")
             check(not bad, f"no failed requests {bad[:3]}")
